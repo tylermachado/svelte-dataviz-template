@@ -1,0 +1,41 @@
+body {
+  background-color: #fff;
+  padding-bottom: 1000px;
+}
+
+.pinned-content {
+  height: 1000px;
+  padding: 40px;
+
+
+  //this just means the .pinned-content element which also has the class name "first"
+  &.first {
+    background-color: #f9d9d9;
+  }
+
+  &.second {
+    background-color: #d9e6f9;
+  }
+
+  &.third {
+    background-color: #d9f9db;
+  }
+}
+
+
+#customScene {
+  height: 1000px;
+  padding: 40px;
+  background-color: #ccc;
+
+  &.custom-active {
+    background-color: #307FB5;
+  }
+}
+
+.box {
+  width: 200px;
+  height: 150px;
+  background-color: #d9e6f9;
+  border: 10px solid #234c93;
+}

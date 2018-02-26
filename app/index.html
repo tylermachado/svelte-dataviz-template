@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Gulp Template</title>
+    <!--build:css css/styles.min.css-->
+      <link rel="stylesheet" href="css/main.css">
+    <!--endbuild-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.1/ScrollMagic.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+
+  <body>
+
+
+    <div class="wrapper">
+
+      <div class="pinned-content first">
+        <p>slide: pinned-content first</p>
+      </div>
+
+      <div class="pinned-content second">
+        <p>slide: pinned-content second</p>
+      </div>
+
+      <div class="pinned-content third">
+        <p>slide: pinned-content third</p>
+      </div>
+      
+      <div id="customScene">
+        <p>Custom Scene</p>
+        <div class="box">Do something</div>
+      </div>
+    
+
+    </div>
+
+    <!--build:js js/main.min.js -->
+    <script src="js/scrollmagicControls.js"></script>
+    <script src="js/main.js"></script>
+    <!--endbuild-->
+
+  </body>
+</html>

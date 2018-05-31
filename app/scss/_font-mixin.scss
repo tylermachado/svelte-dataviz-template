@@ -1,0 +1,56 @@
+@mixin sectionHeader {
+  font-family: $primary-title;
+  text-transform: uppercase;
+  font-size: 36px;
+  line-height: 43px;
+  color: $red;
+  margin: 0 0 20px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: 64px;
+    line-height: 64px;
+  }
+}
+
+@mixin sectionSubheader {
+  font-family: $secondary-title;
+  font-size: 24px;
+  line-height: 30px;
+  color: $darkGrey;
+  font-weight: 400;
+  margin: 0 0 15px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  @media screen and (min-width: 1084px) {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: 42px;
+    line-height: 46px;
+  }
+}
+
+
+@mixin bodyText {
+  font-family: $body-font;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 15px;
+  color: $darkGrey;
+
+  @media screen and (min-width: 1084px) {
+    font-size: 19px;
+    line-height: 27px;
+  }
+}

@@ -3,7 +3,6 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
-var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 var del = require('del');
 var runSequence = require('run-sequence');
@@ -13,15 +12,23 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
-var htmlmin = require('gulp-htmlmin');
 var strip = require('gulp-strip-comments');
 var htmlbeautify = require('gulp-html-beautify');
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
     .pipe(concat('styles.scss'))
-    .pipe(sass())
-    .pipe(cssnano({zindex: false}))
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(autoprefixer({
+      safe: true,
+      add: true,
+      remove: false,
+      browsers: [
+        'last 4 versions',
+        '> 2%'
+      ]
+    }))
     .pipe(rename('styles.min.css'))
     .pipe(gulp.dest('dist/css'))
     .pipe(browserSync.reload({
@@ -78,7 +85,6 @@ gulp.task('html', function(){
     "indent_size": 4
   };
   return gulp.src('dist/index.html')
-  // .pipe(htmlmin({collapseWhitespace: true}))
   .pipe(strip())
   .pipe(htmlbeautify({options}))
   .pipe(gulp.dest('dist'))

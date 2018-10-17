@@ -60,17 +60,13 @@ gulp.task('copyJSLibraries', function() {
     .pipe( notify({ message: "js libraries have been moved to dist!"}) );
 });
 
-gulp.task('images', function(){
-  return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
-  .pipe(cache(imagemin()))
-  .pipe(gulp.dest('dist/images'))
-  .pipe(browserSync.reload({
-    stream: true
-  }))
-  .pipe( notify({ message: "image tasks have been completed!"}) );
-});
 
-gulp.task('images2', function(){
+/*in order to make sure the image path matches the path in Wordpress,
+you can change the "dist" destination below. Instead of "dist/images" it would be something like
+dist/interactive/2018/10/your-project/images.
+Note: Remember to only upload the /images folder to your project folder in Wordpress (not the whole
+"dist/interactive/2018/..." since that would defeat the purpose)*/
+gulp.task('images', function(){
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
   .pipe(cache(imagemin()))
   .pipe(gulp.dest('dist/images'))
@@ -113,12 +109,12 @@ gulp.task('fileinclude', function() {
     .pipe( notify({ message: "fileInclude tasks have been completed!"}) );
 });
 
-gulp.task('watch', ['browserSync', 'sass', 'scripts', 'copyJSLibraries', 'images', 'images2', 'fileinclude', 'html'], function (){
+gulp.task('watch', ['browserSync', 'sass', 'scripts', 'copyJSLibraries', 'images', 'fileinclude', 'html'], function (){
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/**/*.html', ['fileinclude']);
   gulp.watch('app/js/plugins/**/*.js', ['scripts']);
   gulp.watch('app/js/library/**/*.js', ['copyJSLibraries']);
-  gulp.watch('app/images/**/*', ['images', 'images2']);
+  gulp.watch('app/images/**/*', ['images']);
 });
 
 gulp.task('useref', function(){
@@ -134,7 +130,7 @@ gulp.task('clean:dist', function() {
 
 
 gulp.task('default', function (callback) {
-  runSequence(['clean:dist', 'sass', 'images', 'images2', 'fileinclude', 'scripts', 'copyJSLibraries', 'useref', 'html', 'browserSync', 'watch'],
+  runSequence(['clean:dist', 'sass', 'images', 'fileinclude', 'scripts', 'copyJSLibraries', 'useref', 'html', 'browserSync', 'watch'],
     callback
   )
 })
@@ -144,7 +140,6 @@ gulp.task('build', function (callback) {
     'clean:dist',
     'sass',
     'images',
-    'images2',
     'fileinclude',
     'scripts',
     'copyJSLibraries',

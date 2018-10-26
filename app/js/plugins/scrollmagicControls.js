@@ -60,9 +60,9 @@ var $ = jQuery;
           var triggerClass = $(trigger).attr("class");
 
           if (e.type === "leave") {
-            $(trigger).html("slide: " + triggerClass);
+            console.log("left slide: " + triggerClass);
           } else {
-            $(trigger).html("entered slide: " + triggerClass);
+            console.log("entered slide: " + triggerClass);
           }
         })
 				.addTo(self.controller);

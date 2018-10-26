@@ -30,7 +30,7 @@ var $ = jQuery;
         var self = this;
 
         self.$pinned = self.$container.find(self.options.pinned);
-        self.controller = new ScrollMagic.Controller();
+        self.controller = new ScrollMagic.Controller({addIndicators: true});
     },
     bindEvents: function() {
       var self = this;
@@ -60,7 +60,7 @@ var $ = jQuery;
           var triggerClass = $(trigger).attr("class");
 
           if (e.type === "leave") {
-            console.log("left slide: " + triggerClass);
+            console.log("left slide: " + triggerClass);|
           } else {
             console.log("entered slide: " + triggerClass);
           }

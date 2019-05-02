@@ -76,6 +76,17 @@ gulp.task('images', function(){
   .pipe( notify({ message: "image tasks have been completed!"}) );
 });
 
+/* see above note about images, same applies here */
+gulp.task('data', function(){
+  return gulp.src('app/data/**/*')
+  .pipe(cache(imagemin()))
+  .pipe(gulp.dest('dist/interactive/2018/10/bubble/data'))
+  .pipe(browserSync.reload({
+    stream: true
+  }))
+  .pipe( notify({ message: "data tasks have been completed!"}) );
+});
+
 gulp.task('html', function(){
   var options = {
     "indent_size": 4
@@ -109,12 +120,13 @@ gulp.task('fileinclude', function() {
     .pipe( notify({ message: "fileInclude tasks have been completed!"}) );
 });
 
-gulp.task('watch', ['browserSync', 'sass', 'scripts', 'copyJSLibraries', 'images', 'fileinclude', 'html'], function (){
+gulp.task('watch', ['browserSync', 'sass', 'scripts', 'copyJSLibraries', 'images', 'data', 'fileinclude', 'html'], function (){
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/**/*.html', ['fileinclude']);
   gulp.watch('app/js/plugins/**/*.js', ['scripts']);
   gulp.watch('app/js/library/**/*.js', ['copyJSLibraries']);
   gulp.watch('app/images/**/*', ['images']);
+  gulp.watch('app/data/**/*', ['data']);
 });
 
 gulp.task('useref', function(){
@@ -130,7 +142,7 @@ gulp.task('clean:dist', function() {
 
 
 gulp.task('default', function (callback) {
-  runSequence(['clean:dist', 'sass', 'images', 'fileinclude', 'scripts', 'copyJSLibraries', 'useref', 'html', 'browserSync', 'watch'],
+  runSequence(['clean:dist', 'sass', 'images', 'data', 'fileinclude', 'scripts', 'copyJSLibraries', 'useref', 'html', 'browserSync', 'watch'],
     callback
   )
 })
@@ -140,6 +152,7 @@ gulp.task('build', function (callback) {
     'clean:dist',
     'sass',
     'images',
+    'data',
     'fileinclude',
     'scripts',
     'copyJSLibraries',

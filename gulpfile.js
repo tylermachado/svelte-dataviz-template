@@ -78,14 +78,24 @@ gulp.task('images', function(){
 });
 
 /* see above note about images, same applies here */
-gulp.task('data', function(){
+gulp.task('csvToJson', function(){
   return gulp.src('app/data/**/*.csv')
   .pipe(csv2json())
   .pipe(gulp.dest('dist/interactive/2018/10/bubble/data'))
   .pipe(browserSync.reload({
     stream: true
   }))
-  .pipe( notify({ message: "data tasks have been completed!"}) );
+  .pipe( notify({ message: "CSVs have been converted to JSON and moved!"}) );
+});
+
+/* see above note about images, same applies here */
+gulp.task('copyJson', function(){
+  return gulp.src('app/data/**/*.json')
+  .pipe(gulp.dest('dist/interactive/2018/10/bubble/data'))
+  .pipe(browserSync.reload({
+    stream: true
+  }))
+  .pipe( notify({ message: "JSON files tasks have been copied!"}) );
 });
 
 gulp.task('html', function(){
@@ -119,6 +129,10 @@ gulp.task('fileinclude', function() {
       stream: true
     }))
     .pipe( notify({ message: "fileInclude tasks have been completed!"}) );
+});
+
+gulp.task('data', ['csvToJson', 'copyJson'], function (){
+  gulp.watch('app/data/**/*', ['data']);
 });
 
 gulp.task('watch', ['browserSync', 'sass', 'scripts', 'copyJSLibraries', 'images', 'data', 'fileinclude', 'html'], function (){

@@ -15,6 +15,7 @@ var cache = require('gulp-cache');
 var strip = require('gulp-strip-comments');
 var htmlbeautify = require('gulp-html-beautify');
 var autoprefixer = require('gulp-autoprefixer');
+var csvtojson = require('gulp-csvtojson');
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
@@ -78,16 +79,12 @@ gulp.task('images', function(){
 
 /* see above note about images, same applies here */
 gulp.task('csvToJson', function(){
-    var options = {};
   return gulp.src('app/data/**/*.csv')
-  // .pipe(csv2json(options))
-  // .pipe(uglify().on('error', function(e){
-  //           console.log(e);
-  //        }))
+  .pipe(csvtojson({ toArrayString: true }))
   .pipe(gulp.dest('dist/interactive/2018/10/bubble/data'))
-  // .pipe(browserSync.reload({
-  //   stream: true
-  // }))
+  .pipe(browserSync.reload({
+    stream: true
+  }))
   .pipe( notify({ message: "CSVs have been converted to JSON and moved!"}) );
 });
 

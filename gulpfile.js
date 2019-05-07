@@ -15,6 +15,7 @@ var cache = require('gulp-cache');
 var strip = require('gulp-strip-comments');
 var htmlbeautify = require('gulp-html-beautify');
 var autoprefixer = require('gulp-autoprefixer');
+var csv2json = require('gulp-csv-to-json');
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
@@ -78,8 +79,8 @@ gulp.task('images', function(){
 
 /* see above note about images, same applies here */
 gulp.task('data', function(){
-  return gulp.src('app/data/**/*')
-  .pipe(cache(imagemin()))
+  return gulp.src('app/data/**/*.csv')
+  .pipe(csv2json())
   .pipe(gulp.dest('dist/interactive/2018/10/bubble/data'))
   .pipe(browserSync.reload({
     stream: true

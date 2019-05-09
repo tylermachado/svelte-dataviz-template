@@ -38,3 +38,17 @@ body {
   background-color: #d9e6f9;
   border: 10px solid #234c93;
 }
+
+.wrapper {
+    background-color:lightgray;
+}
+
+svg {
+    text {
+        font-family:$body-font;
+    }
+
+    rect, circle {
+        fill: $red;
+    }
+}

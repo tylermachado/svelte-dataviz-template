@@ -11,10 +11,10 @@
   "devDependencies": {
     "browser-sync": "^2.23.6",
     "del": "^3.0.0",
-    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-cache": "^1.0.2",
     "gulp-cssnano": "^2.1.2",
+    "gulp-csvtojson": "^0.2.0",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^4.1.0",
     "gulp-sass": "^3.1.0",
@@ -24,6 +24,8 @@
     "run-sequence": "^2.2.1"
   },
   "dependencies": {
+    "csvtojson": "^2.0.8",
+    "gulp": "^3.9.1",
     "gulp-compress": "0.0.9",
     "gulp-concat": "^2.6.1",
     "gulp-file-include": "^2.0.1",

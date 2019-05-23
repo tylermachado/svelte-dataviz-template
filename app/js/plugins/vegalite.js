@@ -1,4 +1,4 @@
-var width = document.getElementById("vis").parentElement.offsetWidth;
+var width = document.getElementById('vis').parentElement.offsetWidth;
 var linear = vega.scale('linear');
 var fontscale = linear().domain([300, 1000]).range([16, 22]);
 var heightscale = linear().domain([300, 1000]).range([60, 120]);
@@ -6,10 +6,10 @@ var heightscale = linear().domain([300, 1000]).range([60, 120]);
 var chartSpec = {
     $schema: 'https://vega.github.io/schema/vega-lite/v3.0.json',
     width: width / 2,
-    height: heightscale(width),
+    height: 400,
     title: 'Chart Title Goes Here',
     description: 'A simple bar chart with embedded data.',
-    data: {url: "/interactive/2018/10/bubble/data/aggregated.json"},
+    data: {url: '/interactive/2018/10/bubble/data/aggregated.json'},
     mark: 'bar',
     encoding: {
         x: {
@@ -20,7 +20,7 @@ var chartSpec = {
             field: 'polarity',
             type: 'quantitative'
         },
-        "color": {
+        color: {
             field: 'candidate',
             type: 'ordinal',
             legend: false,
@@ -31,19 +31,19 @@ var chartSpec = {
     },
     config: {
         axis: {
-            labelFont: "Akkurat",
+            labelFont: 'Akkurat',
             labelFontSize: 14,
-            titleFont: "Akkurat",
+            titleFont: 'Akkurat',
             titleFontSize: 18,
             titlePadding: 20
         },
         title: {
-            font: "Akkurat",
+            font: 'Akkurat',
             fontSize: fontscale(width),
             fontWeight: 700,
-            anchor: "middle"
+            anchor: 'middle'
         },
-        view: {stroke: "transparent"}
+        view: {stroke: 'transparent'}
 
     }
 };

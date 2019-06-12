@@ -1,0 +1,543 @@
+﻿question_id,question,answer,can_raw,can_pct,uk_raw,uk_pct,us_raw,us_pct
+1,"Some people know more about artificial intelligence than other people due to their experience with it. Would you say you personally have an excellent, good, only fair or poor understanding of what artificial intelligence is?",Excellent,384,12.7,398,13.6,401,9.4
+1,"Some people know more about artificial intelligence than other people due to their experience with it. Would you say you personally have an excellent, good, only fair or poor understanding of what artificial intelligence is?",Good,1251,41.3,1133,38.6,1937,45.5
+1,"Some people know more about artificial intelligence than other people due to their experience with it. Would you say you personally have an excellent, good, only fair or poor understanding of what artificial intelligence is?",Only fair,1057,34.9,1088,37.1,1614,37.9
+1,"Some people know more about artificial intelligence than other people due to their experience with it. Would you say you personally have an excellent, good, only fair or poor understanding of what artificial intelligence is?",Poor,339,11.2,313,10.7,305,7.2
+1,"Some people know more about artificial intelligence than other people due to their experience with it. Would you say you personally have an excellent, good, only fair or poor understanding of what artificial intelligence is?",Total,3031,100.0,2932,100.0,4257,100.0
+2,"Overall, what impact do you believe artificial intelligence will have on how people work and live in the next 10 years?",Very positive,331,10.9,367,12.5,277,6.5
+2,"Overall, what impact do you believe artificial intelligence will have on how people work and live in the next 10 years?",Mostly positive,1852,61.0,1699,57.6,2580,60.7
+2,"Overall, what impact do you believe artificial intelligence will have on how people work and live in the next 10 years?",Mostly negative,608,20.0,582,19.8,1092,25.7
+2,"Overall, what impact do you believe artificial intelligence will have on how people work and live in the next 10 years?",Very negative,122,4.0,113,3.8,187,4.4
+2,"Overall, what impact do you believe artificial intelligence will have on how people work and live in the next 10 years?",No impact,125,4.1,186,6.3,115,2.7
+3,"Thinking about the number of jobs in [Field-COUNTRY], do you believe an increase in the use of artificial intelligence will…",Create more jobs than artificial intelligence eliminates,725,23.9,686,23.2,663,15.6
+3,"Thinking about the number of jobs in [Field-COUNTRY], do you believe an increase in the use of artificial intelligence will…",Eliminate more jobs than artificial intelligence creates,1859,61.2,1765,59.8,3009,70.8
+3,"Thinking about the number of jobs in [Field-COUNTRY], do you believe an increase in the use of artificial intelligence will…",Have no impact on number of jobs in ${e://Field/COUNTRY},455,15.0,500,16.9,577,13.6
+4,"Thinking about the types of jobs in [Field-COUNTRY],
+do you believe an increase in the use of artificial intelligence will…",Increase the number of good jobs available to most people,989,32.5,846,28.6,1100,25.9
+4,"Thinking about the types of jobs in [Field-COUNTRY],
+do you believe an increase in the use of artificial intelligence will…",Decrease the number of good jobs available to most people,1499,49.2,1435,48.6,2376,56.0
+4,"Thinking about the types of jobs in [Field-COUNTRY],
+do you believe an increase in the use of artificial intelligence will…",Have no impact on the number of good jobs available to most people,560,18.4,673,22.8,770,18.1
+4,"Thinking about the types of jobs in [Field-COUNTRY],
+do you believe an increase in the use of artificial intelligence will…",Total,3048,100.0,2955,100.0,4246,100.0
+5,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years?  Job loss due to immigration",Major threat,801,26.4,796,27.0,1100,25.8
+5,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years?  Job loss due to immigration",Minor threat,1098,36.1,1242,42.1,1304,30.6
+5,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years?  Job loss due to immigration",Not a threat,1140,37.5,912,30.9,1852,43.5
+5,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years?  Job loss due to immigration",Total,3039,100.0,2950,100.0,4256,100.0
+6,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years? Job loss due to the growing adoption of artificial
+  intelligence",Major threat,1058,34.8,940,31.9,1512,35.5
+6,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years? Job loss due to the growing adoption of artificial
+  intelligence",Minor threat,1539,50.6,1544,52.4,2214,52.1
+6,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years? Job loss due to the growing adoption of artificial
+  intelligence",Not a threat,443,14.6,464,15.8,527,12.4
+6,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years? Job loss due to the growing adoption of artificial
+  intelligence",Total,3040,100.0,2948,100.0,4253,100.0
+7,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years? Job loss due to businesses moving jobs outside [Field-COUNTRY]",Major threat,1569,51.6,1460,49.4,2578,60.6
+7,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years? Job loss due to businesses moving jobs outside [Field-COUNTRY]",Minor threat,1207,39.7,1185,40.1,1451,34.1
+7,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years? Job loss due to businesses moving jobs outside [Field-COUNTRY]",Not a threat,262,8.6,309,10.5,223,5.2
+7,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years? Job loss due to businesses moving jobs outside [Field-COUNTRY]",Total,3038,100.0,2954,100.0,4251,100.0
+8,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years?  Job loss due to increased tariffs and other trade
+barriers",Major threat,1480,48.6,1136,38.5,1752,41.2
+8,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years?  Job loss due to increased tariffs and other trade
+barriers",Minor threat,1315,43.2,1427,48.4,1893,44.5
+8,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years?  Job loss due to increased tariffs and other trade
+barriers",Not a threat,249,8.2,388,13.1,606,14.3
+8,"Is each of the following a major threat, minor threat, or not a threat to jobs in [COUNTRY] in the next 10 years?  Job loss due to increased tariffs and other trade
+barriers",Total,3045,100.0,2951,100.0,4252,100.0
+9,"Which
+of the following do you believe is a greater threat to jobs in [Field-COUNTRY]
+in the next 10 years?",Job loss due to companies leaving the UK or scaling back operations after Brexit,,,2095,71.1,,
+9,"Which
+of the following do you believe is a greater threat to jobs in [Field-COUNTRY]
+in the next 10 years?",Job loss due to the growing adoption of artificial intelligence,,,852,28.9,,
+9,"Which
+of the following do you believe is a greater threat to jobs in [Field-COUNTRY]
+in the next 10 years?",Total,,,2947,100.0,,
+10,"When you use products or services that employ
+artificial intelligence, how often do you worry that your personal information
+is at risk?",Very often,635,20.9,515,17.4,1199,28.2
+10,"When you use products or services that employ
+artificial intelligence, how often do you worry that your personal information
+is at risk?",Often,1282,42.1,1184,40.0,1783,41.9
+10,"When you use products or services that employ
+artificial intelligence, how often do you worry that your personal information
+is at risk?",Rarely,986,32.4,1062,35.9,1126,26.5
+10,"When you use products or services that employ
+artificial intelligence, how often do you worry that your personal information
+is at risk?",Never,142,4.7,196,6.6,146,3.4
+10,"When you use products or services that employ
+artificial intelligence, how often do you worry that your personal information
+is at risk?",Total,3046,100.0,2958,100.0,4255,100.0
+11,"Who do you believe should pay for retraining programs for workers who lose their jobs because of new technology, automation, robots or artificial intelligence? Please select all that apply. Workers themselves",Workers themselves,674,22.2,475,16.1,1563,36.9
+11,"Who do you believe should pay for retraining programs for workers who lose their jobs because of new technology, automation, robots or artificial intelligence? Please select all that apply. Workers themselves","Unions, industry or trade associations",899,29.6,467,15.8,1942,45.9
+11,"Who do you believe should pay for retraining programs for workers who lose their jobs because of new technology, automation, robots or artificial intelligence? Please select all that apply. Workers themselves",Employers,1790,58.9,1776,60.1,3100,73.2
+11,"Who do you believe should pay for retraining programs for workers who lose their jobs because of new technology, automation, robots or artificial intelligence? Please select all that apply. Workers themselves",Local government,899,29.6,832,28.1,1060,25.0
+11,"Who do you believe should pay for retraining programs for workers who lose their jobs because of new technology, automation, robots or artificial intelligence? Please select all that apply. Workers themselves",State government,,,,,1529,36.1
+11,"Who do you believe should pay for retraining programs for workers who lose their jobs because of new technology, automation, robots or artificial intelligence? Please select all that apply. Workers themselves",Provincial government,1456,47.9,,,,
+11,"Who do you believe should pay for retraining programs for workers who lose their jobs because of new technology, automation, robots or artificial intelligence? Please select all that apply. Workers themselves",Federal government,1705,56.1,,,1868,44.1
+11,"Who do you believe should pay for retraining programs for workers who lose their jobs because of new technology, automation, robots or artificial intelligence? Please select all that apply. Workers themselves",Central government,,,1657,56.0,,
+11,"Who do you believe should pay for retraining programs for workers who lose their jobs because of new technology, automation, robots or artificial intelligence? Please select all that apply. Workers themselves",European Union,,,384,13.0,,
+11,"Who do you believe should pay for retraining programs for workers who lose their jobs because of new technology, automation, robots or artificial intelligence? Please select all that apply. Workers themselves",Colleges and universities,285,9.4,236,8.0,727,17.2
+11,"Who do you believe should pay for retraining programs for workers who lose their jobs because of new technology, automation, robots or artificial intelligence? Please select all that apply. Workers themselves",Total,3041,100.0,2957,100.0,4234,100.0
+12,"Which of the following types of skills do you believe
+are more important for [Field-DEMONYM] workers to have to protect themselves from
+losing their jobs to new technology, automation, robots, or artificial
+intelligence?","Skills like team work, communication, creativity, and critical thinking",1806,59.7,1764,60.2,2121,50.0
+12,"Which of the following types of skills do you believe
+are more important for [Field-DEMONYM] workers to have to protect themselves from
+losing their jobs to new technology, automation, robots, or artificial
+intelligence?","Skills like math, science, coding, and ability to work with data",1219,40.3,1169,39.8,2122,50.0
+12,"Which of the following types of skills do you believe
+are more important for [Field-DEMONYM] workers to have to protect themselves from
+losing their jobs to new technology, automation, robots, or artificial
+intelligence?",Total,3024,100.0,2933,100.0,4243,100.0
+13,"Do you believe earning a college
+degree is more
+important, less important, or about the same as it was 10 years ago?",More important,1400,46.0,754,25.6,1486,34.9
+13,"Do you believe earning a college
+degree is more
+important, less important, or about the same as it was 10 years ago?",Less important,823,27.0,1346,45.6,1529,35.9
+13,"Do you believe earning a college
+degree is more
+important, less important, or about the same as it was 10 years ago?",About the same,821,27.0,851,28.8,1240,29.1
+13,"Do you believe earning a college
+degree is more
+important, less important, or about the same as it was 10 years ago?",Total,3044,100.0,2951,100.0,4254,100.0
+14,"Ten
+years from now, do you expect earning a college
+degree to be more important,
+less important, or about the same as it is now?",More important,1303,42.8,725,24.6,1272,29.9
+14,"Ten
+years from now, do you expect earning a college
+degree to be more important,
+less important, or about the same as it is now?",Less important,787,25.9,1219,41.3,1410,33.1
+14,"Ten
+years from now, do you expect earning a college
+degree to be more important,
+less important, or about the same as it is now?",About the same,953,31.3,1005,34.1,1576,37.0
+14,"Ten
+years from now, do you expect earning a college
+degree to be more important,
+less important, or about the same as it is now?",Total,3043,100.0,2950,100.0,4257,100.0
+15,"The quality of higher education in [Field-COUNTRY]
+is among the best in the world.",1 - Strongly disagree,92,3.0,129,4.4,514,12.1
+15,"The quality of higher education in [Field-COUNTRY]
+is among the best in the world.",2,215,7.1,257,8.7,798,18.8
+15,"The quality of higher education in [Field-COUNTRY]
+is among the best in the world.",3,989,32.5,1127,38.1,1558,36.6
+15,"The quality of higher education in [Field-COUNTRY]
+is among the best in the world.",4,1242,40.8,999,33.8,976,23.0
+15,"The quality of higher education in [Field-COUNTRY]
+is among the best in the world.",5 - Strongly agree,509,16.7,447,15.1,405,9.5
+15,"The quality of higher education in [Field-COUNTRY]
+is among the best in the world.",Total,3047,100.0,2958,100.0,4251,100.0
+16,"Universities in [Field-COUNTRY] do a good
+job preparing graduates for success in the current workforce.",1 - Strongly disagree,140,4.6,218,7.4,739,17.4
+16,"Universities in [Field-COUNTRY] do a good
+job preparing graduates for success in the current workforce.",2,382,12.5,509,17.2,1203,28.3
+16,"Universities in [Field-COUNTRY] do a good
+job preparing graduates for success in the current workforce.",3,1145,37.6,1210,41.0,1590,37.4
+16,"Universities in [Field-COUNTRY] do a good
+job preparing graduates for success in the current workforce.",4,1016,33.4,708,24.0,593,13.9
+16,"Universities in [Field-COUNTRY] do a good
+job preparing graduates for success in the current workforce.",5 - Strongly agree,360,11.8,306,10.4,124,2.9
+16,"Universities in [Field-COUNTRY] do a good
+job preparing graduates for success in the current workforce.",Total,3044,100.0,2950,100.0,4249,100.0
+17,"Universities in [Field-COUNTRY] do a good job preparing
+students for jobs of the future, many of which will require some technological
+skills and the ability to work with data.",1 - Strongly disagree,104,3.4,163,5.5,495,11.7
+17,"Universities in [Field-COUNTRY] do a good job preparing
+students for jobs of the future, many of which will require some technological
+skills and the ability to work with data.",2,331,10.9,436,14.8,1069,25.2
+17,"Universities in [Field-COUNTRY] do a good job preparing
+students for jobs of the future, many of which will require some technological
+skills and the ability to work with data.",3,1163,38.3,1232,41.7,1747,41.1
+17,"Universities in [Field-COUNTRY] do a good job preparing
+students for jobs of the future, many of which will require some technological
+skills and the ability to work with data.",4,1055,34.7,809,27.4,793,18.7
+17,"Universities in [Field-COUNTRY] do a good job preparing
+students for jobs of the future, many of which will require some technological
+skills and the ability to work with data.",5 - Strongly agree,383,12.6,312,10.6,145,3.4
+17,"Universities in [Field-COUNTRY] do a good job preparing
+students for jobs of the future, many of which will require some technological
+skills and the ability to work with data.",Total,3036,100.0,2953,100.0,4248,100.0
+18,"Which type of program do you think offers the highest quality
+education?",Traditional in-person programs,1088,35.8,1054,35.7,1684,39.6
+18,"Which type of program do you think offers the highest quality
+education?",Online programs,225,7.4,274,9.3,42,1.0
+18,"Which type of program do you think offers the highest quality
+education?",Hybrid programs with both in-person and online instruction,1250,41.1,1124,38.1,1836,43.2
+18,"Which type of program do you think offers the highest quality
+education?",Each type of program is about the same,478,15.7,499,16.9,690,16.2
+18,"Which type of program do you think offers the highest quality
+education?",Total,3040,100.0,2952,100.0,4252,100.0
+19,"Do you agree that it is more important for individuals
+to learn and be trained frequently over the course of their career, instead of pursuing
+a one-time advanced degree or certificate?",Yes,2807,92.3,2768,93.8,4029,94.7
+19,"Do you agree that it is more important for individuals
+to learn and be trained frequently over the course of their career, instead of pursuing
+a one-time advanced degree or certificate?",No,235,7.7,183,6.2,224,5.3
+19,"Do you agree that it is more important for individuals
+to learn and be trained frequently over the course of their career, instead of pursuing
+a one-time advanced degree or certificate?",Total,3042,100.0,2951,100.0,4253,100.0
+20,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]? Government,Yes,976,34.8,836,30.2,895,22.3
+20,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]? Government,No,1829,65.2,1929,69.8,3114,77.7
+20,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]? Government,Total,2805,100.0,2764,100.0,4010,100.0
+21,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]? Large businesses,Yes,1074,38.4,1128,40.9,1151,28.7
+21,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]? Large businesses,No,1725,61.6,1631,59.1,2854,71.3
+21,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]? Large businesses,Total,2798,100.0,2759,100.0,4005,100.0
+22,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]?  Small and medium-sized businesses,Yes,1070,38.4,1075,39.1,1435,35.9
+22,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]?  Small and medium-sized businesses,No,1715,61.6,1675,60.9,2561,64.1
+22,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]?  Small and medium-sized businesses,Total,2786,100.0,2750,100.0,3996,100.0
+23,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]?  Higher education,Yes,1456,52.3,1231,44.7,1002,25.1
+23,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]?  Higher education,No,1327,47.7,1525,55.3,2997,74.9
+23,Do you believe that each of the following is doing enough to address the need for career-long learning and training in [COUNTRY]?  Higher education,Total,2783,100.0,2756,100.0,3998,100.0
+24,Many people may require financial assistance to pay for career-long learning and training opportunities needed to keep up with advances in artificial intelligence. Who should be responsible for helping make this kind of education more affordable? Select all that apply. Local government,Local government,907,32.4,772,28.0,1172,29.5
+24,Many people may require financial assistance to pay for career-long learning and training opportunities needed to keep up with advances in artificial intelligence. Who should be responsible for helping make this kind of education more affordable? Select all that apply. Local government,State government,,,,,1692,42.6
+24,Many people may require financial assistance to pay for career-long learning and training opportunities needed to keep up with advances in artificial intelligence. Who should be responsible for helping make this kind of education more affordable? Select all that apply. Local government,Provincial government,1572,56.2,,,,
+24,Many people may require financial assistance to pay for career-long learning and training opportunities needed to keep up with advances in artificial intelligence. Who should be responsible for helping make this kind of education more affordable? Select all that apply. Local government,Federal government,1793,64.1,,,2093,52.7
+24,Many people may require financial assistance to pay for career-long learning and training opportunities needed to keep up with advances in artificial intelligence. Who should be responsible for helping make this kind of education more affordable? Select all that apply. Local government,Central government,,,1699,61.6,,
+24,Many people may require financial assistance to pay for career-long learning and training opportunities needed to keep up with advances in artificial intelligence. Who should be responsible for helping make this kind of education more affordable? Select all that apply. Local government,Current employers,1517,54.2,1444,52.3,2909,73.2
+24,Many people may require financial assistance to pay for career-long learning and training opportunities needed to keep up with advances in artificial intelligence. Who should be responsible for helping make this kind of education more affordable? Select all that apply. Local government,Prospective employers,1169,41.8,1098,39.8,2502,63.0
+24,Many people may require financial assistance to pay for career-long learning and training opportunities needed to keep up with advances in artificial intelligence. Who should be responsible for helping make this kind of education more affordable? Select all that apply. Local government,Universities,1078,38.5,817,29.6,2221,55.9
+24,Many people may require financial assistance to pay for career-long learning and training opportunities needed to keep up with advances in artificial intelligence. Who should be responsible for helping make this kind of education more affordable? Select all that apply. Local government,Total,2797,100.0,2760,100.0,3971,100.0
+25,"Employers who pay for their workers’ education
+and training should receive tax credits from the government.",1 - Strongly disagree,119,3.9,104,3.5,338,8.0
+25,"Employers who pay for their workers’ education
+and training should receive tax credits from the government.",2,141,4.6,127,4.3,298,7.0
+25,"Employers who pay for their workers’ education
+and training should receive tax credits from the government.",3,629,20.7,724,24.5,762,17.9
+25,"Employers who pay for their workers’ education
+and training should receive tax credits from the government.",4,977,32.1,1015,34.4,1289,30.4
+25,"Employers who pay for their workers’ education
+and training should receive tax credits from the government.",5 - Strongly agree,1177,38.7,983,33.3,1558,36.7
+26,Do you support or not support a universal basic income program as a way to help people in [Field-COUNTRY] who lose their jobs because of advances in artificial intelligence?,Support,2271,74.6,2259,76.6,1838,43.4
+26,Do you support or not support a universal basic income program as a way to help people in [Field-COUNTRY] who lose their jobs because of advances in artificial intelligence?,Do not support,772,25.4,692,23.4,2393,56.6
+27,"Would you be willing to pay higher taxes to fund
+a universal basic income program like the one described?",Yes,1112,49.2,1187,52.8,1368,74.6
+27,"Would you be willing to pay higher taxes to fund
+a universal basic income program like the one described?",No,1149,50.8,1060,47.2,466,25.4
+28,"Companies that benefit most from advancements in
+artificial intelligence should pay more taxes to fund a universal basic income
+program.",1 - Strongly disagree,68,3.0,58,2.6,114,6.2
+28,"Companies that benefit most from advancements in
+artificial intelligence should pay more taxes to fund a universal basic income
+program.",2,104,4.6,84,3.7,82,4.4
+28,"Companies that benefit most from advancements in
+artificial intelligence should pay more taxes to fund a universal basic income
+program.",3,584,25.8,624,27.6,261,14.2
+28,"Companies that benefit most from advancements in
+artificial intelligence should pay more taxes to fund a universal basic income
+program.",4,678,29.9,763,33.8,416,22.6
+28,"Companies that benefit most from advancements in
+artificial intelligence should pay more taxes to fund a universal basic income
+program.",5 - Strongly agree,832,36.7,729,32.3,965,52.5
+29,Have you made any career decisions because of what you know about developments in artificial intelligence?,Yes,515,16.9,426,14.4,562,13.2
+29,Have you made any career decisions because of what you know about developments in artificial intelligence?,No,2526,83.1,2525,85.6,3687,86.8
+30,"Which of the following best describes your current
+employment status?",Employed full-time,1428,46.8,1239,41.9,2239,52.6
+30,"Which of the following best describes your current
+employment status?","Employed part-time, but not a full-time student",291,9.5,449,15.2,278,6.5
+30,"Which of the following best describes your current
+employment status?",Retired,741,24.3,645,21.8,951,22.3
+30,"Which of the following best describes your current
+employment status?",A full-time student,156,5.1,132,4.5,176,4.1
+30,"Which of the following best describes your current
+employment status?",Homemaker,151,4.9,178,6.0,265,6.2
+30,"Which of the following best describes your current
+employment status?",Not employed,134,4.4,161,5.4,120,2.8
+30,"Which of the following best describes your current
+employment status?",Temporary or contract worker,50,1.6,38,1.3,85,2.0
+30,"Which of the following best describes your current
+employment status?",Disabled,99,3.2,118,4.0,147,3.4
+31,"Is your primary job with the government, a private
+company, a non-profit organization, or are you self-employed?",Federal government,163,9.3,,,145,5.6
+31,"Is your primary job with the government, a private
+company, a non-profit organization, or are you self-employed?",State or local government,,,,,380,14.6
+31,"Is your primary job with the government, a private
+company, a non-profit organization, or are you self-employed?",Provincial or local government,301,17.1,,,,
+31,"Is your primary job with the government, a private
+company, a non-profit organization, or are you self-employed?",Central government,,,182,10.6,,
+31,"Is your primary job with the government, a private
+company, a non-profit organization, or are you self-employed?",Local government,,,250,14.5,,
+31,"Is your primary job with the government, a private
+company, a non-profit organization, or are you self-employed?",Private company,978,55.4,951,55.3,1500,57.7
+31,"Is your primary job with the government, a private
+company, a non-profit organization, or are you self-employed?",Non-profit organization,154,8.7,174,10.1,296,11.4
+31,"Is your primary job with the government, a private
+company, a non-profit organization, or are you self-employed?",Self-employed,168,9.5,163,9.5,280,10.7
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Management,230,13.1,267,15.5,250,9.6
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Business and financial operations,141,8.0,127,7.4,164,6.3
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Computer and mathematical,91,5.1,87,5.1,152,5.8
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Architecture,17,1.0,15,0.9,7,0.3
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Engineering,71,4.0,55,3.2,119,4.6
+32,"Which occupation category best describes your
+primary job? - Selected Choice","Life, physical, and social science",18,1.0,30,1.7,34,1.3
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Community and social service,27,1.6,21,1.2,41,1.6
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Legal,39,2.2,35,2.0,67,2.6
+32,"Which occupation category best describes your
+primary job? - Selected Choice","Education, training, and library",123,7.0,136,7.9,285,11.0
+32,"Which occupation category best describes your
+primary job? - Selected Choice","Arts, design, entertainment, sports, and media",41,2.3,47,2.7,100,3.8
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Healthcare practitioners and technical,100,5.6,66,3.8,103,3.9
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Healthcare support,63,3.5,62,3.6,95,3.7
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Protective service,21,1.2,14,0.8,35,1.4
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Food preparation and serving related,59,3.3,44,2.6,60,2.3
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Building and grounds cleaning and maintenance,22,1.2,16,0.9,31,1.2
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Personal care and service,37,2.1,23,1.4,31,1.2
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Sales and related,143,8.1,168,9.8,180,6.9
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Office and administrative support,143,8.1,177,10.3,154,5.9
+32,"Which occupation category best describes your
+primary job? - Selected Choice","Farming, fishing, and forestry",21,1.2,9,0.5,33,1.3
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Construction and extraction,59,3.3,55,3.2,72,2.8
+32,"Which occupation category best describes your
+primary job? - Selected Choice","Installation, maintenance, and repair",28,1.6,27,1.6,88,3.4
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Production,74,4.2,48,2.8,83,3.2
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Transportation and material moving,50,2.9,51,3.0,139,5.4
+32,"Which occupation category best describes your
+primary job? - Selected Choice",Other (please specify),148,8.4,145,8.4,274,10.5
+33,"What kind of business activity would you say
+best describes the organization where you primarily work: - Selected Choice",Manufacturing goods,163,9.4,162,9.5,234,9.0
+33,"What kind of business activity would you say
+best describes the organization where you primarily work: - Selected Choice","Professional services (e.g., legal, engineering, computer programming, consulting, administrative services)",301,17.4,332,19.6,367,14.2
+33,"What kind of business activity would you say
+best describes the organization where you primarily work: - Selected Choice","Healthcare, education, non-profit, or government services",382,22.0,365,21.5,703,27.2
+33,"What kind of business activity would you say
+best describes the organization where you primarily work: - Selected Choice",Finance or real estate,152,8.7,120,7.1,141,5.5
+33,"What kind of business activity would you say
+best describes the organization where you primarily work: - Selected Choice","Restaurants, entertainment, or hospitality",98,5.6,97,5.7,101,3.9
+33,"What kind of business activity would you say
+best describes the organization where you primarily work: - Selected Choice","Media, internet, software, cable, or phone services",74,4.3,76,4.5,106,4.1
+33,"What kind of business activity would you say
+best describes the organization where you primarily work: - Selected Choice",Selling goods directly to customers (retail) or other businesses (wholesale),207,11.9,231,13.6,267,10.3
+33,"What kind of business activity would you say
+best describes the organization where you primarily work: - Selected Choice","Construction, transportation, farming, or energy",168,9.7,133,7.8,310,12.0
+33,"What kind of business activity would you say
+best describes the organization where you primarily work: - Selected Choice",Other (please specify),192,11.1,183,10.7,359,13.9
+34,Approximately how many employees work for your organization at your primary job?, 1 – 4,170,9.6,204,11.8,322,12.4
+34,Approximately how many employees work for your organization at your primary job?, 5 – 9,108,6.1,89,5.1,156,6.0
+34,Approximately how many employees work for your organization at your primary job?, 10 – 19,145,8.2,125,7.3,178,6.8
+34,Approximately how many employees work for your organization at your primary job?, 20 – 99,319,18.0,305,17.7,444,17.1
+34,Approximately how many employees work for your organization at your primary job?, 100 – 499,329,18.6,323,18.7,512,19.7
+34,Approximately how many employees work for your organization at your primary job?, 500+,585,33.1,591,34.3,880,33.9
+34,Approximately how many employees work for your organization at your primary job?, Don’t know,112,6.3,86,5.0,107,4.1
+35,Do you believe you need to obtain additional education or training to advance in your current career?,Yes,1060,60.1,952,55.3,1542,59.3
+35,Do you believe you need to obtain additional education or training to advance in your current career?,No,704,39.9,768,44.7,1058,40.7
+36,"I understand how the growing adoption of artificial
+intelligence will impact my current career.",1 - Strongly disagree,92,5.2,142,8.3,153,5.9
+36,"I understand how the growing adoption of artificial
+intelligence will impact my current career.",2,208,11.8,230,13.3,342,13.2
+36,"I understand how the growing adoption of artificial
+intelligence will impact my current career.",3,659,37.3,708,41.1,862,33.2
+36,"I understand how the growing adoption of artificial
+intelligence will impact my current career.",4,528,29.9,398,23.1,766,29.5
+36,"I understand how the growing adoption of artificial
+intelligence will impact my current career.",5 - Strongly agree,279,15.8,246,14.3,476,18.3
+37,I know what skills and education are needed to obtain a good job in an economy with the growing adoption of artificial intelligence.,1 - Strongly disagree,81,4.6,107,6.2,139,5.4
+37,I know what skills and education are needed to obtain a good job in an economy with the growing adoption of artificial intelligence.,2,243,13.8,225,13.1,414,16.0
+37,I know what skills and education are needed to obtain a good job in an economy with the growing adoption of artificial intelligence.,3,652,37.0,692,40.2,878,33.8
+37,I know what skills and education are needed to obtain a good job in an economy with the growing adoption of artificial intelligence.,4,522,29.6,473,27.5,774,29.8
+37,I know what skills and education are needed to obtain a good job in an economy with the growing adoption of artificial intelligence.,5 - Strongly agree,264,15.0,223,13.0,392,15.1
+38,"If needed, I could easily access education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",1 - Strongly disagree,112,6.4,135,7.8,248,9.6
+38,"If needed, I could easily access education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",2,235,13.3,224,13.0,417,16.1
+38,"If needed, I could easily access education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",3,476,27.0,554,32.2,627,24.2
+38,"If needed, I could easily access education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",4,490,27.8,374,21.7,677,26.1
+38,"If needed, I could easily access education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",5 - Strongly agree,284,16.1,259,15.0,426,16.4
+38,"If needed, I could easily access education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",Does not apply,165,9.4,176,10.2,198,7.6
+39,"If needed, I could afford education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",1 - Strongly disagree,306,17.4,292,17.0,598,23.0
+39,"If needed, I could afford education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",2,286,16.2,257,15.0,520,20.0
+39,"If needed, I could afford education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",3,408,23.1,422,24.6,537,20.7
+39,"If needed, I could afford education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",4,375,21.3,347,20.2,482,18.6
+39,"If needed, I could afford education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",5 - Strongly agree,242,13.7,247,14.4,307,11.8
+39,"If needed, I could afford education and/or training opportunities to keep up with the growing adoption of artificial intelligence.",Does not apply,146,8.3,151,8.8,153,5.9
+40,I am willing to change career fields if there are better job opportunities available in other industries.,1 - Strongly disagree,173,9.8,181,10.5,415,16.0
+40,I am willing to change career fields if there are better job opportunities available in other industries.,2,254,14.4,203,11.8,399,15.3
+40,I am willing to change career fields if there are better job opportunities available in other industries.,3,551,31.3,543,31.7,557,21.4
+40,I am willing to change career fields if there are better job opportunities available in other industries.,4,477,27.1,471,27.5,648,24.9
+40,I am willing to change career fields if there are better job opportunities available in other industries.,5 - Strongly agree,306,17.4,316,18.5,581,22.3
+41,I am willing to move to another city if there are better job opportunities available elsewhere.,1 - Strongly disagree,405,22.9,451,26.2,757,29.1
+41,I am willing to move to another city if there are better job opportunities available elsewhere.,2,288,16.3,274,15.9,458,17.6
+41,I am willing to move to another city if there are better job opportunities available elsewhere.,3,478,27.1,485,28.1,509,19.6
+41,I am willing to move to another city if there are better job opportunities available elsewhere.,4,349,19.8,295,17.1,401,15.4
+41,I am willing to move to another city if there are better job opportunities available elsewhere.,5 - Strongly agree,244,13.8,218,12.7,474,18.2
+42,I feel prepared to navigate future demand for career-long learning and training.,1 - Strongly disagree,120,5.8,144,7.1,204,7.0
+42,I feel prepared to navigate future demand for career-long learning and training.,2,262,12.8,261,13.0,357,12.3
+42,I feel prepared to navigate future demand for career-long learning and training.,3,857,41.8,886,44.0,1023,35.3
+42,I feel prepared to navigate future demand for career-long learning and training.,4,547,26.7,483,24.0,819,28.3
+42,I feel prepared to navigate future demand for career-long learning and training.,5 - Strongly agree,264,12.9,241,12.0,491,17.0
+43,Which of the following are major barriers you would face when seeking education or training over the course of your career?  Please select all that apply. Lack of time,Lack of time,909,44.4,854,42.4,1714,60.5
+43,Which of the following are major barriers you would face when seeking education or training over the course of your career?  Please select all that apply. Lack of time,Lack of educational or training opportunities in the area where I live,420,20.5,468,23.3,472,16.7
+43,Which of the following are major barriers you would face when seeking education or training over the course of your career?  Please select all that apply. Lack of time,Unsure of what skills are needed,555,27.1,540,26.8,757,26.7
+43,Which of the following are major barriers you would face when seeking education or training over the course of your career?  Please select all that apply. Lack of time,Cost of education and training,1201,58.7,1071,53.3,1847,65.2
+43,Which of the following are major barriers you would face when seeking education or training over the course of your career?  Please select all that apply. Lack of time,Inability to pursue education or retraining while working,686,33.5,586,29.1,1212,42.8
+43,Which of the following are major barriers you would face when seeking education or training over the course of your career?  Please select all that apply. Lack of time,Difficulty competing with others who already have high-demand skills,600,29.3,523,26.0,751,26.5
+44,When do you believe your current skills and education will become outdated?,My skills and education are already outdated,325,15.8,303,15.0,250,8.6
+44,When do you believe your current skills and education will become outdated?,In the next year,95,4.6,108,5.3,10,0.3
+44,When do you believe your current skills and education will become outdated?,In 1-4 years,354,17.2,422,20.9,273,9.4
+44,When do you believe your current skills and education will become outdated?,In 5-9 years,396,19.3,336,16.7,487,16.8
+44,When do you believe your current skills and education will become outdated?,In 10 years or more,307,14.9,271,13.4,649,22.4
+44,When do you believe your current skills and education will become outdated?,My skills and education will not become outdated,577,28.1,577,28.6,1226,42.4
+45,"If your current skills and education were to become outdated, which of the following types of training or education would you prefer? Please select up to three. On-the-job training or other training offered by an employer",On-the-job training or other training offered by an employer,1036,58.8,1001,58.1,1816,70.1
+45,"If your current skills and education were to become outdated, which of the following types of training or education would you prefer? Please select up to three. On-the-job training or other training offered by an employer","In-person licensing, certification, or degree-granting program at a university",512,29.1,416,24.2,876,33.8
+45,"If your current skills and education were to become outdated, which of the following types of training or education would you prefer? Please select up to three. On-the-job training or other training offered by an employer","Online licensing, certification, or degree-granting program offered by a university",542,30.8,456,26.4,729,28.1
+45,"If your current skills and education were to become outdated, which of the following types of training or education would you prefer? Please select up to three. On-the-job training or other training offered by an employer",Accelerated training course offered by a private company,383,21.7,315,18.3,735,28.4
+45,"If your current skills and education were to become outdated, which of the following types of training or education would you prefer? Please select up to three. On-the-job training or other training offered by an employer",Accelerated training course offered by a non-profit organization or government program,345,19.6,326,18.9,578,22.3
+45,"If your current skills and education were to become outdated, which of the following types of training or education would you prefer? Please select up to three. On-the-job training or other training offered by an employer",Self-taught education or training you complete on your own using books or online sources,371,21.1,344,20.0,737,28.4
+45,"If your current skills and education were to become outdated, which of the following types of training or education would you prefer? Please select up to three. On-the-job training or other training offered by an employer",Don’t know,171,9.7,192,11.1,210,8.1
+46,"How worried are you about your job being eliminated as a result of new technology, automation, robots, or artificial intelligence, or are you not at all worried?",Very worried,122,7.0,120,7.0,59,2.3
+46,"How worried are you about your job being eliminated as a result of new technology, automation, robots, or artificial intelligence, or are you not at all worried?",Somewhat worried,519,29.5,469,27.3,382,14.7
+46,"How worried are you about your job being eliminated as a result of new technology, automation, robots, or artificial intelligence, or are you not at all worried?",Not too worried,662,37.7,670,39.0,999,38.4
+46,"How worried are you about your job being eliminated as a result of new technology, automation, robots, or artificial intelligence, or are you not at all worried?",Not at all worried,453,25.8,457,26.6,1159,44.6
+47,"Has your current employer reduced or eliminated any jobs due to new technology, automation, robots, or artificial intelligence?",Yes,342,19.4,348,20.2,360,13.8
+47,"Has your current employer reduced or eliminated any jobs due to new technology, automation, robots, or artificial intelligence?",No,1216,69.0,1167,67.8,1893,72.8
+47,"Has your current employer reduced or eliminated any jobs due to new technology, automation, robots, or artificial intelligence?",Don’t know,204,11.6,207,12.0,346,13.3
+48,"If you lost your position as a result of new technology, automation, robots, or artificial intelligence, which of the following opportunities would you pursue? Please select all that apply. The same type of position in another company or organization",The same type of position in another company or organization,721,40.9,643,37.3,1316,50.9
+48,"If you lost your position as a result of new technology, automation, robots, or artificial intelligence, which of the following opportunities would you pursue? Please select all that apply. The same type of position in another company or organization",A different role in another company or organization,566,32.1,564,32.7,1077,41.7
+48,"If you lost your position as a result of new technology, automation, robots, or artificial intelligence, which of the following opportunities would you pursue? Please select all that apply. The same type of position in another company or organization",A different role in the same company or organization,479,27.1,419,24.3,880,34.1
+48,"If you lost your position as a result of new technology, automation, robots, or artificial intelligence, which of the following opportunities would you pursue? Please select all that apply. The same type of position in another company or organization",A temporary job while pursuing education or training opportunities to change career,364,20.6,362,21.0,582,22.5
+48,"If you lost your position as a result of new technology, automation, robots, or artificial intelligence, which of the following opportunities would you pursue? Please select all that apply. The same type of position in another company or organization",A period of full-time training or education to change careers,336,19.1,248,14.4,448,17.4
+48,"If you lost your position as a result of new technology, automation, robots, or artificial intelligence, which of the following opportunities would you pursue? Please select all that apply. The same type of position in another company or organization",Start your own business,291,16.5,246,14.3,633,24.5
+48,"If you lost your position as a result of new technology, automation, robots, or artificial intelligence, which of the following opportunities would you pursue? Please select all that apply. The same type of position in another company or organization",Retirement or leave the workforce,297,16.8,303,17.6,620,24.0
+48,"If you lost your position as a result of new technology, automation, robots, or artificial intelligence, which of the following opportunities would you pursue? Please select all that apply. The same type of position in another company or organization",None of the above,144,8.1,163,9.4,120,4.7
+49,"Have you ever considered returning to school for
+further education and/or training specifically
+in response to the growing adoption of artificial intelligence?",Yes,673,38.4,549,32.1,670,25.9
+49,"Have you ever considered returning to school for
+further education and/or training specifically
+in response to the growing adoption of artificial intelligence?",No,1080,61.6,1164,67.9,1922,74.1
+50,"Who do you view as the best equipped to provide career-long
+education and training?",Traditional four-year university,773,25.4,556,18.9,616,14.5
+50,"Who do you view as the best equipped to provide career-long
+education and training?",Community or technical colleges,0,0.0,0,0.0,1627,38.4
+50,"Who do you view as the best equipped to provide career-long
+education and training?",For-profit education providers,276,9.1,291,9.9,241,5.7
+50,"Who do you view as the best equipped to provide career-long
+education and training?",Employers,1190,39.2,1374,46.7,1535,36.3
+50,"Who do you view as the best equipped to provide career-long
+education and training?",Government retraining program,800,26.3,724,24.6,215,5.1
+51,Why are traditional four-year universities not the best equipped to provide career-long education and retraining?  Please select all that apply. Cost,Cost,1457,64.5,1376,57.7,2874,80.0
+51,Why are traditional four-year universities not the best equipped to provide career-long education and retraining?  Please select all that apply. Cost,Academic programs do not keep up with changing workplace needs,1068,47.3,1063,44.6,2060,57.4
+51,Why are traditional four-year universities not the best equipped to provide career-long education and retraining?  Please select all that apply. Cost,Inflexible course schedules,779,34.5,712,29.9,1517,42.2
+51,Why are traditional four-year universities not the best equipped to provide career-long education and retraining?  Please select all that apply. Cost,Inflexible program requirements,733,32.5,611,25.6,1576,43.9
+51,Why are traditional four-year universities not the best equipped to provide career-long education and retraining?  Please select all that apply. Cost,Difficulty of admissions/enrollment process,642,28.4,516,21.7,1222,34.0
+51,Why are traditional four-year universities not the best equipped to provide career-long education and retraining?  Please select all that apply. Cost,Learning isn’t hands-on enough,1031,45.6,1014,42.5,1775,49.4
+52,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Academic rigor/reputation,Very important,654,37.2,608,35.4,934,36.0
+52,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Academic rigor/reputation,Somewhat important,917,52.1,866,50.4,1273,49.1
+52,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Academic rigor/reputation,Not too important,170,9.6,214,12.4,309,11.9
+52,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Academic rigor/reputation,Not at all important,19,1.1,30,1.8,79,3.0
+53,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Easy access for full-time workers,Very important,1063,60.5,1008,58.9,2062,79.4
+53,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Easy access for full-time workers,Somewhat important,593,33.7,572,33.4,479,18.5
+53,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Easy access for full-time workers,Not too important,88,5.0,111,6.5,45,1.7
+53,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Easy access for full-time workers,Not at all important,14,0.8,21,1.2,12,0.4
+54,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Cost,Very important,1163,66.0,1071,62.2,1985,76.6
+54,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Cost,Somewhat important,506,28.7,518,30.1,554,21.4
+54,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Cost,Not too important,74,4.2,113,6.5,42,1.6
+54,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Cost,Not at all important,20,1.1,19,1.1,13,0.5
+55,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Alignment with skills demanded by the job market,Very important,1066,60.5,936,54.6,2125,81.9
+55,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Alignment with skills demanded by the job market,Somewhat important,607,34.4,648,37.8,434,16.7
+55,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Alignment with skills demanded by the job market,Not too important,73,4.1,107,6.2,23,0.9
+55,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Alignment with skills demanded by the job market,Not at all important,18,1.0,23,1.3,12,0.5
+56,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? On-the-job training opportunities,Very important,1044,59.5,905,52.8,1748,67.6
+56,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? On-the-job training opportunities,Somewhat important,611,34.8,678,39.5,748,28.9
+56,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? On-the-job training opportunities,Not too important,85,4.8,113,6.6,74,2.9
+56,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? On-the-job training opportunities,Not at all important,16,0.9,20,1.2,15,0.6
+57,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Guaranteed job placement upon completion,Very important,1048,59.5,874,50.9,1413,54.4
+57,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Guaranteed job placement upon completion,Somewhat important,581,33.0,647,37.7,915,35.2
+57,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Guaranteed job placement upon completion,Not too important,112,6.4,169,9.9,195,7.5
+57,Imagine you needed retraining or new skills to keep up with the growing adoption of artificial intelligence. How important would each of the following factors be when choosing an education or training programme? Guaranteed job placement upon completion,Not at all important,21,1.2,26,1.5,73,2.8
+58,"How interested would you be in a portable lifelong learning savings account?
+A portable lifelong learning savings account is a pre-tax/tax-deductible
+savings account which could be matched by an employer or the government, to
+help pay for future education or retraining.",Very interested,587,33.3,446,25.9,806,31.0
+58,"How interested would you be in a portable lifelong learning savings account?
+A portable lifelong learning savings account is a pre-tax/tax-deductible
+savings account which could be matched by an employer or the government, to
+help pay for future education or retraining.",Somewhat interested,837,47.4,814,47.2,1115,42.9
+58,"How interested would you be in a portable lifelong learning savings account?
+A portable lifelong learning savings account is a pre-tax/tax-deductible
+savings account which could be matched by an employer or the government, to
+help pay for future education or retraining.",Not too interested,254,14.4,323,18.8,422,16.2
+58,"How interested would you be in a portable lifelong learning savings account?
+A portable lifelong learning savings account is a pre-tax/tax-deductible
+savings account which could be matched by an employer or the government, to
+help pay for future education or retraining.",Not at all interested,88,5.0,140,8.1,255,9.8
+59,How interested would you be in becoming an education subscriber?,Very interested,426,14.0,321,10.9,494,11.6
+59,How interested would you be in becoming an education subscriber?,Somewhat interested,1216,39.9,1080,36.5,1592,37.4
+59,How interested would you be in becoming an education subscriber?,Not too interested,833,27.3,780,26.4,1041,24.5
+59,How interested would you be in becoming an education subscriber?,Not at all interested,571,18.7,774,26.2,1127,26.5
+60,Which tier of access would be of most interest to you?,Basic access to lecture videos and live feeds of courses (minimum fee),522,31.9,398,28.5,565,27.3
+60,Which tier of access would be of most interest to you?,Expanded access to in-person courses and interaction with faculty/staff (medium fee),712,43.5,709,50.7,868,41.9
+60,Which tier of access would be of most interest to you?,"Full access, including the ability to pursue degrees and certificates (maximum fee)",404,24.6,291,20.8,639,30.8
+61,How well do you feel your undergraduate education prepared you for using artificial intelligence at work?,1 - Did not prepare me at all,407,37.1,589,45.6,715,47.7
+61,How well do you feel your undergraduate education prepared you for using artificial intelligence at work?,2,178,16.2,182,14.1,308,20.5
+61,How well do you feel your undergraduate education prepared you for using artificial intelligence at work?,3,292,26.6,287,22.2,294,19.6
+61,How well do you feel your undergraduate education prepared you for using artificial intelligence at work?,4,132,12.0,159,12.3,108,7.2
+61,How well do you feel your undergraduate education prepared you for using artificial intelligence at work?,5 - Prepared me very well,90,8.2,75,5.8,75,5.0
+62,"Thinking of how you feel right now, if a federal election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Conservative,904,29.8,,,,
+62,"Thinking of how you feel right now, if a federal election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Liberal,974,32.1,,,,
+62,"Thinking of how you feel right now, if a federal election were held tomorrow, which of the following parties' candidates would you be most likely to support?",New Democratic Party (NDP),456,15.0,,,,
+62,"Thinking of how you feel right now, if a federal election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Bloc Québécois,105,3.5,,,,
+62,"Thinking of how you feel right now, if a federal election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Green,272,8.9,,,,
+62,"Thinking of how you feel right now, if a federal election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Some other party,325,10.7,,,,
+63,"Thinking of how you feel right now, if a general election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Conservative,904,29.8,702,23.8,,
+63,"Thinking of how you feel right now, if a general election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Labour,974,32.1,792,26.8,,
+63,"Thinking of how you feel right now, if a general election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Liberal Democrat,456,15.0,374,12.7,,
+63,"Thinking of how you feel right now, if a general election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Scottish National Party (SNP),105,3.5,97,3.3,,
+63,"Thinking of how you feel right now, if a general election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Plaid Cymru,272,8.9,30,1.0,,
+63,"Thinking of how you feel right now, if a general election were held tomorrow, which of the following parties' candidates would you be most likely to support?",UK Independence Party (UKIP),325,10.7,234,7.9,,
+63,"Thinking of how you feel right now, if a general election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Green,,,181,6.1,,
+63,"Thinking of how you feel right now, if a general election were held tomorrow, which of the following parties' candidates would you be most likely to support?",Some other party,,,544,18.4,,
+64,"Did
+you vote in the 2016 referendum on the United Kingdom’s European Union
+membership?",Yes,,,2432,82.4,,
+64,"Did
+you vote in the 2016 referendum on the United Kingdom’s European Union
+membership?",No,,,518,17.6,,
+65,"How
+did you vote in the 2016 referendum?",Remain a member of the European Union,,,1281,53.1,,
+65,"How
+did you vote in the 2016 referendum?",Leave the European Union,,,1130,46.9,,
+66,"If
+the referendum were to be repeated tomorrow, how would you vote?",Remain a member of the European Union,,,1226,50.4,,
+66,"If
+the referendum were to be repeated tomorrow, how would you vote?",Leave the European Union,,,1051,43.2,,
+66,"If
+the referendum were to be repeated tomorrow, how would you vote?",Would not vote,,,70,2.9,,
+66,"If
+the referendum were to be repeated tomorrow, how would you vote?",Don’t know,,,84,3.5,,
+67,"Are you currently registered to vote in your
+precinct or election district?",Don’t know,,,,,17,0.4
+67,"Are you currently registered to vote in your
+precinct or election district?",Yes,,,,,4040,95.0
+67,"Are you currently registered to vote in your
+precinct or election district?",No,,,,,197,4.6
+68,"In politics, as of today, do you consider yourself a
+Republican, a Democrat, or an Independent?",Republican,,,,,1245,29.4
+68,"In politics, as of today, do you consider yourself a
+Republican, a Democrat, or an Independent?",Democrat,,,,,1543,36.4
+68,"In politics, as of today, do you consider yourself a
+Republican, a Democrat, or an Independent?",Independent,,,,,1448,34.2
+69,How would you describe your political views?,Very conservative,,,,,435,10.3
+69,How would you describe your political views?,Conservative,,,,,1020,24.1
+69,How would you describe your political views?,Moderate,,,,,1507,35.5
+69,How would you describe your political views?,Liberal,,,,,826,19.5
+69,How would you describe your political views?,Very liberal,,,,,451,10.6
+,,,,,,,,

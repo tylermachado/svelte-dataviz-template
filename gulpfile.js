@@ -70,7 +70,7 @@ Note: Remember to only upload the /images folder to your project folder in Wordp
 gulp.task('images', function(){
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
   .pipe(cache(imagemin()))
-  .pipe(gulp.dest('dist/interactive/2018/10/bubble/images'))
+  .pipe(gulp.dest('dist/interactive/2019/06/gallup/images'))
   .pipe(browserSync.reload({
     stream: true
   }))
@@ -81,7 +81,7 @@ gulp.task('images', function(){
 gulp.task('csvToJson', function(){
   return gulp.src('app/data/**/*.csv')
   .pipe(csvtojson({ toArrayString: true }))
-  .pipe(gulp.dest('dist/interactive/2018/10/bubble/data'))
+  .pipe(gulp.dest('dist/interactive/2019/06/gallup/data'))
   .pipe(browserSync.reload({
     stream: true
   }))
@@ -91,7 +91,7 @@ gulp.task('csvToJson', function(){
 /* see above note about images, same applies here */
 gulp.task('copyJson', function(){
   return gulp.src('app/data/**/*.json')
-  .pipe(gulp.dest('dist/interactive/2018/10/bubble/data'))
+  .pipe(gulp.dest('dist/interactive/2019/06/gallup/data'))
   .pipe(browserSync.reload({
     stream: true
   }))

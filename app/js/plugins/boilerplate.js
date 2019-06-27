@@ -1,6 +1,6 @@
-var margin = {top:20, right:40, bottom:20, left:20},
-    width = window.innerWidth,
-    height = width*0.4;
+var margin = {top:20, right:20, bottom:20, left:20},
+    width = 700,
+    height = 400;
 
 var colors = {
     bold: ["#d51e2d", "#52CFE5", "#385775", "#FFBF3D", "#6f2b6e", "#00CFB5"],

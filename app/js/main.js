@@ -1,6 +1,6 @@
-var margin = {top:20, right:40, bottom:20, left:20},
-    width = window.innerWidth,
-    height = width*0.4;
+var margin = {top:20, right:20, bottom:20, left:20},
+    width = 700,
+    height = 400;
 
 var colors = {
     bold: ["#d51e2d", "#52CFE5", "#385775", "#FFBF3D", "#6f2b6e", "#00CFB5"],
@@ -9,72 +9,154 @@ var colors = {
     political: ["#D41B2C", "#006EB5"]
 }
 
-var stack, series, categories;
-var countries = ["can", "uk", "us"];
+var $ = jQuery;
 
-function barstack(questionid, data) {
-    var svg = d3.select("#vis" + questionid).append("svg")
-        .attr("width", width)
-        .attr("height", height);
+( function( $ ) {
+  var Neu = Neu || {};
 
-    var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  $.fn.scrollmagicControls = function(options) {
+      return this.each(function() {
+          var scrollmagicControls = Object.create(Neu.scrollmagicControls);
+          scrollmagicControls.init(this, options);
+      });
+  };
 
-    var x = d3.scaleLinear()
-        .rangeRound([0, (width-margin.left-margin.right)]);
+  $.fn.scrollmagicControls.options = {
+      pinned: ".pinned-content"
+  };
 
-    var y = d3.scaleBand()
-        .rangeRound([0, (height-margin.top-margin.bottom)])
-        .paddingInner(0.3)
-        .align(0);
+  Neu.scrollmagicControls = {
+      init: function(elem, options) {
+          var self = this;
+          self.$container = $(elem);
+          self.options = $.extend({}, $.fn.scrollmagicControls.options, options);
+          self.bindElements();
+          self.bindEvents();
 
-    var z = d3.scaleLinear()
-        .range(["#ce0201", "#ddd", "#4dac26"])
-        .interpolate(d3.interpolateCubehelix);
+          $(document).ready( function() {
+              self.triggerScrollMagic();
+          });
+      },
+      bindElements: function() {
+        var self = this;
 
-    var newdata = [];
-
-    countries.forEach(function(c) {
-        var n = {};
-        n.country = c;
-        data[questionid][1].forEach(function(a) {
-            n[a.answer] = a[c + "_pct"];
+        self.$pinned = self.$container.find(self.options.pinned);
+        self.controller = new ScrollMagic.Controller({addIndicators: true});
+    },
+    bindEvents: function() {
+      var self = this;
+    },
+    triggerScrollMagic: function() {
+      var self = this;
+      
+      //if you want the same function to run for multiple slides you can use the function below. The for function goes through all slides with the class name "pinned-content" and adds a pinned scrollmagic slide for each.
+      for (var i=0; i<self.$pinned.length; i++) {
+  			var slide = self.$pinned[i];
+        var duration;
+      
+        duration = $(slide).height();
+      
+  			new ScrollMagic.Scene({
+					triggerElement: slide,
+					duration: duration,
+					triggerHook: 0,
+					reverse: true
+				})
+				.setPin(slide)
+        .on("enter leave", function(e) {
+          //if you want something to happen on enter and/or leave, you can add it below. If it should only happen on enter then remove "leave" above.
+      
+          //the trigger is ".pinned-content"
+          var trigger = this.triggerElement();
+          var triggerClass = $(trigger).attr("class");
+      
+          if (e.type === "leave") {
+            console.log("left slide: " + triggerClass);
+          } else {
+            console.log("entered slide: " + triggerClass);
+          }
+        })
+				.addTo(self.controller);
+  		}
+      
+      //if you want a function to only run for a specific slide, you can use the function below.
+      var customScene = new ScrollMagic.Scene({
+        triggerElement: "#customScene",
+        duration: 1000,
+        reverse: true
+      })
+      .setClassToggle("#customScene", "custom-active")
+      .on("enter", function() {
+        $(".box").animate({
+          height: "300px",
+          width: "400"
         });
-        newdata.push(n);
-    });
+      })
+      .on("leave", function() {
+        $(".box").animate({
+          height: "150px",
+          width: "200"
+        });
+      })
+      .addTo(self.controller);
+    }
+  };
 
-    console.log(newdata);
+}( $ ) );
 
-    categories = d3.keys(newdata[0]).filter(function(d) { return d !== "Total" && d !== "country"; }).sort();
+(function init () {
+  $(document).ready(function() {
+    $(".wrapper").scrollmagicControls();
+  });
+})();
 
-    stack = d3.stack()
-    .keys(categories)
-    .order(d3.stackOrderNone)
-    .offset(d3.stackOffsetNone);
+var width = document.getElementById('vis').parentElement.offsetWidth;
+var linear = vega.scale('linear');
+var fontscale = linear().domain([300, 1000]).range([16, 22]);
+var heightscale = linear().domain([300, 1000]).range([60, 120]);
 
-    series = stack(newdata);
+var chartSpec = {
+    $schema: 'https://vega.github.io/schema/vega-lite/v3.0.json',
+    width: width / 2,
+    height: 400,
+    title: 'Chart Title Goes Here',
+    description: 'A simple bar chart with embedded data.',
+    data: {url: '/interactive/2018/10/bubble/data/aggregated.json'},
+    mark: 'bar',
+    encoding: {
+        x: {
+            field: 'candidate',
+            type: 'ordinal'
+        },
+        y: {
+            field: 'polarity',
+            type: 'quantitative'
+        },
+        color: {
+            field: 'candidate',
+            type: 'ordinal',
+            legend: false,
+            scale: {
+              range: colors.bold
+            }
+        }
+    },
+    config: {
+        axis: {
+            labelFont: 'Akkurat',
+            labelFontSize: 14,
+            titleFont: 'Akkurat',
+            titleFontSize: 18,
+            titlePadding: 20
+        },
+        title: {
+            font: 'Akkurat',
+            fontSize: fontscale(width),
+            fontWeight: 700,
+            anchor: 'middle'
+        },
+        view: {stroke: 'transparent'}
 
-    x.domain([0,100]);
-    y.domain(newdata.map(function(d) {return d.country;}));
-    z.domain([0, (categories.length-1)/2, categories.length-1]);
-
-    g.append("g")
-        .selectAll("g")
-        .data(d3.stack().keys(categories)(newdata))
-        .enter().append("g")
-          .attr("fill", function(d,i) { return z(i); })
-        .selectAll("rect")
-        .data(function(d) { return d; })
-        .enter().append("rect")
-          .attr("y", function(d) { return y(d.data.country); })
-          .attr("x", function(d) { return x(d[0]); })
-          .attr("width", function(d) { return x(d[1]) - x(d[0]); })
-          .attr("height", y.bandwidth());
-}
-
-d3.json('/interactive/2019/06/gallup/data/countrylevel.json').then(function(data) {
-
-    data = Array.from(d3.group(data, function(d) { return d.question_id; }));
-    data.unshift("zero-index placeholder");
-
-    barstack(16, data);
-});
+    }
+};
+vegaEmbed('#vis', chartSpec, {actions:false, renderer:'svg'});

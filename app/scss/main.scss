@@ -1,12 +1,6 @@
 body {
-  background-color: #000;
+  background-color: #fff;
   padding-bottom: 1000px;
-  color: #fff;
-}
-
-p {
-    font-size:20px;
-    font-family:$body-font;
 }
 
 .pinned-content {
@@ -50,7 +44,7 @@ svg {
         font-family:$body-font;
     }
 
-    // rect, circle {
-    //     fill: $red;
-    // }
+    rect, circle {
+        fill: $red;
+    }
 }

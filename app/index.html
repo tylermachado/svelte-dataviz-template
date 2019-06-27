@@ -6,64 +6,44 @@
 <title>Gulp Template</title>
 <link rel="stylesheet" href="css/styles.min.css">
 
-<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="https://d3js.org/d3-array.v2.min.js"></script>
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.1/ScrollMagic.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script> -->
+<script src="js/library/vega@5.3.5.min.js"></script>
+<script src="js/library/vega-lite@3.2.1.min.js"></script>
+<script src="js/library/vega-embed@4.0.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
 <body>
 
-    <p>ACROSS THE GLOBE, FEW FEEL UNIVERSITIES TODAY ARE PREPARING GRADUATES WELL FOR THE ARTIFICIAL INTELLIGENCE ECONOMY.</p>
+    <div id="vis">
+    </div>
 
-     <p>Just 3 percent of respondents in the United States, 10 percent in the UK, and 12 percent in Canada “strongly agree” that universities in their country “do a good job of preparing graduates for success in the current workforce.” Among those with a college degree, few felt their undergraduate education “prepared [them] very well” for “using A.I. at work” (5% in US, 6% in UK, 8% in Canada).</p>
+  <div class="wrapper">
 
-     <div id="vis16" class="vis"></div>
+    <div class="pinned-content first">
+      <p>slide: pinned-content first</p>
+    </div>
 
-     <p>PUBLIC OVERWHELMINGLY VALUES LIFELONG LEARNING BUT FAULTS TRIAD OF EMPLOYERS, GOVERNMENT, AND HIGHER EDUCATION ALIKE FOR FAILING TO ADDRESS GLOBAL SKILLS CRISIS.</p>
+    <div class="pinned-content second">
+      <p>slide: pinned-content second</p>
+    </div>
 
-     <p>Overwhelming majorities in each country (95% in US, 94% in UK, 92% in Canada) “agree it is more important for individuals to learn and be trained frequently over the course of their career, instead of pursuing a one-time degree or certificate.”</p>
+    <div class="pinned-content third">
+      <p>slide: pinned-content third</p>
+    </div>
 
-     <p>At the same time, the public strongly believes large businesses (71% US, 62% Canada, 59% UK) and government (78% US, 70% UK, 65% Canada) are not “doing enough to address the need for career-long learning and training.” Majorities in the US and UK also give higher education failing grades (75% US, 55% UK) when it comes to providing lifelong learning. Only a narrow majority of Canadians (52%) disagree.</p>
+    <div id="customScene">
+      <p>Custom Scene</p>
+      <div class="box">Do something</div>
+    </div>
 
-     <p>WORKERS CITE COST, LACK OF TIME AS MAJOR BARRIERS TO OBTAINING LIFELONG LEARNING.</p>
 
-     <p>When presented with a list of major barriers they “face when seeking education or training over the course of your career,” strong majorities in each country cite cost (65% US, 59% Canada, 53% UK) and lack of time (61% US, 44% Canada, 42% UK) as the top impediments over a lack of opportunities where they live (17% US, 23% UK, 21% Canada) or uncertainty about what skills are needed (27% each in US, UK, and Canada). </p>
-
-     <p>MOST PEOPLE EXPECT EMPLOYERS TO PROVIDE AND PAY FOR LIFELONG LEARNING.</p>
-
-     <p>Employers are seen as best equipped to provide career-long education and training in the UK (47%) and Canada (39%) over universities (19% UK, 25% Canada) and government (26% Canada, 25% UK. In the US, community colleges (38%) and employers (36%) are co-preferred over traditional universities (15%) and government (5%). </p>
-
-     <p>In terms of who should “pay for career-long learning and training needed to keep up with advances in artificial intelligence,” employers are the top choice in the US (73%), but government is preferred in Canada (64%) and the UK (62%) compared to universities (56% US, 39% Canada, 30% UK).  </p>
-
-     <p>PUBLIC SAYS UNIVERSITIES ARE TOO EXPENSIVE, POORLY-ALIGNED WITH EMPLOYERS, NOT HANDS-ON ENOUGH, AND INFLEXIBLE WHEN IT COMES TO LIFELONG LEARNING</p>
-
-     <p>When asked why traditional universities are not the best equipped to provide career-long education and retraining, most respondents cite cost (80% US, 65% Canada, 58% Canada), academic programs not keeping with changing workplace needs (57% US, 47% Canada, 45% UK), learning that isn’t hands-on enough (49% US, 46% Canada, and 43% UK), and course schedules that are too inflexible(42% US, 35% Canada, and 30% UK) as the top reasons universities lag employers in providing lifelong learning.</p>
-
-     <p>BRITONS AND CANADIANS SEE THEIR SKILLS BECOMING OBSOLETE—BUT NOT AMERICANS.</p>
-
-     <p>Majorities in both the UK (58%) and Canada (57%) believe their current skills and education are already outdated or will become outdated within the next decade. By contrast, just 35 percent of Americans share this concern, with some 42 percent expressing confidence that their skills will never become outdated. Moreover, only a quarter of Americans (26%), one-third of Britons (32%), and 38 percent of Canadians have considered returning to school for further education or training in response to the growing adoption of A.I. </p>
-
-     <p>CANADIANS AND BRITONS VALUE “SOFT” SKILLS OVER  “HARD” STEM SKILLS; AMERICANS EVENLY DIVIDED.</p>
-
-     <p>Six in ten Canadians and six in ten Britons say “soft” skills like teamwork, communication, creativity and critical thinking are the most important for workers to cultivate to avoid losing their jobs to AI, as opposed to technical skills like match, science, coding, and working with data. On the other hand, Americans are evenly divided (50%-50%) over which skills are more important.</p>
-
-     <p>WORKERS PREFER EMPLOYER-PROVIDED ON-THE-JOB TRAINING OVER UNIVERSITY OFFERINGS SHOULD THEIR SKILLS BECOME OBSOLETE.</p>
-
-     <p>Strong majorities  prefer to access on-the-job training or other training offered by an employer if their skills become outdated (70% US, 59% Canada, 58% UK) over an in-person (34% US, 29% Canada, 24% UK) or online (30% Canada, 28% US, 26% UK) licensing, certification, or degree granting program from a university. </p>
-
-     <p>STRONG GLOBAL MAJORITIES CONTINUE TO EXPECT AI TO RESULT IN NET JOB LOSS; UK MORE WORRIED ABOUT IMPACT OF BREXIT ON ECONOMY THAN A.I.</p>
-
-     <p>Seven in ten Americans, six in ten Canadians, and six in ten UK residents believe the use of artificial intelligence will eliminate more jobs than it creates. However, Britons see Brexit as a bigger threat to the British economy over the next ten years than artificial intelligence (71%-29%).   </p>
-
-     <p>CANADIANS BELIEVE IN ENDURING VALLUE OF A COLLEGE DEGREE, UK AND US SEE WANING IMPORTANCE.</p>
-
-     <p>Canadians are more positive about the enduring value of a college degree. 43 percent say a degree will be more important 10 years from now than today, while 26 percent say less important and 31 percent say about the same. By contrast, the public in the UK expects a degree to be less important in 10 years (41%), with 34 percent saying about the same. The US is nearly evenly divided, with 36 percent saying less important, 35 percent saying more important, and 29 percent saying about the same.</p>
-
+  </div>
 
   <!--build:js js/main.min.js -->
-  <script src="js/plugins/boilerplate.js"></script>
-  <script src="js/plugins/dataload.js"></script>
+  <script src="js/plugins/scrollmagicControls.js"></script>
   <!--endbuild-->
 
 </body>

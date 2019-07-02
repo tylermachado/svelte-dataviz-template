@@ -11,11 +11,10 @@ var svg = d3.select(".wrapper").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
-    .attr("transform",
-      "translate(" + ((width < 768) ? 10 : 120) + ",0)");
+    .attr("transform", "translate(" + ((width < 768) ? 10 : 120) + ",0)");
 
 d3.json('/interactive/2018/10/bubble/data/sportstitles.json')
-      .then(function(data) {
+    .then(function(data) {
 
         var width = d3.select("#vis" + questionid).node().getBoundingClientRect().width;
         var height = 500;
@@ -29,12 +28,11 @@ d3.json('/interactive/2018/10/bubble/data/sportstitles.json')
 
 
         svg.append("g")
-              .call(d3.axisLeft(y).tickSize(0))
-              .attr("transform",
-                "translate(" + ((width < 768) ? 5 : 0) + "," + ((width < 768) ? 12 : 0) + ")")
-            .attr("text-anchor",
-              ((width < 768) ? "start" : "end"))
-              .select(".domain").remove();
+            .call(d3.axisLeft(y).tickSize(0))
+            .attr("transform", "translate(0,0)")
+            .attr("text-anchor", ((width < 768) ? "start" : "end"))
+            .select(".domain")
+            .remove();
 
         var brexitcolor = d3.scaleLinear()
             .domain([-75,0,75])
@@ -43,13 +41,13 @@ d3.json('/interactive/2018/10/bubble/data/sportstitles.json')
 
           // tooltip
         var tooltip = d3.tip()
-          .attr('class', 'd3-tip')
-          .direction('n')
-          .html(function(d,i) {
+            .attr('class', 'd3-tip')
+            .direction('n')
+            .html(function(d,i) {
               return "<h4>" + d.demographic + "</h4>" +
               "Remain: " + d.remain + "%<br/>" +
               "Leave: " + d.leave + "%" ;
-          });
+            });
 
         // svg.append('circle').attr('id','tooltip_point' + questionid);
         svg.call(tooltip);
@@ -113,7 +111,7 @@ d3.json('/interactive/2018/10/bubble/data/sportstitles.json')
           .on('mouseover', tooltip.show)
               .on('mouseout', tooltip.hide);
 
-      }) //read-in function
-      .catch(function(error){
-         // handle error
-      });
+    }) //read-in function
+    .catch(function(error){
+     // handle error
+    });

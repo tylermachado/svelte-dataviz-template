@@ -9,41 +9,45 @@
 <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.1/ScrollMagic.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script> -->
-<script src="js/library/vega@5.3.5.min.js"></script>
+<!-- <script src="js/library/vega@5.3.5.min.js"></script>
 <script src="js/library/vega-lite@3.2.1.min.js"></script>
-<script src="js/library/vega-embed@4.0.0.min.js"></script>
+<script src="js/library/vega-embed@4.0.0.min.js"></script> -->
+<script src="js/library/d3.v5.min.js"></script>
+<script src="js/library/d3-tip.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
 <body>
 
-    <div id="vis">
-    </div>
-
   <div class="wrapper">
 
-    <div class="pinned-content first">
-      <p>slide: pinned-content first</p>
-    </div>
+      <h1>Bar Chart</h1>
+      <div id="bar"></div>
+      <hr style="margin:75px 0;">
 
-    <div class="pinned-content second">
-      <p>slide: pinned-content second</p>
-    </div>
+      <h1>Circles on a Line</h1>
+      <div id="coal"></div>
+      <hr style="margin:75px 0;">
 
-    <div class="pinned-content third">
-      <p>slide: pinned-content third</p>
-    </div>
+      <h1>Donut Chart</h1>
+      <div id="donut"></div>
+      <hr style="margin:75px 0;">
 
-    <div id="customScene">
-      <p>Custom Scene</p>
-      <div class="box">Do something</div>
-    </div>
+      <h1>Grouped Bar Chart</h1>
+      <div id="groupedbar"></div>
+      <hr style="margin:75px 0;">
+
 
 
   </div>
 
   <!--build:js js/main.min.js -->
-  <script src="js/plugins/scrollmagicControls.js"></script>
+  <script src="js/plugins/boilerplate.js"></script>
+  <script src="js/plugins/d3-bar.js"></script>
+  <script src="js/plugins/d3-groupbar.js"></script>
+  <script src="js/plugins/d3-coal.js"></script>
+  <script src="js/plugins/d3-donut.js"></script>
+  <script src="js/plugins/d3-map.js"></script>
   <!--endbuild-->
 
 </body>

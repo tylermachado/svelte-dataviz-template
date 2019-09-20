@@ -1,7 +1,7 @@
 {
   "name": "sustainabilityinteractive",
   "version": "1.0.0",
-  "description": "",
+  "description": "A sample gulp project that we can use as a template for local projects",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,7 @@
   "devDependencies": {
     "browser-sync": "^2.23.6",
     "del": "^3.0.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-cache": "^1.0.2",
     "gulp-cssnano": "^2.1.2",
@@ -25,13 +26,22 @@
   },
   "dependencies": {
     "csvtojson": "^2.0.8",
-    "gulp": "^3.9.1",
     "gulp-compress": "0.0.9",
     "gulp-concat": "^2.6.1",
     "gulp-file-include": "^2.0.1",
     "gulp-html-beautify": "^1.0.1",
     "gulp-htmlmin": "^4.0.0",
     "gulp-notify": "^3.2.0",
-    "gulp-rename": "^1.2.2"
-  }
+    "gulp-rename": "^1.2.2",
+    "package.json": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/News-at-Northeastern/gulp-template.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/News-at-Northeastern/gulp-template/issues"
+  },
+  "homepage": "https://github.com/News-at-Northeastern/gulp-template#readme"
 }

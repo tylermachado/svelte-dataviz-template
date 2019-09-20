@@ -44,3 +44,20 @@ svg {
         font-family:$body-font;
     }
 }
+
+div.tooltip {
+       position: absolute;
+       text-align: center;
+       padding: 5px;
+       font-size: 14px;
+       font-weight: bold;
+       background: lightsteelblue;
+       border: 0px;
+       border-radius: 8px;
+       font-family: "Akkurat",sans-serif;
+   }
+
+   .tooltip p {
+       margin: 0;
+       padding: 0;
+   }

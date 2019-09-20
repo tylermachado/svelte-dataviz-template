@@ -3,61 +3,79 @@ function barTemplate(data, targetElement) {
     var width = d3.select(targetElement).node().getBoundingClientRect().width;
     var height = width * 0.4;
 
-    // set the ranges
-    var x = d3.scaleBand()
-        .domain(data.map(function(d) { return d.candidate; }))
-        .range([0, width - margin.left - margin.right])
-        .padding(0.33);
 
-    var y = d3.scaleLinear()
-        .domain([0, d3.max(data, function(d) { return d.positive; })])
+    var x = d3.scaleLinear()
+        .domain([0, d3.max(data, function(d) {
+            return d.positive + 100;
+        })])
+        .range([0, width - margin.left - margin.right]);
+
+    var y = d3.scaleBand()
+        .domain(data.map(function(d) {
+            return d.candidate;
+        }))
         .range([height, 0])
-        .nice();
+        .padding(0.2);
 
+    var xAxis = d3.axisBottom(x)
+        .tickSize(-height);
+
+    var yAxis = d3.axisLeft(y)
+        .ticks(7)
+        .tickSize(0);
+    // .ticks(7)
+    // .tickSize(-width);
     // create container SVG
     var svg = d3.select(targetElement).append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+            "translate(" + margin.left + "," + margin.top + ")");
 
-    // create tooltip using d3-tip library
-    var tooltip = d3.tip()
-        .attr('class', 'd3-tip')
-        .offset([-10,0])
-        .html(function(d) {
-            return d.candidate + ": " + d.positive;
-          });
-
-    svg.append('circle').attr('class', 'tiptarget');
-    svg.call(tooltip);
-
-    // append the rectangles for the bar chart
-    svg.selectAll(".bar")
-        .data(data)
-      .enter().append("rect")
-        .attr("class", "bar")
-        .attr("x", function(d) { return x(d.candidate);})
-        .attr("width", x.bandwidth())
-        .attr("y", function(d) { return y(d.positive); })
-        .attr("height", function(d) { return height - y(d.positive); })
-        .attr("fill", function(d,i) { return colors.bold[i]; })
-        .on('mouseover, mousemove', function (d) {
-            var target = d3.select(targetElement + ' .tiptarget')
-                .attr('cx', d3.event.offsetX - 45)
-                .attr('cy', d3.event.offsetY - 45) // 5 pixels above the cursor
-                .node();
-            tooltip.show(d, target);
-        })
-        .on('mouseout', tooltip.hide);
-
-    // add the x Axis
     svg.append("g")
+        .attr("class", "xAxis")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .style("font-size", "14px")
+        .call(customXAxis);
 
-    // add the y Axis
     svg.append("g")
-        .call(d3.axisLeft(y));
+        .attr("class", "yAxis")
+        .style("font-size", "12px")
+        .call(customYAxis);
+
+  function customXAxis(g){
+      var s = g.selection ? g.selection() : g;
+      g.call(xAxis);
+      s.select(".domain").remove();
+      s.selectAll(".tick line").filter(Number).attr("stroke", "#777").attr("stroke-dasharray", "2,2");
+      // s.selectAll(".tick text").attr("x", 10).attr("dy", -4);
+  }
+
+  function customYAxis(g) {
+    g.call(yAxis);
+    g.select(".domain").remove();
+  }
+
+  svg.selectAll(".bar")
+      .data(data)
+      .enter().append("rect")
+      .attr("class", "bar")
+      .attr("width", function(d){
+        return x(d.positive);
+      })
+      .attr("y", function(d){
+        return y(d.candidate);
+      })
+      .attr("height", y.bandwidth())
+      .attr("fill", function(d,i) { return "#cc0000"; })
+      .on("mouseover, mousemove", function(d){
+          d3.select(this)
+              .attr("fill", "#f08080");
+      })
+      .on("mouseout", function(d,i){
+          d3.select(this).attr("fill", function() {
+              return "#cc0000";
+      });
+  });
 }

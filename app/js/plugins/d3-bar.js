@@ -1,8 +1,10 @@
-function barTemplate(data, targetElement) {
+function barTemplate(data, chartmeta, targetElement) {
+
+    var title = d3.select(targetElement).append("h3").text(chartmeta.title);
+    var subtitle = d3.select(targetElement).append("h5").text(chartmeta.subtitle);
 
     var width = d3.select(targetElement).node().getBoundingClientRect().width;
     var height = width * 0.4;
-
 
     var x = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) {
@@ -78,4 +80,7 @@ function barTemplate(data, targetElement) {
               return "#cc0000";
       });
   });
+
+  var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+  var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
 }

@@ -1,4 +1,7 @@
-function donutTemplate(data, targetElement) {
+function donutTemplate(data, chartmeta, targetElement) {
+
+    var title = d3.select(targetElement).append("h3").text(chartmeta.title);
+    var subtitle = d3.select(targetElement).append("h5").text(chartmeta.subtitle);
 
     var width = d3.min([document.documentElement.clientWidth, (d3.select(targetElement).node().getBoundingClientRect().width / 3.1)]);
     var height = width;
@@ -77,5 +80,8 @@ function donutTemplate(data, targetElement) {
     //
     // container.select(".legendOrdinal")
     //   .call(legendOrdinal);
+
+    var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+    var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
 
 }

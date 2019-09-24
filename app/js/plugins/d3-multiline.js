@@ -1,4 +1,7 @@
-function multiLineTemplate(data, targetElement) {
+function multiLineTemplate(data, chartmeta, targetElement) {
+
+    var title = d3.select(targetElement).append("h3").text(chartmeta.title);
+    var subtitle = d3.select(targetElement).append("h5").text(chartmeta.subtitle);
 
     var width = d3.select(targetElement).node().getBoundingClientRect().width;
     var height = width * 0.4;
@@ -7,9 +10,7 @@ function multiLineTemplate(data, targetElement) {
         .domain(data.map(function(d) {
             return d.candidate;
         }))
-        .rangeRound([0, ((width < 768) ?
-            (height + 175 + ((newdata.length - 3) * 40)) :
-            (width - margin.right))])
+        .rangeRound([0, (width - margin.right)])
         .paddingInner(0.25)
         .paddingOuter(0.25);
 
@@ -208,7 +209,10 @@ function multiLineTemplate(data, targetElement) {
                     div.transition().style("opacity", 0);
 
                     // tooltip.hide();
-                  });;
+                  });
+
+                  var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+                  var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
 
 
 

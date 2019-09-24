@@ -14,31 +14,42 @@ var colors = {
     political: ["#D41B2C", "#006EB5"]
 }
 
+var chartmeta = {
+    title: "Title goes here",
+    subtitle: "Subtitle goes here",
+    source: "Bureau of Labor Statistics",
+    note: "Caveat to the data"
+}
 
-d3.json('/interactive/2018/10/bubble/data/aggregated.json')
+
+d3.json('/interactive/2019/charts/data/aggregated.json')
   .then(function(data) {
 
-  columnTemplate(data, "#column");
+  columnTemplate(data, chartmeta, "#column");
 
-  groupedColumnTemplate(data, "#groupedcolumn");
+  groupedColumnTemplate(data, chartmeta, "#groupedcolumn");
 
-  lineTemplate(data, "#line");
+  lineTemplate(data, chartmeta, "#line");
 
-  multiLineTemplate(data, "#multiline");
+  multiLineTemplate(data, chartmeta, "#multiline");
 
-    barTemplate(data, "#bar");
+    barTemplate(data, chartmeta, "#bar");
 
-   groupedbarTemplate(data, "#groupedbar");
+   groupedbarTemplate(data, chartmeta, "#groupedbar");
+
+
 
 }).catch(function(error){
    // handle error
 });
 
-function barTemplate(data, targetElement) {
+function barTemplate(data, chartmeta, targetElement) {
+
+    var title = d3.select(targetElement).append("h3").text(chartmeta.title);
+    var subtitle = d3.select(targetElement).append("h5").text(chartmeta.subtitle);
 
     var width = d3.select(targetElement).node().getBoundingClientRect().width;
     var height = width * 0.4;
-
 
     var x = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) {
@@ -114,9 +125,15 @@ function barTemplate(data, targetElement) {
               return "#cc0000";
       });
   });
+
+  var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+  var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
 }
 
-function columnTemplate(data, targetElement) {
+function columnTemplate(data, chartmeta, targetElement) {
+
+    var title = d3.select(targetElement).append("h3").text(chartmeta.title);
+    var subtitle = d3.select(targetElement).append("h5").text(chartmeta.subtitle);
 
     var width = d3.select(targetElement).node().getBoundingClientRect().width;
     var height = width * 0.4;
@@ -255,9 +272,15 @@ function columnTemplate(data, targetElement) {
     // add the y Axis
     // svg.append("g")
     //     .call(d3.axisLeft(y));
+
+    var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+    var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
 }
 
-function donutTemplate(data, targetElement) {
+function donutTemplate(data, chartmeta, targetElement) {
+
+    var title = d3.select(targetElement).append("h3").text(chartmeta.title);
+    var subtitle = d3.select(targetElement).append("h5").text(chartmeta.subtitle);
 
     var width = d3.min([document.documentElement.clientWidth, (d3.select(targetElement).node().getBoundingClientRect().width / 3.1)]);
     var height = width;
@@ -337,10 +360,16 @@ function donutTemplate(data, targetElement) {
     // container.select(".legendOrdinal")
     //   .call(legendOrdinal);
 
+    var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+    var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
+
 }
 
 
-function groupedColumnTemplate(data, targetElement) {
+function groupedColumnTemplate(data, chartmeta, targetElement) {
+
+    var title = d3.select(targetElement).append("h3").text(chartmeta.title);
+    var subtitle = d3.select(targetElement).append("h5").text(chartmeta.subtitle);
 
     var width = d3.select(targetElement).node().getBoundingClientRect().width;
     var height = width * 0.4;
@@ -355,9 +384,7 @@ function groupedColumnTemplate(data, targetElement) {
         .domain(data.map(function(d) {
             return d.candidate;
         }))
-        .rangeRound([0, ((width < 768) ?
-            (height + 175 + ((newdata.length - 3) * 40)) :
-            (width - margin.right))])
+        .rangeRound([0, (width - margin.right)])
         .paddingInner(0.25)
         .paddingOuter(0.25);
 
@@ -608,9 +635,15 @@ function groupedColumnTemplate(data, targetElement) {
     //    });
     // axes
 
+    var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+    var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
+
 }
 
-function lineTemplate(data, targetElement){
+function lineTemplate(data, chartmeta, targetElement) {
+
+    var title = d3.select(targetElement).append("h3").text(chartmeta.title);
+    var subtitle = d3.select(targetElement).append("h5").text(chartmeta.subtitle);
 
     var width = d3.select(targetElement).node().getBoundingClientRect().width;
     var height = width * 0.4;
@@ -737,6 +770,9 @@ function lineTemplate(data, targetElement){
             // tooltip.hide();
           });
 
+          var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+          var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
+
 }
 
 //
@@ -859,7 +895,10 @@ function lineTemplate(data, targetElement){
 //             // console.log(selections);
 // });
 
-function multiLineTemplate(data, targetElement) {
+function multiLineTemplate(data, chartmeta, targetElement) {
+
+    var title = d3.select(targetElement).append("h3").text(chartmeta.title);
+    var subtitle = d3.select(targetElement).append("h5").text(chartmeta.subtitle);
 
     var width = d3.select(targetElement).node().getBoundingClientRect().width;
     var height = width * 0.4;
@@ -868,9 +907,7 @@ function multiLineTemplate(data, targetElement) {
         .domain(data.map(function(d) {
             return d.candidate;
         }))
-        .rangeRound([0, ((width < 768) ?
-            (height + 175 + ((newdata.length - 3) * 40)) :
-            (width - margin.right))])
+        .rangeRound([0, (width - margin.right)])
         .paddingInner(0.25)
         .paddingOuter(0.25);
 
@@ -1069,7 +1106,10 @@ function multiLineTemplate(data, targetElement) {
                     div.transition().style("opacity", 0);
 
                     // tooltip.hide();
-                  });;
+                  });
+
+                  var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+                  var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
 
 
 
@@ -1077,175 +1117,3 @@ function multiLineTemplate(data, targetElement) {
 
 
 
-
-var $ = jQuery;
-
-( function( $ ) {
-  var Neu = Neu || {};
-
-  $.fn.scrollmagicControls = function(options) {
-      return this.each(function() {
-          var scrollmagicControls = Object.create(Neu.scrollmagicControls);
-          scrollmagicControls.init(this, options);
-      });
-  };
-
-  $.fn.scrollmagicControls.options = {
-      pinned: ".pinned-content"
-  };
-
-  Neu.scrollmagicControls = {
-      init: function(elem, options) {
-          var self = this;
-          self.$container = $(elem);
-          self.options = $.extend({}, $.fn.scrollmagicControls.options, options);
-          self.bindElements();
-          self.bindEvents();
-
-          $(document).ready( function() {
-              self.triggerScrollMagic();
-          });
-      },
-      bindElements: function() {
-        var self = this;
-
-        self.$pinned = self.$container.find(self.options.pinned);
-        self.controller = new ScrollMagic.Controller({addIndicators: true});
-    },
-    bindEvents: function() {
-      var self = this;
-    },
-    triggerScrollMagic: function() {
-      var self = this;
-      
-      //if you want the same function to run for multiple slides you can use the function below. The for function goes through all slides with the class name "pinned-content" and adds a pinned scrollmagic slide for each.
-      for (var i=0; i<self.$pinned.length; i++) {
-  			var slide = self.$pinned[i];
-        var duration;
-      
-        duration = $(slide).height();
-      
-  			new ScrollMagic.Scene({
-					triggerElement: slide,
-					duration: duration,
-					triggerHook: 0,
-					reverse: true
-				})
-				.setPin(slide)
-        .on("enter leave", function(e) {
-          //if you want something to happen on enter and/or leave, you can add it below. If it should only happen on enter then remove "leave" above.
-      
-          //the trigger is ".pinned-content"
-          var trigger = this.triggerElement();
-          var triggerClass = $(trigger).attr("class");
-      
-          if (e.type === "leave") {
-            console.log("left slide: " + triggerClass);
-          } else {
-            console.log("entered slide: " + triggerClass);
-          }
-        })
-				.addTo(self.controller);
-  		}
-      
-      //if you want a function to only run for a specific slide, you can use the function below.
-      var customScene = new ScrollMagic.Scene({
-        triggerElement: "#customScene",
-        duration: 1000,
-        reverse: true
-      })
-      .setClassToggle("#customScene", "custom-active")
-      .on("enter", function() {
-        $(".box").animate({
-          height: "300px",
-          width: "400"
-        });
-      })
-      .on("leave", function() {
-        $(".box").animate({
-          height: "150px",
-          width: "200"
-        });
-      })
-      .addTo(self.controller);
-    }
-  };
-
-}( $ ) );
-
-(function init () {
-  $(document).ready(function() {
-    $(".wrapper").scrollmagicControls();
-  });
-})();
-
-d3.json("/interactive/2019/06/suffrage-100/data/data.json")
-  .then(function(processedData) {
-  var tikTok = new TikTok({
-    dateFormat: ['MMM DD, YYYY', 'YYYY'],
-    dateDisplay: 'MMMM DD, YYYY',
-    groupByDisplay: 'YYYY[s]',
-    el: 'tik-tok',
-    title: 'Title',
-    entries: processedData
-  });
-});
-
-// create AP Style 
-moment.updateLocale('en', {
-    months : [
-        'Jan.', 'Feb.', 'March', 'April', 'May', 'June',
-        'July', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.',
-    ]
-});
-
-var width = document.getElementById('vis').parentElement.offsetWidth;
-var linear = vega.scale('linear');
-var fontscale = linear().domain([300, 1000]).range([16, 22]);
-var heightscale = linear().domain([300, 1000]).range([60, 120]);
-
-var chartSpec = {
-    $schema: 'https://vega.github.io/schema/vega-lite/v3.0.json',
-    width: width / 2,
-    height: 400,
-    title: 'Chart Title Goes Here',
-    description: 'A simple bar chart with embedded data.',
-    data: {url: '/interactive/2018/10/bubble/data/aggregated.json'},
-    mark: 'bar',
-    encoding: {
-        x: {
-            field: 'candidate',
-            type: 'ordinal'
-        },
-        y: {
-            field: 'polarity',
-            type: 'quantitative'
-        },
-        color: {
-            field: 'candidate',
-            type: 'ordinal',
-            legend: false,
-            scale: {
-              range: colors.bold
-            }
-        }
-    },
-    config: {
-        axis: {
-            labelFont: 'Akkurat',
-            labelFontSize: 14,
-            titleFont: 'Akkurat',
-            titleFontSize: 18,
-            titlePadding: 20
-        },
-        title: {
-            font: 'Akkurat',
-            fontSize: fontscale(width),
-            fontWeight: 700,
-            anchor: 'middle'
-        },
-        view: {stroke: 'transparent'}
-
-    }
-};
-vegaEmbed('#vis', chartSpec, {actions:false, renderer:'svg'});

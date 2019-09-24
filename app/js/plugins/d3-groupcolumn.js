@@ -1,4 +1,7 @@
-function groupedColumnTemplate(data, targetElement) {
+function groupedColumnTemplate(data, chartmeta, targetElement) {
+
+    var title = d3.select(targetElement).append("h3").text(chartmeta.title);
+    var subtitle = d3.select(targetElement).append("h5").text(chartmeta.subtitle);
 
     var width = d3.select(targetElement).node().getBoundingClientRect().width;
     var height = width * 0.4;
@@ -13,9 +16,7 @@ function groupedColumnTemplate(data, targetElement) {
         .domain(data.map(function(d) {
             return d.candidate;
         }))
-        .rangeRound([0, ((width < 768) ?
-            (height + 175 + ((newdata.length - 3) * 40)) :
-            (width - margin.right))])
+        .rangeRound([0, (width - margin.right)])
         .paddingInner(0.25)
         .paddingOuter(0.25);
 
@@ -265,5 +266,8 @@ function groupedColumnTemplate(data, targetElement) {
     //      return d.negative + ":" + d.positive;
     //    });
     // axes
+
+    var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+    var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
 
 }

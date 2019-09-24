@@ -14,21 +14,30 @@ var colors = {
     political: ["#D41B2C", "#006EB5"]
 }
 
+var chartmeta = {
+    title: "Title goes here",
+    subtitle: "Subtitle goes here",
+    source: "Bureau of Labor Statistics",
+    note: "Caveat to the data"
+}
 
-d3.json('/interactive/2018/10/bubble/data/aggregated.json')
+
+d3.json('/interactive/2019/charts/data/aggregated.json')
   .then(function(data) {
 
-  columnTemplate(data, "#column");
+  columnTemplate(data, chartmeta, "#column");
 
-  groupedColumnTemplate(data, "#groupedcolumn");
+  groupedColumnTemplate(data, chartmeta, "#groupedcolumn");
 
-  lineTemplate(data, "#line");
+  lineTemplate(data, chartmeta, "#line");
 
-  multiLineTemplate(data, "#multiline");
+  multiLineTemplate(data, chartmeta, "#multiline");
 
-    barTemplate(data, "#bar");
+    barTemplate(data, chartmeta, "#bar");
 
-   groupedbarTemplate(data, "#groupedbar");
+   groupedbarTemplate(data, chartmeta, "#groupedbar");
+
+
 
 }).catch(function(error){
    // handle error

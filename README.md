@@ -1,10 +1,11 @@
-# gulp-template
-A sample gulp project that we can use as a template for local projects
+# chart-template
+A sample gulp project that we can use as a template for local projects.
+README is a work in progress.
 
 ## Setting up a Gulp project
 
 ### First time only:
-1.	Install node: https://nodejs.org/en/	
+1.	Install node: https://nodejs.org/en/
     *	check that node has been installed by opening a terminal and typing node -v. If it is installed then it will show you a version.
 2.	Install NVM (node version manager)
     *	In Terminal, paste in this command: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
@@ -66,7 +67,7 @@ IMPORTANT: Do not add your CSS inside main.css. This file gets overwritten each 
 <!--endbuild-->
 ```
 *	The exception to this is if you are adding JS libraries (such as jQuery UI) which are added in the library folder.
-*	Note that the order in which you add the references sometimes matters if one JS file depends on another to run. 
+*	Note that the order in which you add the references sometimes matters if one JS file depends on another to run.
 
 IMAGES
 *	When you add images and reference them in the HTML, JS and CSS, you will have to use the same structure as Wordpress in order for them to show up correctly on both your local machine and in Wordpress. Since we add our custom projects in the `/interactive` folder, your folder structure would have to be something like this:
@@ -74,11 +75,8 @@ IMAGES
 *	Browsersync, which is the function that automatically updates your browser, uses files from the “dist” folder, so when you add images in app/images, you need to make sure that they get built to the “dist” folder using the correct folder structure. Otherwise they won’t show up in your browser.
 *	You can tell gulp to automatically place the images in a folder with the correct folder structure by editing the images task in “gulpfile.js”. I have added a comment in the file about how to do this.
 
-When you are done writing your JS/SCSS/CSS then you need to compile it. 
+When you are done writing your JS/SCSS/CSS then you need to compile it.
 
 *	Go into Terminal and hit `CTRL + C`. This ends the gulp task.
 *	Type gulp build. This will create the /dist folder and inside it will be the compiled CSS, images and JS which you’ll use in Wordpress.
 *	When you upload files to Wordpress, you should use the ones that are compiled to the “dist” folder (e.g. dist/css/styles.min.css)
-
-
-

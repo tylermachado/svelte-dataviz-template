@@ -81,6 +81,18 @@ function barTemplate(data, chartmeta, targetElement) {
       });
   });
 
-  var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
-  var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
+      // text label for the x axis
+    svg.append("text")
+      .attr("transform",
+            "translate(" + (width/2) + " ," +
+                           (height + margin.top + 15) + ")")
+      .style("text-anchor", "middle")
+      .text("Horizontal Label");
+
+    if (chartmeta.source) {
+    d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+    }
+    if (chartmeta.note) {
+    d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
+    }
 }

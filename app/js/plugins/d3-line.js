@@ -128,7 +128,30 @@ function lineTemplate(data, chartmeta, targetElement) {
             // tooltip.hide();
           });
 
-          var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
-          var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
+          // text label for the x axis
+        svg.append("text")
+          .attr("transform",
+                "translate(" + (width/2) + " ," +
+                               (height + margin.top + 15) + ")")
+          .style("text-anchor", "middle")
+          .text("Horizontal Label");
+
+          // text label for the y axis
+        svg.append("text")
+        .attr("class", "axislabel")
+        .attr("transform", "rotate(-90)")
+        .attr("dy", "1em")
+        .attr("y", 0 - margin.left)
+        .attr("x",0 - (height / 2))
+        .style("text-anchor", "middle")
+        .text("Vertical Label");
+
+        if (chartmeta.source) {
+        d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+        }
+        if (chartmeta.note) {
+        d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
+        }
+
 
 }

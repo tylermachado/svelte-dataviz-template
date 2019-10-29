@@ -16,7 +16,7 @@ function groupedColumnTemplate(data, chartmeta, targetElement) {
         .domain(data.map(function(d) {
             return d.candidate;
         }))
-        .rangeRound([0, (width - margin.right)])
+        .rangeRound([0, (width - margin.right - margin.left)])
         .paddingInner(0.25)
         .paddingOuter(0.25);
 
@@ -64,7 +64,7 @@ function groupedColumnTemplate(data, chartmeta, targetElement) {
 
     // create container SVG
     var svg = d3.select(targetElement).append("svg")
-        .attr("width", width + margin.left + margin.right)
+        .attr("width", width)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
@@ -207,67 +207,29 @@ function groupedColumnTemplate(data, chartmeta, targetElement) {
             // console.log(d);
 
           });
-        // .selectAll(".bar")
-        // .data(data)
-        // .join("g")
-        // .attr("transform", function(d) { return 'translate(' + xGrouping(d.candidate) + ',0)'; })
-        // .attr("class", function(d) {return d.candidate;})
-        // .on('mouseover, mousemove', function (d) {
-        //     var target = d3.select(targetElement + ' .tiptarget')
-        //         .attr('cx', d3.event.offsetX - 45)
-        //         .attr('cy', d3.event.offsetY - 45) // 5 pixels above the cursor
-        //         .node();
-        //     tooltip.show(d, target);
-        //
-        // })
-        // .on('mouseout', function(d){
-        //   tooltip.hide();
-        // })
-        // .on('mouseout', tooltip.hide)
-        // .selectAll("rect")
-        // .data(function(d) {
-        //     console.log(d3.entries(d).filter(function(dd) {
-        //         return dd.key == "negative" || dd.key == "positive";
-        //     }));
-        //     return d3.entries(d).filter(function(dd) {
-        //         return dd.key == "negative" || dd.key == "positive";
-        //     });
-        // })
-        // .join("rect")
-        // .attr("x", function(d) {
-        //     return xBar(d.key);
-        // })
-        // .attr("y", function(d) {
-        //     return y(d.value);
-        // })
-        // .attr("width", xBar.bandwidth())
-        // .attr("height", function(d) {
-        //     return y(0) - y(d.value);
-        // })
-        // .attr("fill",
-        //     function(d) {
-        //         return colorscale(d.key);
-        //     });
+          // text label for the x axis
+      svg.append("text")
+          .attr("transform",
+                "translate(" + (width/2) + " ," +
+                               (height + margin.top + 15) + ")")
+          .style("text-anchor", "middle")
+          .text("Horizontal Label");
 
+          // text label for the y axis
+      svg.append("text")
+        .attr("class", "axislabel")
+        .attr("transform", "rotate(-90)")
+        .attr("dy", "1em")
+        .attr("y", 0 - margin.left)
+        .attr("x",0 - (height / 2))
+        .style("text-anchor", "middle")
+        .text("Vertical Label");
 
-    // svg.selectAll(".text")
-    //    .data(data)
-    //    .enter()
-    //    .append("text")
-    //    .attr("class", "label")
-    //    .attr("fill", "#000")
-    //    .attr("x", function(d,i){
-    //      return xBar(d.candidate) + (xBar.bandwidth()/2 - 10);
-    //    })
-    //    .attr("y", function(d){
-    //      return y(d) + 25;
-    //    })
-    //    .text(function(d, i){
-    //      return d.negative + ":" + d.positive;
-    //    });
-    // axes
-
-    var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
-    var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
+    if (chartmeta.source) {
+        d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+    }
+    if (chartmeta.note) {
+        d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
+    }
 
 }

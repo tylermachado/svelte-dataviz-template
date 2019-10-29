@@ -1,4 +1,4 @@
-var margin = {top:25, right:0, bottom:25, left:25};
+var margin = {top:25, right:0, bottom:40, left:40};
 
 // var colors = {
 //     bold: ["#d51e2d", "#52CFE5", "#385775", "#FFBF3D", "#6f2b6e", "#00CFB5"],

@@ -1,4 +1,4 @@
-var margin = {top:25, right:0, bottom:25, left:25};
+var margin = {top:25, right:0, bottom:40, left:40};
 
 // var colors = {
 //     bold: ["#d51e2d", "#52CFE5", "#385775", "#FFBF3D", "#6f2b6e", "#00CFB5"],
@@ -161,7 +161,7 @@ function columnTemplate(data, chartmeta, targetElement) {
 
     // create container SVG
     var svg = d3.select(targetElement).append("svg")
-        .attr("width", width + margin.left + margin.right)
+        .attr("width", width)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
@@ -235,6 +235,7 @@ function columnTemplate(data, chartmeta, targetElement) {
          });
      });
 
+        // label for each data points
      svg.selectAll(".text")
         .data(data)
         .enter()
@@ -242,39 +243,41 @@ function columnTemplate(data, chartmeta, targetElement) {
         .attr("class", "label")
         .attr("fill", "#e6e6e6")
         .attr("x", function(d,i){
-            return x(d.candidate) + (x.bandwidth()/2 - 10);
-            // return i * (width/data.length);
+            return x(d.candidate) + (x.bandwidth()/2);
         })
         .attr("y", function(d){
              return y(d.positive) + 25;
-            // height - (d * 4);
         })
-        // .attr("dy", ".75em")
+        .attr("text-anchor", "middle")
         .text(function(d){
             return d.positive;
         });
 
+        // text label for the x axis
+    svg.append("text")
+        .attr("transform",
+              "translate(" + (width/2) + " ," +
+                             (height + margin.top + 15) + ")")
+        .style("text-anchor", "middle")
+        .text("Horizontal Label");
+
+        // text label for the y axis
+    svg.append("text")
+      .attr("class", "axislabel")
+      .attr("transform", "rotate(-90)")
+      .attr("dy", "1em")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .style("text-anchor", "middle")
+      .text("Vertical Label");
 
 
-    // svg.append("text")
-    //     .attr("class", "label")
-    //     .attr("y", function(d){
-    //         return y(d.positive) + 3;
-    //     })
-    //     .text(function(d){
-    //         return d.positive;
-    //     });
-    // add the x Axis
-    // svg.append("g")
-    //     .attr("transform", "translate(0," + height + ")")
-    //     .call(d3.axisBottom(x));
-
-    // add the y Axis
-    // svg.append("g")
-    //     .call(d3.axisLeft(y));
-
-    var source = d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
-    var note = d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
+    if (chartmeta.source) {
+        d3.select(targetElement).append("h6").html("<b>SOURCE:</b> " + chartmeta.source);
+    }
+    if (chartmeta.note) {
+        d3.select(targetElement).append("h6").html("<b>NOTE:</b> " + chartmeta.note);
+    }
 }
 
 function donutTemplate(data, chartmeta, targetElement) {

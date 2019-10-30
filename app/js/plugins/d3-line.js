@@ -134,7 +134,7 @@ function lineTemplate(data, chartmeta, targetElement) {
                 "translate(" + (width/2) + " ," +
                                (height + margin.top + 15) + ")")
           .style("text-anchor", "middle")
-          .text("Horizontal Label");
+          .text("Label");
 
           // text label for the y axis
         svg.append("text")

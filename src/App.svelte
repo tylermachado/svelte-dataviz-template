@@ -1,41 +1,21 @@
 <script>
-	import { onMount } from 'svelte';
-	import * as d3 from 'd3';
+	import BarChart from './BarChart.svelte';
 
-	let el;
 
-	onMount(() => {
-		d3.csv("/datasets/popdensity.csv")
-		.then(function(data) {
-			data.sort(function (a, b) {
-			  return b["Density"] - a["Density"];
-			});
-
-			d3.select(el)
-				.selectAll("div")
-				.data(data)
-				.enter()
-				.append("div")
-				.style("width", function(d) {
-					return (+d["Density"] * 30) + "px";
-				})
-				.text(function(d) {
-					return d["City"];
-				});
-		});
-	});
-
+	var data = [30, 86, 168, 281, 100, 77];
 </script>
 
 <style>
-	.chart :global(div) {
-		font: 10px sans-serif;
-		background-color: steelblue;
-		text-align: right;
-		padding: 3px;
-		margin: 1px;
-		color: white;
+	.chart {
+		width: 100%;
+		max-width: 640px;
+		height: calc(100% - 4em);
+		min-height: 280px;
+		max-height: 480px;
+		margin: 0 auto;
 	}
 </style>
 
-<div bind:this={el} class="chart"></div>
+<div class="chart">
+	<BarChart data={data}/>
+</div>

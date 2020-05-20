@@ -1,47 +1,21 @@
 {
-  "name": "sustainabilityinteractive",
+  "name": "svelte-app",
   "version": "1.0.0",
-  "description": "A sample gulp project that we can use as a template for local projects",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.23.6",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.1.0",
-    "gulp-cache": "^1.0.2",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-csvtojson": "^0.2.0",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-strip-comments": "^2.5.2",
-    "gulp-uglify": "^3.0.0",
-    "gulp-useref": "^3.1.4",
-    "run-sequence": "^2.2.1"
+    "@rollup/plugin-commonjs": "11.0.2",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "rollup": "^1.20.0",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.1.2",
+    "svelte": "^3.0.0"
   },
   "dependencies": {
-    "csvtojson": "^2.0.8",
-    "gulp-compress": "0.0.9",
-    "gulp-concat": "^2.6.1",
-    "gulp-file-include": "^2.0.1",
-    "gulp-html-beautify": "^1.0.1",
-    "gulp-htmlmin": "^4.0.0",
-    "gulp-notify": "^3.2.0",
-    "gulp-rename": "^1.2.2",
-    "package.json": "^2.0.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/News-at-Northeastern/gulp-template.git"
-  },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/News-at-Northeastern/gulp-template/issues"
-  },
-  "homepage": "https://github.com/News-at-Northeastern/gulp-template#readme"
+    "sirv-cli": "^0.4.4"
+  }
 }

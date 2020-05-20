@@ -1,10 +1,7 @@
 import App from './App.svelte';
 
 const app = new App({
-	target: document.getElementById('interactive'),
-	props: {
-		name: 'world'
-	}
+	target: document.getElementById('interactive')
 });
 
 export default app;

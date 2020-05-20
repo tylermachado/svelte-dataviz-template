@@ -34,10 +34,9 @@
 	}
 </style>
 
-<div class="chart">
-	{#if chartdata}
-		<Scatter data={chartdata}/>
-	{:else}
-		<p>Loading</p>
-	{/if}
-</div>
+
+{#if chartdata}
+	<Scatter data={chartdata}/>
+{:else}
+	<p>Loading</p>
+{/if}

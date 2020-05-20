@@ -16,7 +16,7 @@
 	const padding = { top: 20, right: 40, bottom: 40, left: 25 };
 
 	$: xScale = d3.scaleLinear()
-		.domain([200000, Math.max.apply(Math, data.map(function(o) { return o["City Population"]; }))])
+		.domain([100000, Math.max.apply(Math, data.map(function(o) { return o["City Population"]; }))])
 		.range([0, width]);
 
 	$: yScale = d3.scaleLinear()
@@ -38,8 +38,6 @@
 	onMount(generateScatter);
 
 	function generateScatter() {
-		console.log(data);
-
 		var svg = d3.select(el)
 			.append("svg")
 			.attr("width", width + padding.left + padding.right)

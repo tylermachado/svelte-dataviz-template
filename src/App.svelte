@@ -6,13 +6,6 @@
 
 	export let chartdata;
 
-	async function update() {
-	   chartdata = [...chartdata,
-			{"City Population": 30500, "Parkland per 1,000 Residents": 4.5}
-		];
-		console.log(chartdata)
-   }
-
 	onMount(async () => {
    	const res = await d3.csv("datasets/parklandper1000.csv")
 		.then(function(data) {
@@ -21,6 +14,7 @@
 					d["City Population"] = +d["City Population"];
 	 		      d["Parkland per 1,000 Residents"] = +d["Parkland per 1,000 Residents"];
 				} else {
+					console.log(d);
 					d["City Population"] = +d["City Population"];
 	 		      d["Parkland per 1,000 Residents"] = 0;
 				}
@@ -31,11 +25,6 @@
 
 	   chartdata = await res;
    });
-
-
-
-
-
 
 </script>
 

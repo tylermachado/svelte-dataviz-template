@@ -3,6 +3,7 @@
 	import * as d3 from 'd3';
 	import BarChart from './BarChart.svelte';
 	import Scatter from './Scatter.svelte';
+	import MapUSA from './MapUSA.svelte';
 
 	export let chartdata;
 
@@ -34,9 +35,11 @@
 	}
 </style>
 
-
+<MapUSA/>
 {#if chartdata}
-	<Scatter data={chartdata}/>
+	<Scatter
+		data={chartdata}
+	/>
 {:else}
 	<p>Loading</p>
 {/if}

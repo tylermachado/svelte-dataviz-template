@@ -13,7 +13,7 @@
 	let width = 500;
 	let height = 600;
 
-	const padding = { top: 20, right: 40, bottom: 40, left: 25 };
+	const padding = { top: 20, right: 40, bottom: 40, left: 35 };
 
 	$: xScale = d3.scaleLinear()
 		.domain([100000, Math.max.apply(Math, data.map(function(o) { return o["City Population"]; }))])

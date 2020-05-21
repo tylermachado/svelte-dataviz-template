@@ -1,12 +1,11 @@
 <script>
-  import { geoAlbers, geoPath } from "d3-geo";
+  import { geoAlbersUsa, geoPath } from "d3-geo";
   	import * as d3 from 'd3';
   import { onMount } from "svelte";
   import { feature } from "topojson";
-   import { cities } from "./cities";
    export let citylist;
   let data;
-  const projection = geoAlbers();
+  const projection = geoAlbersUsa();
   const path = geoPath().projection(projection);
 
 onMount(async function() {
@@ -37,7 +36,6 @@ onMount(async function() {
 
    citylist = await citylistres;
    console.log(citylist);
-   console.log(cities);
 });
 </script>
 
@@ -60,7 +58,7 @@ onMount(async function() {
           class="city"
           cx={projection([city.lon, city.lat])[0]}
           cy={projection([city.lon, city.lat])[1]}
-          r="15"
+          r={city.city.length}
           opacity="0.5"
           fill="#888888"
           stroke="#000000" />

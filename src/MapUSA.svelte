@@ -3,6 +3,7 @@
   	import * as d3 from 'd3';
   import { onMount } from "svelte";
   import { feature } from "topojson";
+    import { join } from "./join.js";
    export let citylist;
   let data;
   const projection = geoAlbersUsa();
@@ -16,26 +17,28 @@ onMount(async function() {
    const land = feature(json, json.objects.land);
    data = path(land);
 
-   const citylistres = await d3.csv("datasets/citylist.csv")
+   const files = await Promise.all([
+      d3.csv("datasets/citylist.csv"),
+      d3.csv("datasets/popdensity.csv")
+   ])
    .then(function(data) {
-      // data.forEach(function(d) {
-      //    if (!isNaN(+d["Parkland per 1,000 Residents"])) {
-      //       d["City Population"] = +d["City Population"];
-      //       d["Parkland per 1,000 Residents"] = +d["Parkland per 1,000 Residents"];
-      //    } else {
-      //       console.log(d);
-      //       d["City Population"] = +d["City Population"];
-      //       d["Parkland per 1,000 Residents"] = 0;
-      //    }
-      //
-      // });
+      console.log(data)
+      var result = join(data[1], data[0], "City", "city", function(cityloc, dens) {
+          return {
+              city: cityloc.city,
+              lat: +cityloc.lat,
+              lon: +cityloc.lon,
+              population: parseFloat((dens["City Population"]).replace(/,/g, '')),
+              density: +dens["Density"]
+              // brand: (brand !== undefined) ? brand.name : null
+          };
+      });
+      console.log(result);
 
-
-      return data;
+      return result;
    });
 
-   citylist = await citylistres;
-   console.log(citylist);
+   citylist = await files;
 });
 </script>
 
@@ -46,7 +49,7 @@ onMount(async function() {
   }
   .border {
     stroke: #444444;
-    fill: #cccccc;
+    fill: #eee;
   }
 </style>
 
@@ -58,7 +61,7 @@ onMount(async function() {
           class="city"
           cx={projection([city.lon, city.lat])[0]}
           cy={projection([city.lon, city.lat])[1]}
-          r={city.city.length}
+          r={city.density}
           opacity="0.5"
           fill="#888888"
           stroke="#000000" />

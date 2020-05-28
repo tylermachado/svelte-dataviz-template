@@ -1,9 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
 	import * as d3 from 'd3';
-	import BarChart from './BarChart.svelte';
-	import Scatter from './Scatter.svelte';
-	import MapUSA from './MapUSA.svelte';
+	import BarChart from './charts/BarChart.svelte';
+	import Scatter from './charts/Scatter.svelte';
+	import MapUSA from './charts/MapUSA.svelte';
 
 	export let chartdata;
 

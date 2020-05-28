@@ -1,12 +1,11 @@
 <script>
+   import { onMount } from "svelte";
    import { geoAlbersUsa, geoPath } from "d3-geo";
    import * as d3 from 'd3';
    import * as d3legend from 'd3-svg-legend';
-   import { onMount } from "svelte";
    import { feature } from "topojson";
-   import { join } from "./join.js";
-   import HoverCard from "./HoverCard.svelte"
-    import SvelteTooltip from 'svelte-tooltip';
+   import { join } from "../helpers/join.js";
+   import HoverCard from "../components/HoverCard.svelte"
 
     export let active = {
       city: "test",

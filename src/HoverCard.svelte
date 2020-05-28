@@ -1,15 +1,20 @@
 <script>
 	import { onMount } from 'svelte';
 	import * as d3 from 'd3';
+
+	export let city;
+	export let population;
+	export let acres;
+	export let walkablepct;
 </script>
 
 <style>
-	#map-tooltip {
+	#hover-card {
 		background-color:white;
 		border:1px solid black;
 		border-radius: 4px;
 		padding:10px;
-		display:inline-block;
+		display:none;
 	}
 
 	h4 {
@@ -24,7 +29,7 @@
 	}
 
 	span.value {
-		font-size:1.3rem;
+		font-size:1.2rem;
 		font-weight: 700;
 		color: darkgreen;
 		display:block;
@@ -33,9 +38,9 @@
 
 </style>
 
-<div id="map-tooltip">
-	<h4>Boston, MA</h4>
-	<div class="infocell">City Population: <span class="value">674913</span></div>
-	<div class="infocell">Acres of Parkland: <span class="value">5072</span></div>
-	<div class="infocell">Percent of Residents within Half-Mile Walk of Park: <span class="value">100%</span></div>
+<div id="hover-card">
+	<h4>{city}</h4>
+	<div class="infocell">City Population: <span class="value">{(population).toLocaleString()}</span></div>
+	<div class="infocell">Acres of Parkland: <span class="value">{(acres).toLocaleString()}</span></div>
+	<div class="infocell">Residents within Half-Mile of Park: <span class="value">{walkablepct}%</span></div>
 </div>

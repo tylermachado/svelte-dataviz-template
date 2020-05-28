@@ -7,14 +7,20 @@
    import HoverCard from "./HoverCard.svelte"
     import SvelteTooltip from 'svelte-tooltip';
 
+    export let active = {
+      city: "test",
+      acres: 11056,
+      population:678933,
+      walkablepct: "50%"
+   };
    export let citylist;
    let data;
 
    const projection = geoAlbersUsa();
    const path = geoPath().projection(projection);
 
-   let radiusScale = d3.scaleLog()
-   .range([2, 50]);
+   let radiusScale = d3.scaleSqrt()
+   .range([5,50]);
    let radiusVariable = "population"
 
    let colorScale = d3.scaleSequential()
@@ -22,9 +28,9 @@
    let colorVariable = "walkablepct"
 
    function handleMouseover(city, event) {
-      console.log(event.clientY)
+      active = city;
 
-      d3.select('#map-tooltip')
+      d3.select('#hover-card')
          .style('display',    'block')
          .style('position',   'absolute')
          .style('top',        (event.clientY + 10) + "px")
@@ -32,7 +38,8 @@
    }
 
    function handleMouseout(city, event) {
-      d3.select('#map-tooltip')
+      console.log("out")
+      d3.select('#hover-card')
          .style('display',    'none')
    }
 
@@ -121,11 +128,11 @@
          opacity="0.8"
          fill={colorScale(city[colorVariable])}
          stroke="#000000"
-         on:mousemove={handleMouseover(city.city, event)}
-         on:mouseout={handleMouseout(city.city, event)}
+         on:mousemove={handleMouseover(city, event)}
+         on:mouseout={handleMouseout(city, event)}
       />
    {/each}
    {/if}
 </svg>
 
-<HoverCard />
+<HoverCard city={active.city} population={active.population} acres={active.acres} walkablepct={active.walkablepct}  />

@@ -42,5 +42,9 @@
 	<h4>{city}</h4>
 	<div class="infocell">City Population: <span class="value">{(population).toLocaleString()}</span></div>
 	<div class="infocell">Acres of Parkland: <span class="value">{(acres).toLocaleString()}</span></div>
-	<div class="infocell">Residents within Half-Mile of Park: <span class="value">{walkablepct}%</span></div>
+	<div class="infocell">Residents within Half-Mile of Park: <span class="value">{
+		isNaN(walkablepct) ?
+		"N/A" :
+		walkablepct + "%"
+	}</span></div>
 </div>

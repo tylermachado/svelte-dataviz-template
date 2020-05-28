@@ -36,10 +36,10 @@
 </style>
 
 <MapUSA/>
-{#if chartdata}
+<!-- {#if chartdata}
 	<Scatter
 		data={chartdata}
 	/>
 {:else}
 	<p>Loading</p>
-{/if}
+{/if} -->

@@ -1,6 +1,7 @@
 <script>
    import { geoAlbersUsa, geoPath } from "d3-geo";
    import * as d3 from 'd3';
+   import * as d3legend from 'd3-svg-legend';
    import { onMount } from "svelte";
    import { feature } from "topojson";
    import { join } from "./join.js";
@@ -15,6 +16,8 @@
    };
    export let citylist;
    let data;
+   let legendSizeDiv;
+   let legendColor;
 
    const projection = geoAlbersUsa();
    const path = geoPath().projection(projection);
@@ -24,8 +27,54 @@
    let radiusVariable = "population"
 
    let colorScale = d3.scaleSequential()
-      .interpolator(d3.interpolateBuGn);
+      .interpolator(d3.interpolateYlGn);
    let colorVariable = "walkablepct"
+
+   function buildLegend() {
+      var svgdiv = d3.select(legendSizeDiv);
+
+      var svg = svgdiv.append("svg")
+         .attr("width","1200px")
+
+      svg.append("g")
+        .attr("class", "legendSize")
+        .attr("transform", "translate(20, 40)");
+
+      var legendSize = d3legend.legendSize()
+        .scale(radiusScale)
+        .shape('circle')
+        .shapePadding(100)
+        .labelOffset(20)
+        .orient('horizontal');
+
+      svg.select(".legendSize")
+        .call(legendSize);
+   }
+
+   function buildLegendColors() {
+      var legendColorDiv = d3.select(legendColor);
+
+      var svg = legendColorDiv.append("svg")
+         .attr("width","1200px")
+
+      svg.append("g")
+        .attr("class", "legendColor")
+        .attr("transform", "translate(20, 20)");
+
+        var legendSequential = d3legend.legendColor()
+            .classPrefix('circle')
+           .shapeWidth(30)
+           .shapePadding(15)
+           .shape('circle')
+           .cells(10)
+           .orient("horizontal")
+           .scale(colorScale)
+           .labelFormat(d3.format(".0f"))
+           .title("Percent of Residents within Half-Mile Walk to Park (Sized by City Population)")
+
+       svg.select(".legendColor")
+         .call(legendSequential);
+   }
 
    function handleMouseover(city, event) {
       active = city;
@@ -38,7 +87,6 @@
    }
 
    function handleMouseout(city, event) {
-      console.log("out")
       d3.select('#hover-card')
          .style('display',    'none')
    }
@@ -81,20 +129,27 @@
            return b.population - a.population;
          });
 
-         if (colorVariable == "walkablepct") {
-            combodata = combodata.filter(d => {
-               return !isNaN(d.walkablepct);
-            })
-         }
+         // if (colorVariable == "walkablepct") {
+         //    combodata = combodata.filter(d => {
+         //       return !isNaN(d.walkablepct);
+         //    })
+         // }
          radiusScale.domain(
             [Math.min.apply(Math, combodata.map(function(o) { return o[radiusVariable]; })),
             Math.max.apply(Math, combodata.map(function(o) { return o[radiusVariable]; }))]
          )
 
          colorScale.domain(
-            [Math.min.apply(Math, combodata.map(function(o) { return o[colorVariable]; })),
-            Math.max.apply(Math, combodata.map(function(o) { return o[colorVariable]; }))]
+            [Math.min.apply(Math, combodata.filter(d => {
+               return !isNaN(d.walkablepct);
+            }).map(function(o) { return o[colorVariable]; })),
+            Math.max.apply(Math, combodata.filter(d => {
+               return !isNaN(d.walkablepct);
+            }).map(function(o) { return o[colorVariable]; }))]
          )
+
+         buildLegend();
+         buildLegendColors();
 
          return combodata;
       });
@@ -112,7 +167,12 @@
    }
    .border {
       stroke: #444444;
-      fill: #eee;
+      fill: #e9e9e9;
+   }
+
+   circle.circle {
+      opacity: 0.8;
+      stroke: #000000;
    }
 </style>
 
@@ -121,13 +181,15 @@
    {#if citylist}
    {#each citylist as city}
       <circle
-         class="city"
+         class="city circle"
          cx={projection([city.lon, city.lat])[0]}
          cy={projection([city.lon, city.lat])[1]}
          r={radiusScale(city[radiusVariable])}
-         opacity="0.8"
-         fill={colorScale(city[colorVariable])}
-         stroke="#000000"
+         fill={
+            (!isNaN(city[colorVariable])) ?
+            colorScale(city[colorVariable]) :
+            '#e9e9e9'
+         }
          on:mousemove={handleMouseover(city, event)}
          on:mouseout={handleMouseout(city, event)}
       />
@@ -135,4 +197,12 @@
    {/if}
 </svg>
 
-<HoverCard city={active.city} population={active.population} acres={active.acres} walkablepct={active.walkablepct}  />
+<!-- <div bind:this={legendSizeDiv}></div> -->
+<div bind:this={legendColor}></div>
+
+<HoverCard
+   city={active.city}
+   population={active.population}
+   acres={active.acres}
+   walkablepct={active.walkablepct}
+/>

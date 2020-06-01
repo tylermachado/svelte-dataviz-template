@@ -6,14 +6,20 @@
    import { feature } from "topojson";
    import { join } from "../helpers/join.js";
    import HoverCard from "../components/HoverCard.svelte"
+   import SvelteTable from "svelte-table"
 
-    export let active = {
+
+
+
+   export let active = {
       city: "test",
       acres: 11056,
       population:678933,
       walkablepct: "50%"
    };
    export let citylist;
+
+
    let data;
    let legendSizeDiv;
    let legendColor;
@@ -26,68 +32,68 @@
    let radiusVariable = "population"
 
    let colorScale = d3.scaleSequential()
-      .interpolator(d3.interpolateYlGn);
+   .interpolator(d3.interpolateYlGn);
    let colorVariable = "walkablepct"
 
    function buildLegend() {
       var svgdiv = d3.select(legendSizeDiv);
 
       var svg = svgdiv.append("svg")
-         .attr("width","1200px")
+      .attr("width","1200px")
 
       svg.append("g")
-        .attr("class", "legendSize")
-        .attr("transform", "translate(20, 40)");
+      .attr("class", "legendSize")
+      .attr("transform", "translate(20, 40)");
 
       var legendSize = d3legend.legendSize()
-        .scale(radiusScale)
-        .shape('circle')
-        .shapePadding(100)
-        .labelOffset(20)
-        .orient('horizontal');
+      .scale(radiusScale)
+      .shape('circle')
+      .shapePadding(100)
+      .labelOffset(20)
+      .orient('horizontal');
 
       svg.select(".legendSize")
-        .call(legendSize);
+      .call(legendSize);
    }
 
    function buildLegendColors() {
       var legendColorDiv = d3.select(legendColor);
 
       var svg = legendColorDiv.append("svg")
-         .attr("width","1200px")
+      .attr("width","1200px")
 
       svg.append("g")
-        .attr("class", "legendColor")
-        .attr("transform", "translate(20, 20)");
+      .attr("class", "legendColor")
+      .attr("transform", "translate(20, 20)");
 
-        var legendSequential = d3legend.legendColor()
-            .classPrefix('circle')
-           .shapeWidth(30)
-           .shapePadding(15)
-           .shape('circle')
-           .cells(10)
-           .orient("horizontal")
-           .scale(colorScale)
-           .labelFormat(d3.format(".0f"))
-           .title("Percent of Residents within Half-Mile Walk to Park (Sized by City Population)")
+      var legendSequential = d3legend.legendColor()
+      .classPrefix('circle')
+      .shapeWidth(30)
+      .shapePadding(15)
+      .shape('circle')
+      .cells(10)
+      .orient("horizontal")
+      .scale(colorScale)
+      .labelFormat(d3.format(".0f"))
+      .title("Percent of Residents within Half-Mile Walk to Park (Sized by City Population)")
 
-       svg.select(".legendColor")
-         .call(legendSequential);
+      svg.select(".legendColor")
+      .call(legendSequential);
    }
 
    function handleMouseover(city, event) {
       active = city;
 
       d3.select('#hover-card')
-         .style('display',    'block')
-         .style('position',   'absolute')
-         .style('top',        (event.clientY + 10) + "px")
-         .style('left',       (event.clientX - 150) + "px")
+      .style('display',    'block')
+      .style('position',   'absolute')
+      .style('top',        (event.clientY + 10) + "px")
+      .style('left',       (event.clientX - 150) + "px")
    }
 
    function handleMouseout(city, event) {
       d3.select('#hover-card')
-         .style('display',    'none')
+      .style('display',    'none')
    }
 
 
@@ -109,23 +115,23 @@
          var combodata = join(data[1], data[0], "City", "city", function(cityloc, dens) {
             let walkablepct = parseFloat((dens["Percent of Residents within Half-Mile Walk of Park"]).replace(/%/g, ''));
 
-               return {
-                  city: cityloc.city,
-                  lat: +cityloc.lat,
-                  lon: +cityloc.lon,
-                  population: parseFloat((dens["City Population"]).replace(/,/g, '')),
-                  landarea: parseFloat((dens["Land Area"]).replace(/,/g, '')),
-                  revisedarea: parseFloat((dens["Revised Area"]).replace(/,/g, '')),
-                  density: +dens["Density"],
-                  walkablepct: parseFloat((dens["Percent of Residents within Half-Mile Walk of Park"]).replace(/%/g, '')),
-                  acres: +dens["Acres of Parkland"],
-                  acresper1000: +dens["Parkland per 1,000 Residents"]
-               }
+            return {
+               city: cityloc.city,
+               lat: +cityloc.lat,
+               lon: +cityloc.lon,
+               population: parseFloat((dens["City Population"]).replace(/,/g, '')),
+               landarea: parseFloat((dens["Land Area"]).replace(/,/g, '')),
+               revisedarea: parseFloat((dens["Revised Area"]).replace(/,/g, '')),
+               density: +dens["Density"],
+               walkablepct: parseFloat((dens["Percent of Residents within Half-Mile Walk of Park"]).replace(/%/g, '')),
+               acres: +dens["Acres of Parkland"],
+               acresper1000: +dens["Parkland per 1,000 Residents"]
+            }
 
          });
 
          combodata.sort(function (a, b) {
-           return b.population - a.population;
+            return b.population - a.population;
          });
 
          // if (colorVariable == "walkablepct") {
@@ -134,27 +140,118 @@
          //    })
          // }
          radiusScale.domain(
-            [Math.min.apply(Math, combodata.map(function(o) { return o[radiusVariable]; })),
-            Math.max.apply(Math, combodata.map(function(o) { return o[radiusVariable]; }))]
+         [Math.min.apply(Math, combodata.map(function(o) { return o[radiusVariable]; })),
+         Math.max.apply(Math, combodata.map(function(o) { return o[radiusVariable]; }))]
          )
 
          colorScale.domain(
-            [Math.min.apply(Math, combodata.filter(d => {
-               return !isNaN(d.walkablepct);
-            }).map(function(o) { return o[colorVariable]; })),
-            Math.max.apply(Math, combodata.filter(d => {
-               return !isNaN(d.walkablepct);
-            }).map(function(o) { return o[colorVariable]; }))]
+         [Math.min.apply(Math, combodata.filter(d => {
+            return !isNaN(d.walkablepct);
+         }).map(function(o) { return o[colorVariable]; })),
+         Math.max.apply(Math, combodata.filter(d => {
+            return !isNaN(d.walkablepct);
+         }).map(function(o) { return o[colorVariable]; }))]
          )
 
          buildLegend();
          buildLegendColors();
 
-         return combodata;
+         const columns =  [
+         {
+            key: "city",
+            title: "City",
+            value: v => v.city,
+            sortable: true,
+            // filterOptions: rows => {
+            //    let states = [];
+            //    rows.forEach(row => {
+            //       let state = row.city.split(", ")[1]
+            //       // console.log(states.indexOf(state))
+            //       if (states.indexOf(state) < 0) {
+            //          states.push(state)
+            //       }
+            //    })
+            //    console.log(states)
+            //    return states;
+            // },
+            // filterOptions: ["NY", "CA", "IL", "TX", "AZ", "PA", "NC", "HI", "FL", "OH", "IN", "CO", "WA", "DC", "TN", "MA", "MI", "OR", "NV", "KY", "MD", "WI", "NM", "OK", "MO", "GA", "VA", "NE", "MN", "KS", "LA", "AK", "NJ", "ID", "IA"],
+            filterOptions: rows => {
+               // use first letter of last_name to generate filter
+               let letrs = {};
+               rows.forEach(row => {
+                 let letr = row.city.split(", ")[1];
+                 if (letrs[letr] === undefined)
+                   letrs[letr] = {
+                     name: `${letr.toUpperCase()}`,
+                     value: letr.toUpperCase()
+                   };
+               });
+               // fix order
+               letrs = Object.entries(letrs)
+                 .sort()
+                 .reduce((o, [k, v]) => ((o[k] = v), o), {});
+               return Object.values(letrs);
+             },
+            filterValue: v => v.city.split(", ")[1],
+            headerClass: "text-left"
+         },
+         {
+            key: "population",
+            title: "Population",
+            value: v => v.population,
+            renderValue: v => v.population.toLocaleString('en-US'),
+            sortable: true,
+            headerClass: "text-left"
+         },
+         {
+            key: "density",
+            title: "Population Density",
+            value: v => v.density,
+            renderValue: v => v.density.toLocaleString('en-US'),
+            sortable: true,
+            headerClass: "text-left"
+         },
+         {
+            key: "acresper1000",
+            title: "Acres of Parkland Per 1000 Residents",
+            value: v => v.acresper1000,
+            renderValue: v => v.acresper1000.toLocaleString('en-US'),
+            sortable: true,
+            headerClass: "text-left"
+         },
+         {
+            key: "walkablepct",
+            title: "Percent of Residents within Half-Mile of Park",
+            value: function(v) {
+               if (isNaN(v.walkablepct)) {
+                  return "not available"
+               } else {
+                  return v.walkablepct
+               }
+            },
+            renderValue: function(v) {
+               if (isNaN(v.walkablepct)) {
+                  return "not available"
+               } else {
+                  return v.walkablepct + "%"
+               }
+            },
+            sortable: true,
+            headerClass: "text-left"
+         },
+         ];
+
+
+
+
+         console.log([combodata, columns])
+
+         return [combodata, columns];
+
+
       });
 
       citylist = await files;
-
 
    });
 </script>
@@ -178,20 +275,20 @@
 <svg width="960" height="500">
    <path d={data} class="border" />
    {#if citylist}
-   {#each citylist as city}
-      <circle
-         class="city circle"
-         cx={projection([city.lon, city.lat])[0]}
-         cy={projection([city.lon, city.lat])[1]}
-         r={radiusScale(city[radiusVariable])}
-         fill={
-            (!isNaN(city[colorVariable])) ?
-            colorScale(city[colorVariable]) :
-            '#e9e9e9'
-         }
-         on:mousemove={handleMouseover(city, event)}
-         on:mouseout={handleMouseout(city, event)}
-      />
+   {#each citylist[0] as city}
+   <circle
+   class="city circle"
+   cx={projection([city.lon, city.lat])[0]}
+   cy={projection([city.lon, city.lat])[1]}
+   r={radiusScale(city[radiusVariable])}
+   fill={
+      (!isNaN(city[colorVariable])) ?
+      colorScale(city[colorVariable]) :
+      '#e9e9e9'
+   }
+   on:mousemove={handleMouseover(city, event)}
+   on:mouseout={handleMouseout(city, event)}
+   />
    {/each}
    {/if}
 </svg>
@@ -200,8 +297,12 @@
 <div bind:this={legendColor}></div>
 
 <HoverCard
-   city={active.city}
-   population={active.population}
-   acres={active.acres}
-   walkablepct={active.walkablepct}
+city={active.city}
+population={active.population}
+acres={active.acres}
+walkablepct={active.walkablepct}
 />
+
+{#if citylist}
+<SvelteTable columns={citylist[1]} rows={citylist[0]} sortBy={"population"} sortOrder={-1} classNameCell={"tablecell"}></SvelteTable>
+{/if}

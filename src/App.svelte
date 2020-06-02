@@ -6,8 +6,11 @@
 	import MapUSA from './charts/MapUSA.svelte';
 
 	export let chartdata;
+	export let width = document.getElementById('interactive').getBoundingClientRect().width;
+	export let height = Math.round(width*0.7);
 
 	onMount(async () => {
+
    	const res = await d3.csv("datasets/parklandper1000.csv")
 		.then(function(data) {
 		   data.forEach(function(d) {
@@ -35,7 +38,7 @@
 	}
 </style>
 
-<MapUSA/>
+<MapUSA width={width} height={height} />
 <!-- {#if chartdata}
 	<Scatter
 		data={chartdata}

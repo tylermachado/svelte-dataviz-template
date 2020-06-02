@@ -64,3 +64,8 @@ button:not(:disabled):active {
 button:focus {
 	border-color: #666;
 }
+
+#interactive {
+	max-width:700px;
+	margin: 0 auto;
+}

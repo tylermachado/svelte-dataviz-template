@@ -8,7 +8,8 @@
    import HoverCard from "../components/HoverCard.svelte"
    import SvelteTable from "svelte-table"
 
-
+   export let width;
+   export let height;
 
 
    export let active = {
@@ -24,11 +25,11 @@
    let legendSizeDiv;
    let legendColor;
 
-   const projection = geoAlbersUsa();
+   const projection = geoAlbersUsa().scale([width*1.35]).translate([width/2, height/2]);
    const path = geoPath().projection(projection);
 
    let radiusScale = d3.scaleSqrt()
-   .range([5,50]);
+   .range([width/200, width/14]);
    let radiusVariable = "population"
 
    let colorScale = d3.scaleSequential()
@@ -39,7 +40,7 @@
       var svgdiv = d3.select(legendSizeDiv);
 
       var svg = svgdiv.append("svg")
-      .attr("width","1200px")
+      .attr("width", width + "px")
 
       svg.append("g")
       .attr("class", "legendSize")
@@ -60,7 +61,7 @@
       var legendColorDiv = d3.select(legendColor);
 
       var svg = legendColorDiv.append("svg")
-      .attr("width","1200px")
+      .attr("width",width + "px")
 
       svg.append("g")
       .attr("class", "legendColor")
@@ -162,19 +163,6 @@
             title: "City",
             value: v => v.city,
             sortable: true,
-            // filterOptions: rows => {
-            //    let states = [];
-            //    rows.forEach(row => {
-            //       let state = row.city.split(", ")[1]
-            //       // console.log(states.indexOf(state))
-            //       if (states.indexOf(state) < 0) {
-            //          states.push(state)
-            //       }
-            //    })
-            //    console.log(states)
-            //    return states;
-            // },
-            // filterOptions: ["NY", "CA", "IL", "TX", "AZ", "PA", "NC", "HI", "FL", "OH", "IN", "CO", "WA", "DC", "TN", "MA", "MI", "OR", "NV", "KY", "MD", "WI", "NM", "OK", "MO", "GA", "VA", "NE", "MN", "KS", "LA", "AK", "NJ", "ID", "IA"],
             filterOptions: rows => {
                // use first letter of last_name to generate filter
                let letrs = {};
@@ -257,10 +245,6 @@
 </script>
 
 <style>
-   svg {
-      width: 960px;
-      height: 500px;
-   }
    .border {
       stroke: #444444;
       fill: #e9e9e9;
@@ -272,7 +256,7 @@
    }
 </style>
 
-<svg width="960" height="500">
+<svg width="{width}" height="{height}">
    <path d={data} class="border" />
    {#if citylist}
    {#each citylist[0] as city}

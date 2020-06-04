@@ -36,6 +36,8 @@
 	.chart {
 		margin: 0 auto;
 	}
+
+	
 </style>
 
 <MapUSA width={width} height={height} />

@@ -7,9 +7,12 @@
    import { join } from "../helpers/join.js";
    import HoverCard from "../components/HoverCard.svelte"
    import SvelteTable from "svelte-table"
+   import TextField from "smelte/src/components/TextField";
+
 
    export let width;
    export let height;
+   export let filtercity = '';
 
 
    export let active = {
@@ -61,22 +64,24 @@
       var legendColorDiv = d3.select(legendColor);
 
       var svg = legendColorDiv.append("svg")
-      .attr("width",width + "px")
+      .attr("width", 305)
+      .attr("height", 60)
 
       svg.append("g")
       .attr("class", "legendColor")
-      .attr("transform", "translate(20, 20)");
+      .attr("transform", "translate(0,10)");
 
       var legendSequential = d3legend.legendColor()
       .classPrefix('circle')
-      .shapeWidth(30)
-      .shapePadding(15)
+      .shapeRadius(2*(300/32/2))
+      .shapePadding(3*(300/32))
       .shape('circle')
-      .cells(10)
+      .cells(7)
       .orient("horizontal")
       .scale(colorScale)
       .labelFormat(d3.format(".0f"))
-      .title("Percent of Residents within Half-Mile Walk to Park (Sized by City Population)")
+      .title("Percent of Residents within Half-Mile Walk to Park")
+      .titleWidth(305)
 
       svg.select(".legendColor")
       .call(legendSequential);
@@ -163,24 +168,24 @@
             title: "City",
             value: v => v.city,
             sortable: true,
-            filterOptions: rows => {
-               // use first letter of last_name to generate filter
-               let letrs = {};
-               rows.forEach(row => {
-                 let letr = row.city.split(", ")[1];
-                 if (letrs[letr] === undefined)
-                   letrs[letr] = {
-                     name: `${letr.toUpperCase()}`,
-                     value: letr.toUpperCase()
-                   };
-               });
-               // fix order
-               letrs = Object.entries(letrs)
-                 .sort()
-                 .reduce((o, [k, v]) => ((o[k] = v), o), {});
-               return Object.values(letrs);
-             },
-            filterValue: v => v.city.split(", ")[1],
+            // filterOptions: rows => {
+            //    // use first letter of last_name to generate filter
+            //    let letrs = {};
+            //    rows.forEach(row => {
+            //      let letr = row.city.split(", ")[1];
+            //      if (letrs[letr] === undefined)
+            //        letrs[letr] = {
+            //          name: `${letr.toUpperCase()}`,
+            //          value: letr.toUpperCase()
+            //        };
+            //    });
+            //    // fix order
+            //    letrs = Object.entries(letrs)
+            //      .sort()
+            //      .reduce((o, [k, v]) => ((o[k] = v), o), {});
+            //    return Object.values(letrs);
+            //  },
+            // filterValue: v => v.city.split(", ")[1],
             headerClass: "text-left"
          },
          {
@@ -230,11 +235,10 @@
          ];
 
 
-
-
-         console.log([combodata, columns])
-
-         return [combodata, columns];
+         return [
+            combodata,
+            columns
+         ];
 
 
       });
@@ -250,16 +254,27 @@
       fill: #e9e9e9;
    }
 
-   circle.circle {
+   circle.circle, circle.circleswatch {
       opacity: 0.8;
       stroke: #000000;
    }
+
+   text.circlelegendTitle {
+      font-size:0.75rem;
+   }
+
+   input {
+      width:100%;
+   }
+
 </style>
 
 <svg width="{width}" height="{height}">
    <path d={data} class="border" />
    {#if citylist}
-   {#each citylist[0] as city}
+   {#each citylist[0].filter(function (d) {
+      return d.city.toLowerCase().indexOf(filtercity.toLowerCase()) > -1
+   }) as city}
    <circle
    class="city circle"
    cx={projection([city.lon, city.lat])[0]}
@@ -278,7 +293,7 @@
 </svg>
 
 <!-- <div bind:this={legendSizeDiv}></div> -->
-<div bind:this={legendColor}></div>
+<div class="legendContainer" bind:this={legendColor}></div>
 
 <HoverCard
 city={active.city}
@@ -288,5 +303,19 @@ walkablepct={active.walkablepct}
 />
 
 {#if citylist}
-<SvelteTable columns={citylist[1]} rows={citylist[0]} sortBy={"population"} sortOrder={-1} classNameCell={"tablecell"}></SvelteTable>
+<div class="interactivefilter">
+   <span>Filter by city or state abbreviation:</span>
+   <TextField bind:value={filtercity} outlined  />
+</div>
+<SvelteTable
+   columns={citylist[1]}
+   rows={citylist[0].filter(function (d) {
+      return d.city.toLowerCase().indexOf(filtercity.toLowerCase()) > -1
+   })}
+   sortOrder={-1}
+   clickCol={(event,row,key) => console.log(event,row,key)}
+   sortBy={"population"}
+   classNameCell={"infocell"}
+>
+</SvelteTable>
 {/if}

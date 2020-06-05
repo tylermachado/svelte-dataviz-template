@@ -1,35 +1,25 @@
+.article-content, #interactive > * {
+	max-width: 800px;
+	margin: 0 auto;
+}
 
-* {
+#interactive > svg, #interactive > #svgContainer {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+#interactive {
 	color: #333;
 	font-family: "akkurat", -apple-system, sans-serif;
 }
 
-a {
-	color: rgb(0,100,200);
-	text-decoration: none;
-}
 
-a:hover {
-	text-decoration: underline;
-}
 
-a:visited {
-	color: rgb(0,80,160);
-}
-
-th {
-	text-align:left;
-}
-
-th > *:nth-child(2) {
-	font-size:40px;
-}
-
-label {
+#interactive label {
 	display: block;
 }
 
-input, button, select, textarea {
+#interactive input {
 	font-family: inherit;
 	font-size: inherit;
 	padding: 0.4em;
@@ -39,15 +29,8 @@ input, button, select, textarea {
 	border-radius: 2px;
 }
 
-input:disabled {
-	color: #ccc;
-}
 
-input[type="range"] {
-	height: 0;
-}
-
-button {
+/* button {
 	color: #333;
 	background-color: #f4f4f4;
 	outline: none;
@@ -63,48 +46,47 @@ button:not(:disabled):active {
 
 button:focus {
 	border-color: #666;
-}
+} */
 
-#interactive {
-	max-width:700px;
-	margin: 0 auto;
+#interactive table {
+	border: 0px
 }
 
 @media only screen and (min-width: 601px) {
 
-	td.infocell {
+	#interactive td.infocell {
 	    width: 13%;
 	}
 
-	td.infocell:nth-child(1){
+	#interactive td.infocell:nth-child(1){
 	    width: 30%;
 	}
 
-	td.infocell:nth-child(4),
-	td.infocell:nth-child(5) {
+	#interactive td.infocell:nth-child(4),
+	#interactive td.infocell:nth-child(5) {
 	    width: 22%;
 	}
 
-	th {
+	#interactive th {
 		vertical-align: bottom;
 		border-bottom:2px solid #222;
 	}
 } /* large-screen table */
 
 @media only screen and (max-width: 600px) {
-	table, thead, tbody, th, td, tr {
+	#interactive table, thead, tbody, th, td, tr {
 		display: block;
 	}
-	thead tr {
+	#interactive thead tr {
 		position: absolute;
 		top: -9999px;
 		left: -9999px;
 	}
-	tr {
+	#interactive tr {
 		border: 1px  solid #ccc;
 		margin-bottom:1.5rem;
 	}
-	td {
+	#interactive td {
 		border: none;
 		border-bottom: 1px solid #eee;
 		position: relative;
@@ -113,7 +95,7 @@ button:focus {
 		padding-top:12px;
 		padding-left:5px;
 	}
-	td:before {
+	#interactive td:before {
 		position: absolute;
 		top: -5px;
 		/* left: 6px; */
@@ -121,19 +103,19 @@ button:focus {
 		font-size:0.75rem;
 		text-transform:uppercase;
 	}
-	td:nth-of-type(1):before { content: "City"; }
-	td:nth-of-type(2):before { content: "Population"; }
-	td:nth-of-type(3):before { content: "Population Density"; }
-	td:nth-of-type(4):before { content: "Acres of Parkland Per 1000 Residents";}
-	td:nth-of-type(5):before { content: "Percent of Residents within Half-Mile of Park";}
+	#interactive td:nth-of-type(1):before { content: "City"; }
+	#interactive td:nth-of-type(2):before { content: "Population"; }
+	#interactive td:nth-of-type(3):before { content: "Population Density"; }
+	#interactive td:nth-of-type(4):before { content: "Acres of Parkland Per 1000 Residents";}
+	#interactive td:nth-of-type(5):before { content: "Percent of Residents within Half-Mile of Park";}
 
-	.infocell {
+	#interactive .infocell {
 		font-size:1.2rem;
 		font-weight: 700;
 		color: darkgreen;
 	}
 
-	.infocell:before {
+	#interactive .infocell:before {
 		font-size:0.75rem;
 		text-transform:uppercase;
 		font-weight:normal;
@@ -141,12 +123,12 @@ button:focus {
 	}
 } /* end mobile table */
 
-text.circlelegendTitle {
+#interactive text.circlelegendTitle {
 	font-size:0.81rem;
 	margin-bottom:10px;
 }
 
-.legendContainer {
+#interactive .legendContainer {
 	border: 1px solid #bbb;
 	border-radius: 3px;
 	width: fit-content;

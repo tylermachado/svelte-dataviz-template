@@ -31,6 +31,10 @@
    const projection = geoAlbersUsa().scale([width*1.35]).translate([width/2, height/2]);
    const path = geoPath().projection(projection);
 
+   let marginLimiter = d3.scaleLinear()
+      .domain([0,width])
+      .range([0, (width-300)])
+
    let radiusScale = d3.scaleSqrt()
    .range([width/200, width/14]);
    let radiusVariable = "population"
@@ -64,7 +68,7 @@
       var legendColorDiv = d3.select(legendColor);
 
       var svg = legendColorDiv.append("svg")
-      .attr("width", 305)
+      .attr("width", 308)
       .attr("height", 60)
 
       svg.append("g")
@@ -93,8 +97,8 @@
       d3.select('#hover-card')
       .style('display',    'block')
       .style('position',   'absolute')
-      .style('top',        (event.clientY + 10) + "px")
-      .style('left',       (event.clientX - 150) + "px")
+      .style('top',        (event.pageY - 480) + "px")
+      .style('left',       (marginLimiter(event.pageX)) + "px")
    }
 
    function handleMouseout(city, event) {
@@ -269,7 +273,7 @@
 
 </style>
 
-<svg width="{width}" height="{height}">
+<div id="svgContainer"><svg width="{width}" height="{height}">
    <path d={data} class="border" />
    {#if citylist}
    {#each citylist[0].filter(function (d) {
@@ -290,7 +294,7 @@
    />
    {/each}
    {/if}
-</svg>
+</svg></div>
 
 <!-- <div bind:this={legendSizeDiv}></div> -->
 <div class="legendContainer" bind:this={legendColor}></div>

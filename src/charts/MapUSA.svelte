@@ -25,9 +25,6 @@
       filtercity = ", " + found.abbreviation
    }
 
-   console.log(states)
-
-
    export let active = {
       city: "test",
       acres: 11056,
@@ -55,27 +52,6 @@
    let colorScale = d3.scaleSequential()
    .interpolator(d3.interpolateYlGn);
    let colorVariable = "walkablepct"
-
-   function buildLegend() {
-      var svgdiv = d3.select(legendSizeDiv);
-
-      var svg = svgdiv.append("svg")
-      .attr("width", width + "px")
-
-      svg.append("g")
-      .attr("class", "legendSize")
-      .attr("transform", "translate(20, 40)");
-
-      var legendSize = d3legend.legendSize()
-      .scale(radiusScale)
-      .shape('circle')
-      .shapePadding(100)
-      .labelOffset(20)
-      .orient('horizontal');
-
-      svg.select(".legendSize")
-      .call(legendSize);
-   }
 
    function buildLegendColors() {
       var legendColorDiv = d3.select(legendColor);
@@ -133,10 +109,10 @@
 
 
       const files = await Promise.all([
-      d3.csv("/datasets/citylist.csv"),
-      d3.csv("/datasets/parksdata.csv")
-      // d3.csv("/interactive/2020/06/city-parkland/datasets/citylist.csv"),
-      // d3.csv("/interactive/2020/06/city-parkland/datasets/parksdata.csv")
+      // d3.csv("/datasets/citylist.csv"),
+      // d3.csv("/datasets/parksdata.csv")
+      d3.csv("/interactive/2020/06/city-parkland/datasets/citylist.csv"),
+      d3.csv("/interactive/2020/06/city-parkland/datasets/parksdata.csv")
       ])
       .then(function(data) {
          var combodata = join(data[1], data[0], "City", "city", function(cityloc, dens) {
@@ -179,8 +155,7 @@
             return !isNaN(d.walkablepct);
          }).map(function(o) { return o[colorVariable]; }))]
          )
-
-         buildLegend();
+         
          buildLegendColors();
 
          const columns =  [
@@ -189,24 +164,6 @@
             title: "City",
             value: v => v.city,
             sortable: true,
-            // filterOptions: rows => {
-            //    // use first letter of last_name to generate filter
-            //    let letrs = {};
-            //    rows.forEach(row => {
-            //      let letr = row.city.split(", ")[1];
-            //      if (letrs[letr] === undefined)
-            //        letrs[letr] = {
-            //          name: `${letr.toUpperCase()}`,
-            //          value: letr.toUpperCase()
-            //        };
-            //    });
-            //    // fix order
-            //    letrs = Object.entries(letrs)
-            //      .sort()
-            //      .reduce((o, [k, v]) => ((o[k] = v), o), {});
-            //    return Object.values(letrs);
-            //  },
-            // filterValue: v => v.city.split(", ")[1],
             headerClass: "text-left"
          },
          {
@@ -313,7 +270,6 @@
    {/if}
 </svg></div>
 
-<!-- <div bind:this={legendSizeDiv}></div> -->
 <div class="legendContainer" bind:this={legendColor}></div>
 
 <HoverCard

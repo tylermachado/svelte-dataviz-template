@@ -137,11 +137,6 @@
             return b.population - a.population;
          });
 
-         // if (colorVariable == "walkablepct") {
-         //    combodata = combodata.filter(d => {
-         //       return !isNaN(d.walkablepct);
-         //    })
-         // }
          radiusScale.domain(
          [Math.min.apply(Math, combodata.map(function(o) { return o[radiusVariable]; })),
          Math.max.apply(Math, combodata.map(function(o) { return o[radiusVariable]; }))]
@@ -155,7 +150,7 @@
             return !isNaN(d.walkablepct);
          }).map(function(o) { return o[colorVariable]; }))]
          )
-         
+
          buildLegendColors();
 
          const columns =  [
@@ -195,7 +190,7 @@
             title: "Percent of Residents within Half-Mile of Park",
             value: function(v) {
                if (isNaN(v.walkablepct)) {
-                  return "not available"
+                  return 0
                } else {
                   return v.walkablepct
                }

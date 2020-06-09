@@ -5,6 +5,7 @@
    import * as d3legend from 'd3-svg-legend';
    import { feature } from "topojson";
    import { join } from "../helpers/join.js";
+   import states from "../helpers/USStates.js";
    import HoverCard from "../components/HoverCard.svelte"
    import SvelteTable from "svelte-table"
    import TextField from "smelte/src/components/TextField";
@@ -17,11 +18,14 @@
 
    $: if (filtercitytyped.length == 2) {
       filtercity = ", " + filtercitytyped
-   } else if (filtercitytyped.toLowerCase() == 'california') {
-      filtercity = 'CA'
-   } else {
+   } else if (states.find(s => s.name.toLowerCase() == filtercitytyped.toLowerCase()) === undefined) {
       filtercity = filtercitytyped
+   } else {
+      let found = states.find(s => s.name.toLowerCase() == filtercitytyped.toLowerCase())
+      filtercity = ", " + found.abbreviation
    }
+
+   console.log(states)
 
 
    export let active = {

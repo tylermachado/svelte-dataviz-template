@@ -13,6 +13,15 @@
    export let width;
    export let height;
    export let filtercity = '';
+   export let filtercitytyped = '';
+
+   $: if (filtercitytyped.length == 2) {
+      filtercity = ", " + filtercitytyped
+   } else if (filtercitytyped.toLowerCase() == 'california') {
+      filtercity = 'CA'
+   } else {
+      filtercity = filtercitytyped
+   }
 
 
    export let active = {
@@ -33,7 +42,7 @@
 
    let marginLimiter = d3.scaleLinear()
       .domain([0,width])
-      .range([0, (width-300)])
+      .range([0, width-250])
 
    let radiusScale = d3.scaleSqrt()
    .range([width/200, width/14]);
@@ -94,11 +103,13 @@
    function handleMouseover(city, event) {
       active = city;
 
-      d3.select('#hover-card')
-      .style('display',    'block')
-      .style('position',   'absolute')
-      .style('top',        (event.pageY - 480) + "px")
-      .style('left',       (marginLimiter(event.pageX)) + "px")
+      if (width > 700) {
+         d3.select('#hover-card')
+         .style('display',    'block')
+         .style('position',   'fixed')
+         .style('top',        (event.pageY - 775) + "px")
+         .style('left',       (marginLimiter(event.pageX)) + "px")
+      }
    }
 
    function handleMouseout(city, event) {
@@ -118,8 +129,10 @@
 
 
       const files = await Promise.all([
-      d3.csv("datasets/citylist.csv"),
-      d3.csv("datasets/parksdata.csv")
+      d3.csv("/datasets/citylist.csv"),
+      d3.csv("/datasets/parksdata.csv")
+      // d3.csv("/interactive/2020/06/city-parkland/datasets/citylist.csv"),
+      // d3.csv("/interactive/2020/06/city-parkland/datasets/parksdata.csv")
       ])
       .then(function(data) {
          var combodata = join(data[1], data[0], "City", "city", function(cityloc, dens) {
@@ -309,7 +322,7 @@ walkablepct={active.walkablepct}
 {#if citylist}
 <div class="interactivefilter">
    <span>Filter by city or state abbreviation:</span>
-   <TextField bind:value={filtercity} outlined  />
+   <TextField bind:value={filtercitytyped} outlined  />
 </div>
 <SvelteTable
    columns={citylist[1]}

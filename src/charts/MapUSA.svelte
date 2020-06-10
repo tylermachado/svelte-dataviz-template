@@ -111,8 +111,8 @@
       const files = await Promise.all([
       // d3.csv("/datasets/citylist.csv"),
       // d3.csv("/datasets/parksdata.csv")
-      d3.csv("/interactive/2020/06/city-parkland/datasets/citylist.csv"),
-      d3.csv("/interactive/2020/06/city-parkland/datasets/parksdata.csv")
+      d3.csv("./interactive/2020/06/city-parkland/datasets/citylist.csv"),
+      d3.csv("./interactive/2020/06/city-parkland/datasets/parksdata.csv")
       ])
       .then(function(data) {
          var combodata = join(data[1], data[0], "City", "city", function(cityloc, dens) {

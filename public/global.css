@@ -30,8 +30,9 @@
 }
 
 #interactive .sourceline {
-	font-size:12px;
+	font-size: 14px;
 	color: #999;
+	margin: 1rem 0;
 }
 
 #interactive .sourceline a {

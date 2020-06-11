@@ -266,6 +266,7 @@
 </svg></div>
 
 <div class="legendContainer" bind:this={legendColor}></div>
+<div class="sourceline">SOURCE: <a href="https://www.tpl.org/2019-city-park-facts">Center for City Park Excellence, Trust for Public Land</a></div>
 
 <HoverCard
 city={active.city}

@@ -29,6 +29,15 @@
 	border-radius: 2px;
 }
 
+#interactive .sourceline {
+	font-size:12px;
+	color: #999;
+}
+
+#interactive .sourceline a {
+	color: #999;
+}
+
 
 /* button {
 	color: #333;

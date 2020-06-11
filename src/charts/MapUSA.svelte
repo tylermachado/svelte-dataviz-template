@@ -291,4 +291,5 @@ walkablepct={active.walkablepct}
    classNameCell={"infocell"}
 >
 </SvelteTable>
+<div class="sourceline">SOURCE: <a href="https://www.tpl.org/2019-city-park-facts">Center for City Park Excellence, Trust for Public Land</a></div>
 {/if}

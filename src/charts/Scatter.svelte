@@ -1,41 +1,45 @@
 <script>
 	import { onMount } from 'svelte';
-	import * as d3 from 'd3';
+	import { scaleLinear } from 'd3-scale';
+	import { axisLeft, axisRight, axisTop, axisBottom } from 'd3-axis';
+	import { select } from 'd3-selection';
 
-	export let data = [
-		{"City Population": 1000, "Parkland per 1,000 Residents": 8},
-		{"City Population": 100, "Parkland per 1,000 Residents": 1},
-		{"City Population": 1, "Parkland per 1,000 Residents": 0.5},
-		{"City Population": 933, "Parkland per 1,000 Residents": 6.5}
-	];
-	let el;
+	let d3 = {
+		scaleLinear: scaleLinear,
+		select: select,
+		axisLeft: axisLeft,
+		axisRight: axisRight,
+		axisBottom: axisBottom,
+		axisTop: axisTop
+	}
 
-	let svg;
+	export let data = {data};
 	export let width = {width};
 	export let height = {height};
+	export let xVar = {xVar};
+	export let yVar = {yVar};
 
-	const padding = { top: 20, right: 40, bottom: 40, left: 35 };
+	let el;
+
+	const padding = { top: 10, right: 40, bottom: 40, left: 50 };
+
+
 
 	$: xScale = d3.scaleLinear()
-		.domain([0, Math.max.apply(Math, data.map(function(o) { return o["City Population"]; }))])
+		.domain([0, Math.max.apply(Math, data.map(function(o) { return o[xVar]; }))])
 		.range([0, width - padding.left - padding.right]);
 
 	$: yScale = d3.scaleLinear()
-		.domain([0, Math.max.apply(Math, data.map(function(o) { return o["Parkland per 1,000 Residents"]; }))])
+		.domain([0, Math.max.apply(Math, data.map(function(o) { return o[yVar]; }))])
 		.range([height - padding.bottom, padding.top]);
 
-	$: xTicks = width > 180 ?
-		[0, 4, 8, 12, 16, 20] :
-		[0, 10, 20];
-
-	$: yTicks = height > 180 ?
-		[0, 2, 4, 6, 8, 10, 12] :
-		[0, 4, 8, 12];
-
-	$: d3yScale = d3.scaleLinear()
-		.domain([0, height - padding.top - padding.bottom])
-		.range([height - padding.top - padding.bottom, 0]);
-
+	// $: xTicks = width > 180 ?
+	// 	[0, 4, 8, 12, 16, 20] :
+	// 	[0, 10, 20];
+	//
+	// $: yTicks = height > 180 ?
+	// 	[0, 2, 4, 6, 8, 10, 12] :
+	// 	[0, 4, 8, 12];
 	onMount(generateScatter);
 
 	function generateScatter() {
@@ -59,15 +63,16 @@
 	    .data(data)
 	    .enter()
 	    .append("circle")
-	      .attr("cx", function (d) { return xScale(d["City Population"]); } )
-	      .attr("cy", function (d) { return yScale(d["Parkland per 1,000 Residents"]); } )
+	      .attr("cx", function (d) { return xScale(d[xVar]); } )
+	      .attr("cy", function (d) { return yScale(d[yVar]); } )
 	      .attr("r", 6)
-	      .style("fill", "#69b3a2")
 	}
 </script>
 
 <style>
-
+	.chart :global(circle)  {
+		fill: #d51e2d;
+	}
 </style>
 
 <div bind:this={el} class="chart"></div>

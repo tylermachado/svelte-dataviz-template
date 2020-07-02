@@ -1,0 +1,602 @@
+[
+  {
+    "city": "Des Moines, IA",
+    "population": 227308,
+    "acresparkland": 6972,
+    "parklandper1000": 30.7
+  },
+  {
+    "city": "Arlington, VA",
+    "population": 227454,
+    "acresparkland": 1760,
+    "parklandper1000": 7.7
+  },
+  {
+    "city": "Boise, ID",
+    "population": 227531,
+    "acresparkland": 4327,
+    "parklandper1000": 19
+  },
+  {
+    "city": "Fremont, CA",
+    "population": 230734,
+    "acresparkland": 24454,
+    "parklandper1000": 106
+  },
+  {
+    "city": "Baton Rouge, LA",
+    "population": 233114,
+    "acresparkland": 1436,
+    "parklandper1000": 6.2
+  },
+  {
+    "city": "Hialeah, FL",
+    "population": 233504,
+    "acresparkland": 208,
+    "parklandper1000": 0.9
+  },
+  {
+    "city": "North Las Vegas, NV",
+    "population": 243535,
+    "acresparkland": 16731,
+    "parklandper1000": 68.7
+  },
+  {
+    "city": "Irving, TX",
+    "population": 243678,
+    "acresparkland": 1956,
+    "parklandper1000": 8
+  },
+  {
+    "city": "Garland, TX",
+    "population": 244303,
+    "acresparkland": 2440,
+    "parklandper1000": 10
+  },
+  {
+    "city": "Winston-Salem, NC",
+    "population": 246224,
+    "acresparkland": 3856,
+    "parklandper1000": 15.7
+  },
+  {
+    "city": "Chesapeake, VA",
+    "population": 246615,
+    "acresparkland": 56258,
+    "parklandper1000": 228.1
+  },
+  {
+    "city": "Glendale, AZ",
+    "population": 247804,
+    "acresparkland": 2149,
+    "parklandper1000": 8.7
+  },
+  {
+    "city": "Scottsdale, AZ",
+    "population": 249005,
+    "acresparkland": 31474,
+    "parklandper1000": 126.4
+  },
+  {
+    "city": "Norfolk, VA",
+    "population": 249954,
+    "acresparkland": 1781,
+    "parklandper1000": 7.1
+  },
+  {
+    "city": "Reno, NV",
+    "population": 255055,
+    "acresparkland": 3446,
+    "parklandper1000": 13.5
+  },
+  {
+    "city": "Madison, WI",
+    "population": 258275,
+    "acresparkland": 6646,
+    "parklandper1000": 25.7
+  },
+  {
+    "city": "St. Petersburg, FL",
+    "population": 260094,
+    "acresparkland": 6154,
+    "parklandper1000": 23.7
+  },
+  {
+    "city": "Buffalo, NY",
+    "population": 260157,
+    "acresparkland": 1922,
+    "parklandper1000": 7.4
+  },
+  {
+    "city": "Lubbock, TX",
+    "population": 260624,
+    "acresparkland": 2228,
+    "parklandper1000": 8.5
+  },
+  {
+    "city": "Gilbert, AZ",
+    "population": 261287,
+    "acresparkland": 1212,
+    "parklandper1000": 4.6
+  },
+  {
+    "city": "Fort Wayne, IN",
+    "population": 264159,
+    "acresparkland": 2400,
+    "parklandper1000": 9.1
+  },
+  {
+    "city": "Laredo, TX",
+    "population": 268976,
+    "acresparkland": 1182,
+    "parklandper1000": 4.4
+  },
+  {
+    "city": "Irvine, CA",
+    "population": 270731,
+    "acresparkland": 11582,
+    "parklandper1000": 42.8
+  },
+  {
+    "city": "Durham, NC",
+    "population": 271001,
+    "acresparkland": 2623,
+    "parklandper1000": 9.7
+  },
+  {
+    "city": "Chula Vista, CA",
+    "population": 272387,
+    "acresparkland": 2133,
+    "parklandper1000": 7.8
+  },
+  {
+    "city": "Chandler, AZ",
+    "population": 275654,
+    "acresparkland": 1536,
+    "parklandper1000": 5.6
+  },
+  {
+    "city": "Jersey City, NJ",
+    "population": 278539,
+    "acresparkland": 1677,
+    "parklandper1000": 6
+  },
+  {
+    "city": "Toledo, OH",
+    "population": 278978,
+    "acresparkland": 3166,
+    "parklandper1000": 11.3
+  },
+  {
+    "city": "Newark, NJ",
+    "population": 284054,
+    "acresparkland": 838,
+    "parklandper1000": 3
+  },
+  {
+    "city": "Orlando, FL",
+    "population": 286678,
+    "acresparkland": 3361,
+    "parklandper1000": 11.7
+  },
+  {
+    "city": "Lincoln, NE",
+    "population": 287896,
+    "acresparkland": 3818,
+    "parklandper1000": 13.3
+  },
+  {
+    "city": "Greensboro, NC",
+    "population": 288594,
+    "acresparkland": 7908,
+    "parklandper1000": 27.4
+  },
+  {
+    "city": "Plano, TX",
+    "population": 295013,
+    "acresparkland": 4375,
+    "parklandper1000": 14.8
+  },
+  {
+    "city": "Henderson, NV",
+    "population": 298927,
+    "acresparkland": 9127,
+    "parklandper1000": 30.5
+  },
+  {
+    "city": "Anchorage, AK",
+    "population": 303421,
+    "acresparkland": 914138,
+    "parklandper1000": 3012.8
+  },
+  {
+    "city": "St. Paul, MN",
+    "population": 305840,
+    "acresparkland": 4941,
+    "parklandper1000": 16.2
+  },
+  {
+    "city": "Cincinnati, OH",
+    "population": 308969,
+    "acresparkland": 6892,
+    "parklandper1000": 22.3
+  },
+  {
+    "city": "Pittsburgh, PA",
+    "population": 310884,
+    "acresparkland": 3683,
+    "parklandper1000": 11.8
+  },
+  {
+    "city": "Stockton, CA",
+    "population": 313009,
+    "acresparkland": 1157,
+    "parklandper1000": 3.7
+  },
+  {
+    "city": "St. Louis, MO",
+    "population": 315273,
+    "acresparkland": 3696,
+    "parklandper1000": 11.7
+  },
+  {
+    "city": "Riverside, CA",
+    "population": 321943,
+    "acresparkland": 3281,
+    "parklandper1000": 10.2
+  },
+  {
+    "city": "Lexington/Fayette, KY",
+    "population": 323298,
+    "acresparkland": 4421,
+    "parklandper1000": 13.7
+  },
+  {
+    "city": "Corpus Christi, TX",
+    "population": 337094,
+    "acresparkland": 8595,
+    "parklandper1000": 25.5
+  },
+  {
+    "city": "Santa Ana, CA",
+    "population": 342217,
+    "acresparkland": 739,
+    "parklandper1000": 2.2
+  },
+  {
+    "city": "Anaheim, CA",
+    "population": 359477,
+    "acresparkland": 2663,
+    "parklandper1000": 7.4
+  },
+  {
+    "city": "Aurora, CO",
+    "population": 370647,
+    "acresparkland": 10424,
+    "parklandper1000": 28.1
+  },
+  {
+    "city": "Tampa, FL",
+    "population": 379551,
+    "acresparkland": 5264,
+    "parklandper1000": 13.9
+  },
+  {
+    "city": "Cleveland, OH",
+    "population": 381226,
+    "acresparkland": 3166,
+    "parklandper1000": 8.3
+  },
+  {
+    "city": "Bakersfield, CA",
+    "population": 383573,
+    "acresparkland": 5339,
+    "parklandper1000": 13.9
+  },
+  {
+    "city": "Arlington, TX",
+    "population": 389547,
+    "acresparkland": 4714,
+    "parklandper1000": 12.1
+  },
+  {
+    "city": "New Orleans, LA",
+    "population": 392887,
+    "acresparkland": 27835,
+    "parklandper1000": 70.8
+  },
+  {
+    "city": "Wichita, KS",
+    "population": 400599,
+    "acresparkland": 5007,
+    "parklandper1000": 12.5
+  },
+  {
+    "city": "Tulsa, OK",
+    "population": 415675,
+    "acresparkland": 10148,
+    "parklandper1000": 24.4
+  },
+  {
+    "city": "Minneapolis, MN",
+    "population": 419897,
+    "acresparkland": 5072,
+    "parklandper1000": 12.1
+  },
+  {
+    "city": "Oakland, CA",
+    "population": 420486,
+    "acresparkland": 3867,
+    "parklandper1000": 9.2
+  },
+  {
+    "city": "Omaha, NE",
+    "population": 450466,
+    "acresparkland": 10206,
+    "parklandper1000": 22.7
+  },
+  {
+    "city": "Miami, FL",
+    "population": 453952,
+    "acresparkland": 1500,
+    "parklandper1000": 3.3
+  },
+  {
+    "city": "Virginia Beach, VA",
+    "population": 461588,
+    "acresparkland": 24940,
+    "parklandper1000": 54
+  },
+  {
+    "city": "Raleigh, NC",
+    "population": 469363,
+    "acresparkland": 9874,
+    "parklandper1000": 21
+  },
+  {
+    "city": "Colorado Springs, CO",
+    "population": 471059,
+    "acresparkland": 11048,
+    "parklandper1000": 23.5
+  },
+  {
+    "city": "Atlanta, GA",
+    "population": 477371,
+    "acresparkland": 5285,
+    "parklandper1000": 11.1
+  },
+  {
+    "city": "Long Beach, CA",
+    "population": 480903,
+    "acresparkland": 3126,
+    "parklandper1000": 6.5
+  },
+  {
+    "city": "Kansas City, MO",
+    "population": 497311,
+    "acresparkland": 17771,
+    "parklandper1000": 35.7
+  },
+  {
+    "city": "Sacramento, CA",
+    "population": 500667,
+    "acresparkland": 4297,
+    "parklandper1000": 8.6
+  },
+  {
+    "city": "Mesa, AZ",
+    "population": 501137,
+    "acresparkland": 2922,
+    "parklandper1000": 5.8
+  },
+  {
+    "city": "Fresno, CA",
+    "population": 528920,
+    "acresparkland": 2957,
+    "parklandper1000": 5.6
+  },
+  {
+    "city": "Tucson, AZ",
+    "population": 541841,
+    "acresparkland": 4563,
+    "parklandper1000": 8.4
+  },
+  {
+    "city": "Oklahoma City, OK",
+    "population": 545908,
+    "acresparkland": 14787,
+    "parklandper1000": 27.1
+  },
+  {
+    "city": "Albuquerque, NM",
+    "population": 571471,
+    "acresparkland": 26990,
+    "parklandper1000": 47.2
+  },
+  {
+    "city": "Milwaukee, WI",
+    "population": 587575,
+    "acresparkland": 5537,
+    "parklandper1000": 9.4
+  },
+  {
+    "city": "Baltimore, MD",
+    "population": 613084,
+    "acresparkland": 4921,
+    "parklandper1000": 8
+  },
+  {
+    "city": "Louisville, KY",
+    "population": 632268,
+    "acresparkland": 17750,
+    "parklandper1000": 28.1
+  },
+  {
+    "city": "Las Vegas, NV",
+    "population": 639625,
+    "acresparkland": 16900,
+    "parklandper1000": 26.4
+  },
+  {
+    "city": "Portland, OR",
+    "population": 652565,
+    "acresparkland": 14654,
+    "parklandper1000": 22.5
+  },
+  {
+    "city": "Detroit, MI",
+    "population": 656573,
+    "acresparkland": 5873,
+    "parklandper1000": 8.9
+  },
+  {
+    "city": "Memphis, TN",
+    "population": 662038,
+    "acresparkland": 9194,
+    "parklandper1000": 13.9
+  },
+  {
+    "city": "Boston, MA",
+    "population": 674913,
+    "acresparkland": 5072,
+    "parklandper1000": 7.5
+  },
+  {
+    "city": "Nashville/Davidson, TN",
+    "population": 684946,
+    "acresparkland": 33997,
+    "parklandper1000": 49.6
+  },
+  {
+    "city": "Washington, DC",
+    "population": 688642,
+    "acresparkland": 8232,
+    "parklandper1000": 12
+  },
+  {
+    "city": "El Paso, TX",
+    "population": 698533,
+    "acresparkland": 30731,
+    "parklandper1000": 44
+  },
+  {
+    "city": "Seattle, WA",
+    "population": 710295,
+    "acresparkland": 6613,
+    "parklandper1000": 9.3
+  },
+  {
+    "city": "Denver, CO",
+    "population": 714708,
+    "acresparkland": 6242,
+    "parklandper1000": 8.7
+  },
+  {
+    "city": "Indianapolis, IN",
+    "population": 864472,
+    "acresparkland": 11464,
+    "parklandper1000": 13.3
+  },
+  {
+    "city": "Columbus, OH",
+    "population": 876962,
+    "acresparkland": 11769,
+    "parklandper1000": 13.4
+  },
+  {
+    "city": "San Francisco, CA",
+    "population": 878294,
+    "acresparkland": 5888,
+    "parklandper1000": 6.7
+  },
+  {
+    "city": "Fort Worth, TX",
+    "population": 882972,
+    "acresparkland": 12065,
+    "parklandper1000": 13.7
+  },
+  {
+    "city": "Jacksonville, FL",
+    "population": 907722,
+    "acresparkland": 67993,
+    "parklandper1000": 74.9
+  },
+  {
+    "city": "Austin, TX",
+    "population": 969733,
+    "acresparkland": 17568,
+    "parklandper1000": 18.1
+  },
+  {
+    "city": "Honolulu, HI",
+    "population": 1014168,
+    "acresparkland": 66210,
+    "parklandper1000": 65.3
+  },
+  {
+    "city": "San Jose, CA",
+    "population": 1040606,
+    "acresparkland": 15808,
+    "parklandper1000": 15.2
+  },
+  {
+    "city": "Charlotte/Mecklenburg, NC",
+    "population": 1092533,
+    "acresparkland": 20932,
+    "parklandper1000": 19.2
+  },
+  {
+    "city": "Dallas, TX",
+    "population": 1356896,
+    "acresparkland": 20352,
+    "parklandper1000": 15
+  },
+  {
+    "city": "San Diego, CA",
+    "population": 1405422,
+    "acresparkland": 39269,
+    "parklandper1000": 27.9
+  },
+  {
+    "city": "San Antonio, TX",
+    "population": 1457400,
+    "acresparkland": 30407,
+    "parklandper1000": 20.9
+  },
+  {
+    "city": "Philadelphia, PA",
+    "population": 1591765,
+    "acresparkland": 11034,
+    "parklandper1000": 6.9
+  },
+  {
+    "city": "Phoenix, AZ",
+    "population": 1616300,
+    "acresparkland": 49653,
+    "parklandper1000": 30.7
+  },
+  {
+    "city": "Houston, TX",
+    "population": 2358708,
+    "acresparkland": 40727,
+    "parklandper1000": 17.3
+  },
+  {
+    "city": "Chicago, IL",
+    "population": 2768416,
+    "acresparkland": 13563,
+    "parklandper1000": 4.9
+  },
+  {
+    "city": "Los Angeles, CA",
+    "population": 4002721,
+    "acresparkland": 36934,
+    "parklandper1000": 9.2
+  },
+  {
+    "city": "New York, NY",
+    "population": 8679888,
+    "acresparkland": 40764,
+    "parklandper1000": 4.7
+  }
+]

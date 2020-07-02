@@ -5,7 +5,10 @@
 	import GraphicTitle from './components/GraphicTitle.svelte'
 	import GraphicFooter from './components/GraphicFooter.svelte'
 
-	export let chartdata;
+	// gather data set. the Rollup JSON plugin loads everything with key "default", hence the second line below.
+	import * as jsondata from '../public/datasets/parkland.json'
+	let dataset = jsondata.default
+
 	export let width = Math.min(
 		document.getElementById('interactive').getBoundingClientRect().width,
 		1000
@@ -14,9 +17,7 @@
 </script>
 
 <style>
-	.chart {
-		margin: 0 auto;
-	}
+
 </style>
 
 <GraphicTitle
@@ -26,9 +27,11 @@
 <Scatter
 	width={width}
 	height={width/2}
-	
+	data={dataset}
+	xVar={"population"}
+	yVar={"acresparkland"}
 />
 <GraphicFooter
-	source={"Northeastern University"}
-	note={"Data averaged from last year"}
+	source={"The Trust for Public Land"}
+	note={"Data includes the top 100 cities by population in the US"}
 />

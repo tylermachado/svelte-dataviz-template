@@ -1,11 +1,12 @@
 <script>
 	import { onMount } from 'svelte';
-	import { scaleLinear } from 'd3-scale';
+	import { scaleLinear, scaleLog } from 'd3-scale';
 	import { axisLeft, axisRight, axisTop, axisBottom } from 'd3-axis';
 	import { select } from 'd3-selection';
 
 	let d3 = {
 		scaleLinear: scaleLinear,
+		scaleLog: scaleLog,
 		select: select,
 		axisLeft: axisLeft,
 		axisRight: axisRight,

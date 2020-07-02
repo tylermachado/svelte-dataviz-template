@@ -13,7 +13,6 @@
 		document.getElementById('interactive').getBoundingClientRect().width,
 		1000
 	);
-	export let height = Math.round(width*0.7);
 </script>
 
 <style>
@@ -26,7 +25,7 @@
 />
 <Scatter
 	width={width}
-	height={width/2}
+	height={width * 0.66}
 	data={dataset}
 	xVar={"population"}
 	yVar={"acresparkland"}

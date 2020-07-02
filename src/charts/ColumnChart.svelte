@@ -16,7 +16,7 @@
 
 	let el;
 
-	const padding = { top: 10, right: 40, bottom: 40, left: 100 };
+	const padding = { top: 10, right: 40, bottom: 40, left: 50 };
 
 
 		export let data = {data};
@@ -25,16 +25,14 @@
 		export let xVar = {xVar};
 		export let yVar = {yVar};
 
-	$: xScale = d3.scaleLinear()
-		.domain([0, Math.max.apply(Math, data.map(function(o) { return o[yVar]; }))])
-		.range([0, width - padding.left - padding.right]);
-
-	$: yScale = d3.scaleBand()
+	$: xScale = d3.scaleBand()
 		.domain(data.map(function(o) { return o[xVar]; }))
-		.rangeRound([height - padding.bottom, padding.top])
+		.rangeRound([0, width - padding.left - padding.right])
 		.padding(0.2);
 
-
+	$: yScale = d3.scaleLinear()
+		.domain([0, Math.max.apply(Math, data.map(function(o) { return o[yVar]; }))])
+		.range([height - padding.bottom, padding.top]);
 
 	onMount(generateBarChart);
 
@@ -61,10 +59,10 @@
 	    .data(data)
 	    .enter()
 	    .append("rect")
-		 .attr("y", function (d) { return yScale(d[xVar]); })
-	    .attr("x", function (d) { return 0; })
-		 .attr("height", yScale.bandwidth())
-		 .attr("width", function (d) { return xScale(d[yVar]); });
+		 .attr("x", function (d) { return xScale(d[xVar]); })
+	    .attr("y", function (d) { return yScale(d[yVar]); })
+		 .attr("width", xScale.bandwidth())
+		 .attr("height", function (d) { return height - padding.bottom - yScale(d[yVar]); });
 	}
 </script>
 

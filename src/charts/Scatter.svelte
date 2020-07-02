@@ -4,24 +4,25 @@
 
 	export let data = [
 		{"City Population": 1000, "Parkland per 1,000 Residents": 8},
-		{"City Population": 800, "Parkland per 1,000 Residents": 9},
+		{"City Population": 100, "Parkland per 1,000 Residents": 1},
+		{"City Population": 1, "Parkland per 1,000 Residents": 0.5},
 		{"City Population": 933, "Parkland per 1,000 Residents": 6.5}
 	];
 	let el;
 
 	let svg;
-	let width = 500;
-	let height = 600;
+	export let width = {width};
+	export let height = {height};
 
 	const padding = { top: 20, right: 40, bottom: 40, left: 35 };
 
 	$: xScale = d3.scaleLinear()
-		.domain([100000, Math.max.apply(Math, data.map(function(o) { return o["City Population"]; }))])
-		.range([0, width]);
+		.domain([0, Math.max.apply(Math, data.map(function(o) { return o["City Population"]; }))])
+		.range([0, width - padding.left - padding.right]);
 
 	$: yScale = d3.scaleLinear()
-		.domain([0.5, Math.max.apply(Math, data.map(function(o) { return o["Parkland per 1,000 Residents"]; }))])
-		.range([height, padding.top]);
+		.domain([0, Math.max.apply(Math, data.map(function(o) { return o["Parkland per 1,000 Residents"]; }))])
+		.range([height - padding.bottom, padding.top]);
 
 	$: xTicks = width > 180 ?
 		[0, 4, 8, 12, 16, 20] :
@@ -32,22 +33,22 @@
 		[0, 4, 8, 12];
 
 	$: d3yScale = d3.scaleLinear()
-		.domain([0, height])
-		.range([height, 0]);
+		.domain([0, height - padding.top - padding.bottom])
+		.range([height - padding.top - padding.bottom, 0]);
 
 	onMount(generateScatter);
 
 	function generateScatter() {
 		var svg = d3.select(el)
 			.append("svg")
-			.attr("width", width + padding.left + padding.right)
-			.attr("height", height + padding.top + padding.bottom)
+			.attr("width", width)
+			.attr("height", height)
 			.append("g")
 			.attr("transform",
 				  "translate(" + padding.left + "," + padding.top + ")");
 
 		svg.append("g")
-		   .attr("transform", "translate(0," + height + ")")
+		   .attr("transform", "translate(0," + (height-padding.bottom) + ")")
 		   .call(d3.axisBottom(xScale));
 
 		svg.append("g")
@@ -66,14 +67,7 @@
 </script>
 
 <style>
-	.chart :global(div) {
-		font: 10px sans-serif;
-		background-color: steelblue;
-		text-align: right;
-		padding: 3px;
-		margin: 1px;
-		color: white;
-	}
+
 </style>
 
 <div bind:this={el} class="chart"></div>

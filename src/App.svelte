@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import HoverCArd from './components/HoverCard.svelte'
 	import BarChart from './charts/BarChart.svelte'
 	import Map from './charts/Map.svelte'
 	import GraphicTitle from './components/GraphicTitle.svelte'
@@ -32,6 +33,11 @@
 	xVar={"city"}
 	yVar={"population"}
 />
+<!-- <HoverCard
+	data={dataset}
+	xVar={"city"}
+	yVar={"population"}
+/> -->
 <GraphicFooter
 	source={"The Trust for Public Land"}
 	note={"Data includes the top 100 cities by population in the US"}

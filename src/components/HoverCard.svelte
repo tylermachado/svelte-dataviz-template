@@ -2,10 +2,11 @@
 	import { onMount } from 'svelte';
 	import * as d3 from 'd3';
 
-	export let city;
-	export let population;
-	export let acres;
-	export let walkablepct;
+	export let data;
+	export let xVar;
+	export let yVar;
+
+	console.log()
 </script>
 
 <style>
@@ -15,11 +16,6 @@
 		border-radius: 4px;
 		padding:10px;
 		display:none;
-	}
-
-	h4 {
-		font-size:1.2rem;
-		margin:0;
 	}
 
 	div.infocell {
@@ -39,12 +35,6 @@
 </style>
 
 <div id="hover-card">
-	<h4>{city}</h4>
-	<div class="infocell">City Population: <span class="value">{(population).toLocaleString()}</span></div>
-	<div class="infocell">Acres of Parkland: <span class="value">{(acres).toLocaleString()}</span></div>
-	<div class="infocell">Residents within Half-Mile of Park: <span class="value">{
-		isNaN(walkablepct) ?
-		"N/A" :
-		walkablepct + "%"
-	}</span></div>
+	<div class="infocell">{xVar}: <span class="value">{data[xVar]}</span></div>
+	<div class="infocell">{yVar}: <span class="value">{data[yVar]}</span></div>
 </div>

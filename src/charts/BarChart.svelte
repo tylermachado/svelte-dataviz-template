@@ -49,13 +49,6 @@
 			.attr("transform",
 				  "translate(" + padding.left + "," + padding.top + ")");
 
-		svg.append("g")
-		   .attr("transform", "translate(0," + (height-padding.bottom) + ")")
-		   .call(d3.axisBottom(xScale));
-
-		svg.append("g")
-  			.call(d3.axisLeft(yScale));
-
 		svg.append('g')
 	    .selectAll("rect")
 	    .data(data)
@@ -65,6 +58,13 @@
 	    .attr("x", function (d) { return 0; })
 		 .attr("height", yScale.bandwidth())
 		 .attr("width", function (d) { return xScale(d[yVar]); });
+
+		 svg.append("g")
+			 .attr("transform", "translate(0," + (height-padding.bottom) + ")")
+			 .call(d3.axisBottom(xScale));
+
+		 svg.append("g")
+				 .call(d3.axisLeft(yScale));
 	}
 </script>
 

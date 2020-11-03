@@ -1,0 +1,262 @@
+[
+  {
+    "state": "Alabama",
+    "votes": 9,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Alaska",
+    "votes": 3,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Arizona",
+    "votes": 11,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Arkansas",
+    "votes": 6,
+    "winner": "Republicans"
+  },
+  {
+    "state": "California",
+    "votes": 55,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Colorado",
+    "votes": 9,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Connecticut",
+    "votes": 7,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Delaware",
+    "votes": 3,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Florida",
+    "votes": 29,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Georgia",
+    "votes": 16,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Hawaii",
+    "votes": 4,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Idaho",
+    "votes": 4,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Illinois",
+    "votes": 20,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Indiana",
+    "votes": 11,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Iowa",
+    "votes": 6,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Kansas",
+    "votes": 6,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Kentucky",
+    "votes": 8,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Louisiana",
+    "votes": 8,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Maine",
+    "votes": 3,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Maine",
+    "votes": 1,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Maryland",
+    "votes": 10,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Massachusetts",
+    "votes": 11,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Michigan",
+    "votes": 16,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Mississippi",
+    "votes": 6,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Minnesota",
+    "votes": 10,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Missouri",
+    "votes": 10,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Montana",
+    "votes": 3,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Nebraska",
+    "votes": 5,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Nevada",
+    "votes": 6,
+    "winner": "Democrats"
+  },
+  {
+    "state": "New Hampshire",
+    "votes": 4,
+    "winner": "Democrats"
+  },
+  {
+    "state": "New Jersey",
+    "votes": 14,
+    "winner": "Democrats"
+  },
+  {
+    "state": "New Mexico",
+    "votes": 5,
+    "winner": "Democrats"
+  },
+  {
+    "state": "New York",
+    "votes": 29,
+    "winner": "Democrats"
+  },
+  {
+    "state": "North Carolina",
+    "votes": 15,
+    "winner": "Republicans"
+  },
+  {
+    "state": "North Dakota",
+    "votes": 3,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Ohio",
+    "votes": 18,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Oklahoma",
+    "votes": 7,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Oregon",
+    "votes": 7,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Pennsylvania",
+    "votes": 20,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Rhode Island",
+    "votes": 4,
+    "winner": "Democrats"
+  },
+  {
+    "state": "South Carolina",
+    "votes": 9,
+    "winner": "Republicans"
+  },
+  {
+    "state": "South Dakota",
+    "votes": 3,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Tennessee",
+    "votes": 11,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Texas",
+    "votes": 38,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Utah",
+    "votes": 6,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Vermont",
+    "votes": 3,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Virginia",
+    "votes": 13,
+    "winner": "Democrats"
+  },
+  {
+    "state": "Washington",
+    "votes": 12,
+    "winner": "Democrats"
+  },
+  {
+    "state": "District of Columbia",
+    "votes": 3,
+    "winner": "Democrats"
+  },
+  {
+    "state": "West Virginia",
+    "votes": 5,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Wisconsin",
+    "votes": 10,
+    "winner": "Republicans"
+  },
+  {
+    "state": "Wyoming",
+    "votes": 3,
+    "winner": "Republicans"
+  }
+]

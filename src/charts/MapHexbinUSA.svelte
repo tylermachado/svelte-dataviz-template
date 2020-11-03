@@ -46,7 +46,7 @@
 
 	function generateMap() {
 
-		console.log(data);
+		
 
 		let svg = d3.select(el).append("svg");
 
@@ -64,7 +64,7 @@
 					 return obj.state === d.properties.fullname
 				 })[0]
 				 if (result) {
-					 console.log(result.winner)
+
 					return colorScale(result.winner)
 				 } else {
 				 	return "gray"
@@ -74,7 +74,7 @@
           .attr("d", path)
           .attr("stroke", "white")
 
-			 console.log(statehex.features)
+
 
 	  // Add the labels
 	  svg.append("g")

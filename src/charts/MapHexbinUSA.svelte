@@ -3,7 +3,9 @@
 	import { scaleLinear, scaleLog, scaleOrdinal } from 'd3-scale';
 	import { axisLeft, axisRight, axisTop, axisBottom } from 'd3-axis';
 	import { geoMercator, geoPath } from 'd3-geo';
+	import { legendColor } from 'd3-svg-legend';
 	import { select } from 'd3-selection';
+	import { transition } from 'd3-transition'
    import statehex from "../helpers/USStateHexbin.js";
 
 	let d3 = {
@@ -16,7 +18,8 @@
 		axisBottom: axisBottom,
 		axisTop: axisTop,
 		geoMercator: geoMercator,
-		geoPath: geoPath
+		geoPath: geoPath,
+		legendColor: legendColor
 	}
 
 	export let data = {data};
@@ -27,9 +30,14 @@
 
 	let el;
 
+	let labelSize = d3.scaleLinear()
+		.domain([250, 1000])
+		.range([7, 12])
+
 	let colorScale = d3.scaleOrdinal()
-		.domain(["Democrats", "Republicans"])
-		.range(["#006EB5", "#D41B2C"]);
+		.domain(["111", "011", "010", "001", "000"])
+		.range(['#006d2c', '#74c28c', '#e8c83c', '#7099ff', '#dbdbdb'])
+		// .range(['#006d2c','#2ca25f','#66c2a4','#b2e2e2','#edf8fb']);
 
 
 	const padding = { top: 10, right: 40, bottom: 40, left: 50 };
@@ -46,7 +54,7 @@
 
 	function generateMap() {
 
-		
+		console.log(statehex.features)
 
 		let svg = d3.select(el).append("svg");
 
@@ -64,15 +72,14 @@
 					 return obj.state === d.properties.fullname
 				 })[0]
 				 if (result) {
-
-					return colorScale(result.winner)
+					return colorScale(result.combined.toString())
 				 } else {
 				 	return "gray"
 				 }
-
 			 })
           .attr("d", path)
-          .attr("stroke", "white")
+          .attr("stroke", "#fff")
+			 .attr("stroke-width", 1)
 
 
 
@@ -87,14 +94,64 @@
 	        .text(function(d){ return d.properties.postalcode})
 	        .attr("text-anchor", "middle")
 	        .attr("alignment-baseline", "central")
-	        .style("font-size", 11)
-	        .style("fill", "white")
+	        .style("font-size", labelSize(width))
+	        .style("fill", function(d){
+ 				 let result = data.filter(obj => {
+ 					 return obj.state === d.properties.fullname
+ 				 })[0]
+ 				 if (result.combined.toString() === "000") {
+ 					return "#aaa"
+ 				 } else {
+ 				 	return "#fff"
+ 				 }
+ 			 })
+
+		const legend = d3.legendColor()
+			.scale(colorScale)
+			.labels(["Legal for recreational use","Legal for medical use/decriminalized","Decriminalized","Legal for medical use","No legalization"]);
+
+		const legendContainer = d3.select(el).append("svg")
+			.attr("width", width-25)
+			.attr("height", 100)
+			.attr("class","legendContainer")
+
+		if (width > 600) {
+			legend
+				.orient("horizontal")
+				.shapePadding((width-75)/5)
+				.labelWrap(130)
+
+			legendContainer.append("g")
+				.attr("transform", "translate(60,0)")
+				.call(legend)
+		} else {
+			legend
+				.orient("vertical")
+				// .shapePadding((width-75)/5)
+				// .labelWrap(130)
+
+			legendContainer.append("g")
+				.attr("transform", "translate(" + ((width-300)/2) + ",0)")
+				.call(legend)
+		}
+
+
+
+
+
+
 	}
 </script>
 
 <style>
 	.chart :global(circle)  {
 		fill: #d51e2d;
+	}
+
+	:global(svg g text.label) {
+		text-transform: uppercase;
+		fill: #666;
+		font-size:11px;
 	}
 </style>
 

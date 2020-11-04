@@ -8,7 +8,7 @@
 <style>
    #graphic-footer {
       display: grid;
-      grid-template-columns: 3fr 2fr
+      grid-template-columns: 1fr
    }
 
    #footer-meta span {

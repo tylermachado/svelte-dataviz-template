@@ -142,8 +142,6 @@ button:focus {
 #interactive .legendContainer {
 	border: 1px solid #bbb;
 	border-radius: 3px;
-	width: fit-content;
-	width: max-content;
 	padding:10px 10px 5px 10px;
 	margin:0 auto 2rem;
 }

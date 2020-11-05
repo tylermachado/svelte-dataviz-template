@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import MapHexbinUSA from './charts/MapHexbinUSA.svelte'
+	import MapUSA from './charts/MapUSA.svelte'
 	import GraphicTitle from './components/GraphicTitle.svelte'
 	import GraphicFooter from './components/GraphicFooter.svelte'
 
@@ -21,12 +21,10 @@
 	title={"Today's chart"}
 	subhed={"A look at something etc"}
 />
-<MapHexbinUSA
+<MapUSA
 	width={width}
-	height={width * 0.66}
 	data={dataset.default}
-	xVar={"city"}
-	yVar={"population"}
+	maptype={"hex"}
 />
 <GraphicFooter
 	source={"Marijuana Policy Project"}

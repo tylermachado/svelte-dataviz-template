@@ -1,295 +1,178 @@
 <script>
-   import { onMount } from "svelte";
-   import { geoAlbersUsa, geoPath } from "d3-geo";
-   import * as d3 from 'd3';
-   import * as d3legend from 'd3-svg-legend';
-   import { feature } from "topojson";
-   import { join } from "../helpers/join.js";
-   import states from "../helpers/USStates.js";
-   import HoverCard from "../components/HoverCard.svelte"
-   import SvelteTable from "svelte-table"
-   import TextField from "smelte/src/components/TextField";
+	import { onMount } from 'svelte';
+	import { scaleLinear, scaleLog, scaleOrdinal } from 'd3-scale';
+	import { axisLeft, axisRight, axisTop, axisBottom } from 'd3-axis';
+	import { geoAlbersUsa, geoMercator, geoPath } from 'd3-geo';
+	import { legendColor } from 'd3-svg-legend';
+	import { select } from 'd3-selection';
+	import { transition } from 'd3-transition'
+   import usaalbers from "../helpers/USAGeoAlbers.js";
+	import statehex from "../helpers/USStateHexbin.js";
+
+	let d3 = {
+		scaleLinear: scaleLinear,
+		scaleOrdinal: scaleOrdinal,
+		scaleLog: scaleLog,
+		select: select,
+		axisLeft: axisLeft,
+		axisRight: axisRight,
+		axisBottom: axisBottom,
+		axisTop: axisTop,
+		geoAlbersUsa: geoAlbersUsa,
+		geoMercator: geoMercator,
+		geoPath: geoPath,
+		legendColor: legendColor
+	}
+
+	export let data = {data};
+	export let width = {width};
+	export let maptype = {maptype};
+	export let height = width * 0.67;
+
+	let el;
+
+	console.log(statehex);
+	console.log(usaalbers);
+
+	let geojson;
+	let projection;
 
 
-   export let width;
-   export let height;
-   export let filtercity = '';
-   export let filtercitytyped = '';
-
-   $: if (filtercitytyped.length == 2) {
-      filtercity = ", " + filtercitytyped
-   } else if (states.find(s => s.name.toLowerCase() == filtercitytyped.toLowerCase()) === undefined) {
-      filtercity = filtercitytyped
-   } else {
-      let found = states.find(s => s.name.toLowerCase() == filtercitytyped.toLowerCase())
-      filtercity = ", " + found.abbreviation
-   }
-
-   export let active = {
-      city: "test",
-      acres: 11056,
-      population:678933,
-      walkablepct: "50%"
-   };
-   export let citylist;
+	if (maptype === "hex") {
+		geojson = statehex;
+		projection = d3.geoMercator()
+			.scale(width * 0.83)
+			.translate([(width * 2), (height * 1.465)]);
+	} else {
+		geojson = usaalbers;
+		projection = d3.geoAlbersUsa()
+			.scale(width * 1.3)
+			.translate([(width / 2), (height / 2)]);
+	}
 
 
-   let data;
-   let legendSizeDiv;
-   let legendColor;
+	let labelSize = d3.scaleLinear()
+		.domain([250, 1000])
+		.range([7, 12])
 
-   const projection = geoAlbersUsa().scale([width*1.35]).translate([width/2, height/2]);
-   const path = geoPath().projection(projection);
+	let colorScale = d3.scaleOrdinal()
+		.domain(["111", "011", "010", "001", "000"])
+		.range(['#006d2c', '#74c28c', '#e8c83c', '#7099ff', '#dbdbdb'])
+		// .range(['#006d2c','#2ca25f','#66c2a4','#b2e2e2','#edf8fb']);
 
-   let marginLimiter = d3.scaleLinear()
-      .domain([0,width])
-      .range([0, width-250])
 
-   let radiusScale = d3.scaleSqrt()
-   .range([width/200, width/14]);
-   let radiusVariable = "population"
+	const padding = { top: 10, right: 40, bottom: 40, left: 50 };
 
-   let colorScale = d3.scaleSequential()
-   .interpolator(d3.interpolateYlGn);
-   let colorVariable = "walkablepct"
+	const path = d3.geoPath()
+		.projection(projection);
 
-   function buildLegendColors() {
-      var legendColorDiv = d3.select(legendColor);
 
-      var svg = legendColorDiv.append("svg")
-      .attr("width", 308)
-      .attr("height", 60)
+	onMount(generateMap);
 
-      svg.append("g")
-      .attr("class", "legendColor")
-      .attr("transform", "translate(0,10)");
+	function generateMap() {
 
-      var legendSequential = d3legend.legendColor()
-      .classPrefix('circle')
-      .shapeRadius(2*(300/32/2))
-      .shapePadding(3*(300/32))
-      .shape('circle')
-      .cells(7)
-      .orient("horizontal")
-      .scale(colorScale)
-      .labelFormat(d3.format(".0f"))
-      .title("Percent of Residents within Half-Mile Walk to Park")
-      .titleWidth(305)
+		console.log(geojson.features)
 
-      svg.select(".legendColor")
-      .call(legendSequential);
-   }
+		let svg = d3.select(el).append("svg");
 
-   function handleMouseover(city, event) {
-      active = city;
+		svg
+			.attr("width", width)
+			.attr("height", height);
 
-      if (width > 700) {
-         d3.select('#hover-card')
-         .style('display',    'block')
-         .style('position',   'fixed')
-         .style('top',        (event.pageY - 775) + "px")
-         .style('left',       (marginLimiter(event.pageX)) + "px")
-      }
-   }
-
-   function handleMouseout(city, event) {
-      d3.select('#hover-card')
-      .style('display',    'none')
-   }
+		svg.append("g")
+      .selectAll("path")
+      .data(geojson.features)
+      .enter()
+      .append("path")
+          .attr("fill", function(d){
+				 let result = data.filter(obj => {
+					 return obj.state === d.properties.name
+				 })[0]
+				 if (result) {
+					return colorScale(result.combined.toString())
+				 } else {
+				 	return "gray"
+				 }
+			 })
+          .attr("d", path)
+          .attr("stroke", "#fff")
+			 .attr("stroke-width", width/1200)
 
 
 
-   onMount(async function() {
-      const response = await fetch(
-      "https://gist.githubusercontent.com/rveciana/a2a1c21ca1c71cd3ec116cc911e5fce9/raw/79564dfa2c56745ebd62f5655a6cc19d2cffa1ea/us.json"
-      );
-      const json = await response.json();
-      const land = feature(json, json.objects.land);
-      data = path(land);
+	  // Add the labels
+	  if (maptype === "hex") {
+		  svg.append("g")
+   	      .selectAll("labels")
+   	      .data(geojson.features)
+   	      .enter()
+   	      .append("text")
+   	        .attr("x", function(d){return path.centroid(d)[0]})
+   	        .attr("y", function(d){return path.centroid(d)[1]})
+   	        .text(function(d){ return d.properties.postalcode})
+   	        .attr("text-anchor", "middle")
+   	        .attr("alignment-baseline", "central")
+   	        .style("font-size", labelSize(width))
+   	        .style("fill", function(d){
+    				 let result = data.filter(obj => {
+    					 return obj.state === d.properties.name
+    				 })[0]
+    				 if (result.combined.toString() === "000") {
+    					return "#aaa"
+    				 } else {
+    				 	return "#fff"
+    				 }
+    			 })
+	  }
 
 
-      const files = await Promise.all([
-      // d3.csv("/datasets/citylist.csv"),
-      // d3.csv("/datasets/parksdata.csv")
-      d3.csv("//news.northeastern.edu/interactive/2020/06/city-parkland/datasets/citylist.csv"),
-      d3.csv("//news.northeastern.edu/interactive/2020/06/city-parkland/datasets/parksdata.csv")
-      ])
-      .then(function(data) {
-         var combodata = join(data[1], data[0], "City", "city", function(cityloc, dens) {
-            let walkablepct = parseFloat((dens["Percent of Residents within Half-Mile Walk of Park"]).replace(/%/g, ''));
+		const legend = d3.legendColor()
+			.scale(colorScale)
+			.labels(["Legal for recreational use","Legal for medical use/decriminalized","Decriminalized","Legal for medical use","No legalization"]);
 
-            return {
-               city: cityloc.city,
-               lat: +cityloc.lat,
-               lon: +cityloc.lon,
-               population: parseFloat((dens["City Population"]).replace(/,/g, '')),
-               landarea: parseFloat((dens["Land Area"]).replace(/,/g, '')),
-               revisedarea: parseFloat((dens["Revised Area"]).replace(/,/g, '')),
-               density: +dens["Density"],
-               walkablepct: parseFloat((dens["Percent of Residents within Half-Mile Walk of Park"]).replace(/%/g, '')),
-               acres: +dens["Acres of Parkland"],
-               acresper1000: +dens["Parkland per 1,000 Residents"]
-            }
+		const legendContainer = d3.select(el).append("svg")
+			.attr("width", width-25)
+			.attr("height", 100)
+			.attr("class","legendContainer")
 
-         });
+		if (width > 600) {
+			legend
+				.orient("horizontal")
+				.shapePadding((width-75)/5)
+				.labelWrap(130)
 
-         combodata.sort(function (a, b) {
-            return b.population - a.population;
-         });
+			legendContainer.append("g")
+				.attr("transform", "translate(60,0)")
+				.call(legend)
+		} else {
+			legend
+				.orient("vertical")
+				// .shapePadding((width-75)/5)
+				// .labelWrap(130)
 
-         radiusScale.domain(
-         [Math.min.apply(Math, combodata.map(function(o) { return o[radiusVariable]; })),
-         Math.max.apply(Math, combodata.map(function(o) { return o[radiusVariable]; }))]
-         )
-
-         colorScale.domain(
-         [Math.min.apply(Math, combodata.filter(d => {
-            return !isNaN(d.walkablepct);
-         }).map(function(o) { return o[colorVariable]; })),
-         Math.max.apply(Math, combodata.filter(d => {
-            return !isNaN(d.walkablepct);
-         }).map(function(o) { return o[colorVariable]; }))]
-         )
-
-         buildLegendColors();
-
-         const columns =  [
-         {
-            key: "city",
-            title: "City",
-            value: v => v.city,
-            sortable: true,
-            headerClass: "text-left"
-         },
-         {
-            key: "population",
-            title: "Population",
-            value: v => v.population,
-            renderValue: v => v.population.toLocaleString('en-US'),
-            sortable: true,
-            headerClass: "text-left"
-         },
-         {
-            key: "density",
-            title: "Population Density",
-            value: v => v.density,
-            renderValue: v => v.density.toLocaleString('en-US'),
-            sortable: true,
-            headerClass: "text-left"
-         },
-         {
-            key: "acresper1000",
-            title: "Acres of Parkland Per 1000 Residents",
-            value: v => v.acresper1000,
-            renderValue: v => v.acresper1000.toLocaleString('en-US'),
-            sortable: true,
-            headerClass: "text-left"
-         },
-         {
-            key: "walkablepct",
-            title: "Percent of Residents within Half-Mile of Park",
-            value: function(v) {
-               if (isNaN(v.walkablepct)) {
-                  return 0
-               } else {
-                  return v.walkablepct
-               }
-            },
-            renderValue: function(v) {
-               if (isNaN(v.walkablepct)) {
-                  return "not available"
-               } else {
-                  return v.walkablepct + "%"
-               }
-            },
-            sortable: true,
-            headerClass: "text-left"
-         },
-         ];
+			legendContainer.append("g")
+				.attr("transform", "translate(" + ((width-300)/2) + ",0)")
+				.call(legend)
+		}
 
 
-         return [
-            combodata,
-            columns
-         ];
 
 
-      });
 
-      citylist = await files;
 
-   });
+	}
 </script>
 
 <style>
-   .border {
-      stroke: #444444;
-      fill: #e9e9e9;
-   }
+	.chart :global(circle)  {
+		fill: #d51e2d;
+	}
 
-   circle.circle, circle.circleswatch {
-      opacity: 0.8;
-      stroke: #000000;
-   }
-
-   text.circlelegendTitle {
-      font-size:0.75rem;
-   }
-
-   input {
-      width:100%;
-   }
-
+	:global(svg g text.label) {
+		text-transform: uppercase;
+		fill: #666;
+		font-size:11px;
+	}
 </style>
 
-<div id="svgContainer"><svg width="{width}" height="{height}">
-   <path d={data} class="border" />
-   {#if citylist}
-   {#each citylist[0].filter(function (d) {
-      return d.city.toLowerCase().indexOf(filtercity.toLowerCase()) > -1
-   }) as city}
-   <circle
-   class="city circle"
-   cx={projection([city.lon, city.lat])[0]}
-   cy={projection([city.lon, city.lat])[1]}
-   r={radiusScale(city[radiusVariable])}
-   fill={
-      (!isNaN(city[colorVariable])) ?
-      colorScale(city[colorVariable]) :
-      '#e9e9e9'
-   }
-   on:mousemove={handleMouseover(city, event)}
-   on:mouseout={handleMouseout(city, event)}
-   />
-   {/each}
-   {/if}
-</svg></div>
-
-<div class="legendContainer" bind:this={legendColor}></div>
-<div class="sourceline">SOURCE: <a href="https://www.tpl.org/2019-city-park-facts">Center for City Park Excellence, Trust for Public Land</a></div>
-
-<HoverCard
-city={active.city}
-population={active.population}
-acres={active.acres}
-walkablepct={active.walkablepct}
-/>
-
-{#if citylist}
-<div class="interactivefilter">
-   <span>Filter by city or state abbreviation:</span>
-   <TextField bind:value={filtercitytyped} outlined  />
-</div>
-<SvelteTable
-   columns={citylist[1]}
-   rows={citylist[0].filter(function (d) {
-      return d.city.toLowerCase().indexOf(filtercity.toLowerCase()) > -1
-   })}
-   sortOrder={-1}
-   clickCol={(event,row,key) => console.log(event,row,key)}
-   sortBy={"population"}
-   classNameCell={"infocell"}
->
-</SvelteTable>
-<div class="sourceline">SOURCE: <a href="https://www.tpl.org/2019-city-park-facts">Center for City Park Excellence, Trust for Public Land</a></div>
-{/if}
+<div bind:this={el} class="chart"></div>

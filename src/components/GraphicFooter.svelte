@@ -26,8 +26,10 @@
 
 <div id="graphic-footer">
    <div id="footer-meta">
-      <span class="graphic-footer-text">SOURCE: {source}</span>
-      <span class="graphic-footer-text">NOTE: {note}</span>
+      <span class="graphic-footer-text">SOURCE: {@html source}</span>
+      {#if note}
+         <span class="graphic-footer-text">NOTE: {note}</span>
+      {/if}
    </div>
    <div id="footer-logo">
       <img src="./sitelogo.svg" alt="News@Northeastern" />

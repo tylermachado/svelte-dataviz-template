@@ -5,6 +5,7 @@
 	import { geoAlbersUsa, geoMercator, geoPath } from 'd3-geo';
 	import { legendColor } from 'd3-svg-legend';
 	import { select } from 'd3-selection';
+	import { format } from 'd3-format'
 	import { transition } from 'd3-transition'
    import usaalbers from "../helpers/USAGeoAlbers.js";
 	import statehex from "../helpers/USStateHexbin.js";
@@ -21,7 +22,8 @@
 		geoAlbersUsa: geoAlbersUsa,
 		geoMercator: geoMercator,
 		geoPath: geoPath,
-		legendColor: legendColor
+		legendColor: legendColor,
+		format: format
 	}
 
 	export let data = {data};
@@ -30,9 +32,6 @@
 	export let height = width * 0.67;
 
 	let el;
-
-	console.log(statehex);
-	console.log(usaalbers);
 
 	let geojson;
 	let projection;
@@ -55,9 +54,9 @@
 		.domain([250, 1000])
 		.range([7, 12])
 
-	let colorScale = d3.scaleOrdinal()
-		.domain(["111", "011", "010", "001", "000"])
-		.range(['#006d2c', '#74c28c', '#e8c83c', '#7099ff', '#dbdbdb'])
+	let colorScale = d3.scaleLinear()
+		.domain([0, 1.25])
+		.range(['#ededed','#57006b'])
 		// .range(['#006d2c','#2ca25f','#66c2a4','#b2e2e2','#edf8fb']);
 
 
@@ -70,8 +69,6 @@
 	onMount(generateMap);
 
 	function generateMap() {
-
-		console.log(geojson.features)
 
 		let svg = d3.select(el).append("svg");
 
@@ -89,7 +86,7 @@
 					 return obj.state === d.properties.name
 				 })[0]
 				 if (result) {
-					return colorScale(result.combined.toString())
+					return colorScale(result.earlyvotes20 / result.turnout16)
 				 } else {
 				 	return "gray"
 				 }
@@ -128,20 +125,23 @@
 
 		const legend = d3.legendColor()
 			.scale(colorScale)
-			.labels(["Legal for recreational use","Legal for medical use/decriminalized","Decriminalized","Legal for medical use","No legalization"]);
+			.cells([0,0.25,0.5,0.75,1])
+			.labelFormat(d3.format(".0%"))
 
 		const legendContainer = d3.select(el).append("svg")
 			.attr("width", width-25)
-			.attr("height", 100)
 			.attr("class","legendContainer")
 
 		if (width > 600) {
 			legend
 				.orient("horizontal")
-				.shapePadding((width-75)/5)
+				.shapeWidth(60)
+				.shapePadding((width-350)/5)
 				.labelWrap(130)
 
-			legendContainer.append("g")
+			legendContainer
+				.attr("height", 40)
+				.append("g")
 				.attr("transform", "translate(60,0)")
 				.call(legend)
 		} else {
@@ -150,8 +150,10 @@
 				// .shapePadding((width-75)/5)
 				// .labelWrap(130)
 
-			legendContainer.append("g")
-				.attr("transform", "translate(" + ((width-300)/2) + ",0)")
+			legendContainer
+				.attr("height", 90)
+				.append("g")
+				.attr("transform", "translate(" + ((width-100)/2) + ",0)")
 				.call(legend)
 		}
 

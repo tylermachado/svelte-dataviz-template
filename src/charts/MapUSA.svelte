@@ -4,7 +4,7 @@
 	import { axisLeft, axisRight, axisTop, axisBottom } from 'd3-axis';
 	import { geoAlbersUsa, geoMercator, geoPath } from 'd3-geo';
 	import { legendColor } from 'd3-svg-legend';
-	import { select } from 'd3-selection';
+	import { select, selectAll } from 'd3-selection';
 	import { format } from 'd3-format'
 	import { transition } from 'd3-transition'
    import usaalbers from "../helpers/USAGeoAlbers.js";
@@ -15,6 +15,7 @@
 		scaleOrdinal: scaleOrdinal,
 		scaleLog: scaleLog,
 		select: select,
+		selectAll: selectAll,
 		axisLeft: axisLeft,
 		axisRight: axisRight,
 		axisBottom: axisBottom,
@@ -65,7 +66,6 @@
 	const path = d3.geoPath()
 		.projection(projection);
 
-
 	onMount(generateMap);
 
 	function generateMap() {
@@ -74,13 +74,14 @@
 
 		svg
 			.attr("width", width)
-			.attr("height", height);
+			.attr("height", height)
 
 		svg.append("g")
       .selectAll("path")
       .data(geojson.features)
       .enter()
       .append("path")
+			.attr("class", "state")
           .attr("fill", function(d){
 				 let result = data.filter(obj => {
 					 return obj.state === d.properties.name
@@ -94,6 +95,25 @@
           .attr("d", path)
           .attr("stroke", "#fff")
 			 .attr("stroke-width", width/1200)
+			 .on("mouseover mousemove", function(d) {
+				 let result = data.filter(obj => {
+					 return obj.state === d.properties.name
+				 })[0]
+				 if (result) {
+					 d3.select(".tooltip .line1").text(d.properties.name)
+					 d3.select(".tooltip .line2").text("Early voting in 2020 was " + (result.earlyvotes20 / result.turnout16).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:1}) + " of total 2016 turnout.")
+
+					 d3.select(".tooltip")
+					 	.style("visibility", "unset")
+						.style("left", (event.pageX-100) + "px")
+						.style("top", (event.pageY-80) + "px")
+
+				 }
+			 }).on("mouseleave", function(d) {
+				 d3.select(".tooltip")
+					.style("visibility", "hidden")
+			 })
+
 
 
 
@@ -123,6 +143,19 @@
 	  }
 
 
+	   // add the tooltip
+	   let tooltip = d3.select(el).append("div")
+			.attr("class", "tooltip")
+
+		tooltip.append("span")
+			.attr("class", "line1")
+			.text("TESTING")
+
+		tooltip.append("span")
+			.attr("class", "line2")
+			.text("x")
+
+
 		const legend = d3.legendColor()
 			.scale(colorScale)
 			.cells([0,0.25,0.5,0.75,1])
@@ -132,11 +165,11 @@
 			.attr("width", width-25)
 			.attr("class","legendContainer")
 
-		if (width > 600) {
+		if (width > 400) {
 			legend
 				.orient("horizontal")
 				.shapeWidth(60)
-				.shapePadding((width-350)/5)
+				.shapePadding((width-450)/5)
 				.labelWrap(130)
 
 			legendContainer
@@ -166,6 +199,30 @@
 </script>
 
 <style>
+	:global(div.tooltip) {
+		background-color:rgba(0,0,0,0.7);
+		display:inline-block;
+		padding:8px;
+		border-radius:3px;
+		color: #fff;
+		text-align:center;
+		position:absolute;
+		visibility:hidden;
+		width:200px;
+		height:60px;
+	}
+
+	:global(div.tooltip .line1) {
+		display:block;
+		font-weight:bold;
+		font-size:1.1rem;
+	}
+
+	:global(div.tooltip .line2) {
+		display:block;
+		font-size:0.9rem;
+	}
+
 	.chart :global(circle)  {
 		fill: #d51e2d;
 	}

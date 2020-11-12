@@ -131,14 +131,7 @@
    	        .attr("alignment-baseline", "central")
    	        .style("font-size", labelSize(width))
    	        .style("fill", function(d){
-    				 let result = data.filter(obj => {
-    					 return obj.state === d.properties.name
-    				 })[0]
-    				 if (result.combined.toString() === "000") {
-    					return "#aaa"
-    				 } else {
-    				 	return "#fff"
-    				 }
+    				 return "#fff"
     			 })
 	  }
 
@@ -160,35 +153,37 @@
 			.scale(colorScale)
 			.cells([0,0.25,0.5,0.75,1])
 			.labelFormat(d3.format(".0%"))
+			.orient("horizontal")
+			.shapeWidth((width-25)/5)
+			.shapePadding(0)
+			.labelWrap(130)
 
 		const legendContainer = d3.select(el).append("svg")
 			.attr("width", width-25)
 			.attr("class","legendContainer")
+			.attr("height", 40)
+			.append("g")
+			.attr("transform", "translate(0,0)")
+			.call(legend)
 
-		if (width > 400) {
-			legend
-				.orient("horizontal")
-				.shapeWidth(60)
-				.shapePadding((width-450)/5)
-				.labelWrap(130)
-
-			legendContainer
-				.attr("height", 40)
-				.append("g")
-				.attr("transform", "translate(60,0)")
-				.call(legend)
-		} else {
-			legend
-				.orient("vertical")
-				// .shapePadding((width-75)/5)
-				// .labelWrap(130)
-
-			legendContainer
-				.attr("height", 90)
-				.append("g")
-				.attr("transform", "translate(" + ((width-100)/2) + ",0)")
-				.call(legend)
-		}
+		// if (width > 400) {
+		// 	legend
+		//
+		//
+		// 	legendContainer
+		//
+		// } else {
+		// 	legend
+		// 		.orient("vertical")
+		// 		// .shapePadding((width-75)/5)
+		// 		// .labelWrap(130)
+		//
+		// 	legendContainer
+		// 		.attr("height", 90)
+		// 		.append("g")
+		// 		.attr("transform", "translate(" + ((width-100)/2) + ",0)")
+		// 		.call(legend)
+		// }
 
 
 

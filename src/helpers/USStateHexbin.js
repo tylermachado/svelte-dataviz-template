@@ -45,7 +45,7 @@ const statehex = {
             "label":"Maine",
             "bees":60.5,
             "postalcode":"ME",
-            "fullname":"Maine"
+            "name":"Maine"
          }
       },
       {
@@ -92,7 +92,7 @@ const statehex = {
             "label":"R.I.",
             "bees":47.8,
             "postalcode":"RI",
-            "fullname":"Rhode Island"
+            "name":"Rhode Island"
          }
       },
       {
@@ -139,7 +139,7 @@ const statehex = {
             "label":"Vt.",
             "bees":33.9,
             "postalcode":"VT",
-            "fullname":"Vermont"
+            "name":"Vermont"
          }
       },
       {
@@ -186,7 +186,7 @@ const statehex = {
             "label":"Okla.",
             "bees":63.4,
             "postalcode":"OK",
-            "fullname":"Oklahoma"
+            "name":"Oklahoma"
          }
       },
       {
@@ -233,7 +233,7 @@ const statehex = {
             "label":"N.C.",
             "bees":41.5,
             "postalcode":"NC",
-            "fullname":"North Carolina"
+            "name":"North Carolina"
          }
       },
       {
@@ -280,7 +280,7 @@ const statehex = {
             "label":"Va.",
             "bees":45.6,
             "postalcode":"VA",
-            "fullname":"Virginia"
+            "name":"Virginia"
          }
       },
       {
@@ -327,7 +327,7 @@ const statehex = {
             "label":"W.Va.",
             "bees":59.5,
             "postalcode":"WV",
-            "fullname":"West Virginia"
+            "name":"West Virginia"
          }
       },
       {
@@ -374,7 +374,7 @@ const statehex = {
             "label":"Calif.",
             "bees":40.1,
             "postalcode":"CA",
-            "fullname":"California"
+            "name":"California"
          }
       },
       {
@@ -421,7 +421,7 @@ const statehex = {
             "label":"Kan.",
             "bees":40.8,
             "postalcode":"KS",
-            "fullname":"Kansas"
+            "name":"Kansas"
          }
       },
       {
@@ -468,7 +468,7 @@ const statehex = {
             "label":"Ky.",
             "bees":47.7,
             "postalcode":"KY",
-            "fullname":"Kentucky"
+            "name":"Kentucky"
          }
       },
       {
@@ -515,7 +515,7 @@ const statehex = {
             "label":"Md.",
             "bees":60.9,
             "postalcode":"MD",
-            "fullname":"Maryland"
+            "name":"Maryland"
          }
       },
       {
@@ -562,7 +562,7 @@ const statehex = {
             "label":"Mo.",
             "bees":34.9,
             "postalcode":"MO",
-            "fullname":"Missouri"
+            "name":"Missouri"
          }
       },
       {
@@ -609,7 +609,7 @@ const statehex = {
             "label":"Neb.",
             "bees":37.3,
             "postalcode":"NE",
-            "fullname":"Nebraska"
+            "name":"Nebraska"
          }
       },
       {
@@ -656,7 +656,7 @@ const statehex = {
             "label":"N.M.",
             "bees":46.1,
             "postalcode":"NM",
-            "fullname":"New Mexico"
+            "name":"New Mexico"
          }
       },
       {
@@ -703,7 +703,7 @@ const statehex = {
             "label":"S.C.",
             "bees":26.6,
             "postalcode":"SC",
-            "fullname":"South Carolina"
+            "name":"South Carolina"
          }
       },
       {
@@ -750,7 +750,7 @@ const statehex = {
             "label":"Tenn.",
             "bees":36.4,
             "postalcode":"TN",
-            "fullname":"Tennessee"
+            "name":"Tennessee"
          }
       },
       {
@@ -797,7 +797,7 @@ const statehex = {
             "label":"Iowa",
             "bees":61.4,
             "postalcode":"IA",
-            "fullname":"Iowa"
+            "name":"Iowa"
          }
       },
       {
@@ -844,7 +844,7 @@ const statehex = {
             "label":"Nev.",
             "bees":26.7,
             "postalcode":"NV",
-            "fullname":"Nevada"
+            "name":"Nevada"
          }
       },
       {
@@ -891,7 +891,7 @@ const statehex = {
             "label":"N.J.",
             "bees":47.6,
             "postalcode":"NJ",
-            "fullname":"New Jersey"
+            "name":"New Jersey"
          }
       },
       {
@@ -938,7 +938,7 @@ const statehex = {
             "label":"S.D.",
             "bees":36.1,
             "postalcode":"SD",
-            "fullname":"South Dakota"
+            "name":"South Dakota"
          }
       },
       {
@@ -985,7 +985,7 @@ const statehex = {
             "label":"Ohio",
             "bees":49.8,
             "postalcode":"OH",
-            "fullname":"Ohio"
+            "name":"Ohio"
          }
       },
       {
@@ -1032,7 +1032,7 @@ const statehex = {
             "label":"Wyo.",
             "bees":32.5,
             "postalcode":"WY",
-            "fullname":"Wyoming"
+            "name":"Wyoming"
          }
       },
       {
@@ -1079,7 +1079,7 @@ const statehex = {
             "label":"D.C.",
             "bees":null,
             "postalcode":"DC",
-            "fullname":"District of Columbia"
+            "name":"District of Columbia"
          }
       },
       {
@@ -1126,7 +1126,7 @@ const statehex = {
             "label":"Del.",
             "bees":61,
             "postalcode":"DE",
-            "fullname":"Delaware"
+            "name":"Delaware"
          }
       },
       {
@@ -1173,7 +1173,7 @@ const statehex = {
             "label":"Fla.",
             "bees":54.8,
             "postalcode":"FL",
-            "fullname":"Florida"
+            "name":"Florida"
          }
       },
       {
@@ -1220,7 +1220,7 @@ const statehex = {
             "label":"N.H.",
             "bees":39.4,
             "postalcode":"NH",
-            "fullname":"New Hampshire"
+            "name":"New Hampshire"
          }
       },
       {
@@ -1267,7 +1267,7 @@ const statehex = {
             "label":"H.I.",
             "bees":13.9,
             "postalcode":"HI",
-            "fullname":"Hawaii"
+            "name":"Hawaii"
          }
       },
       {
@@ -1314,7 +1314,7 @@ const statehex = {
             "label":"Texas",
             "bees":46.3,
             "postalcode":"TX",
-            "fullname":"Texas"
+            "name":"Texas"
          }
       },
       {
@@ -1361,7 +1361,7 @@ const statehex = {
             "label":"Ala.",
             "bees":48.1,
             "postalcode":"AL",
-            "fullname":"Alabama"
+            "name":"Alabama"
          }
       },
       {
@@ -1408,7 +1408,7 @@ const statehex = {
             "label":"Ariz.",
             "bees":42.9,
             "postalcode":"AZ",
-            "fullname":"Arizona"
+            "name":"Arizona"
          }
       },
       {
@@ -1455,7 +1455,7 @@ const statehex = {
             "label":"Ga.",
             "bees":34.9,
             "postalcode":"GA",
-            "fullname":"Georgia"
+            "name":"Georgia"
          }
       },
       {
@@ -1502,7 +1502,7 @@ const statehex = {
             "label":"La.",
             "bees":44.3,
             "postalcode":"LA",
-            "fullname":"Louisiana"
+            "name":"Louisiana"
          }
       },
       {
@@ -1549,7 +1549,7 @@ const statehex = {
             "label":"Miss.",
             "bees":38.7,
             "postalcode":"MS",
-            "fullname":"Mississippi"
+            "name":"Mississippi"
          }
       },
       {
@@ -1596,7 +1596,7 @@ const statehex = {
             "label":"Utah",
             "bees":33.5,
             "postalcode":"UT",
-            "fullname":"Utah"
+            "name":"Utah"
          }
       },
       {
@@ -1643,7 +1643,7 @@ const statehex = {
             "label":"Colo.",
             "bees":38,
             "postalcode":"CO",
-            "fullname":"Colorado"
+            "name":"Colorado"
          }
       },
       {
@@ -1690,7 +1690,7 @@ const statehex = {
             "label":"Ark.",
             "bees":48.3,
             "postalcode":"AR",
-            "fullname":"Arkansas"
+            "name":"Arkansas"
          }
       },
       {
@@ -1737,7 +1737,7 @@ const statehex = {
             "label":"Idaho",
             "bees":33.3,
             "postalcode":"ID",
-            "fullname":"Idaho"
+            "name":"Idaho"
          }
       },
       {
@@ -1784,7 +1784,7 @@ const statehex = {
             "label":"Ore.",
             "bees":25.2,
             "postalcode":"OR",
-            "fullname":"Oregon"
+            "name":"Oregon"
          }
       },
       {
@@ -1831,7 +1831,7 @@ const statehex = {
             "label":"Ill.",
             "bees":62.4,
             "postalcode":"IL",
-            "fullname":"Illinois"
+            "name":"Illinois"
          }
       },
       {
@@ -1878,7 +1878,7 @@ const statehex = {
             "label":"Pa.",
             "bees":60.6,
             "postalcode":"PA",
-            "fullname":"Pennsylvania"
+            "name":"Pennsylvania"
          }
       },
       {
@@ -1925,7 +1925,7 @@ const statehex = {
             "label":"Ind.",
             "bees":49.1,
             "postalcode":"IN",
-            "fullname":"Indiana"
+            "name":"Indiana"
          }
       },
       {
@@ -1972,7 +1972,7 @@ const statehex = {
             "label":"N.Y.",
             "bees":54.1,
             "postalcode":"NY",
-            "fullname":"New York"
+            "name":"New York"
          }
       },
       {
@@ -2019,7 +2019,7 @@ const statehex = {
             "label":"Wash.",
             "bees":39.3,
             "postalcode":"WA",
-            "fullname":"Washington"
+            "name":"Washington"
          }
       },
       {
@@ -2066,7 +2066,7 @@ const statehex = {
             "label":"Wis.",
             "bees":60.2,
             "postalcode":"WI",
-            "fullname":"Wisconsin"
+            "name":"Wisconsin"
          }
       },
       {
@@ -2113,7 +2113,7 @@ const statehex = {
             "label":"Mass.",
             "bees":46.4,
             "postalcode":"MA",
-            "fullname":"Massachusetts"
+            "name":"Massachusetts"
          }
       },
       {
@@ -2160,7 +2160,7 @@ const statehex = {
             "label":"Mich.",
             "bees":27.7,
             "postalcode":"MI",
-            "fullname":"Michigan"
+            "name":"Michigan"
          }
       },
       {
@@ -2207,7 +2207,7 @@ const statehex = {
             "label":"Minn.",
             "bees":51.2,
             "postalcode":"MN",
-            "fullname":"Minnesota"
+            "name":"Minnesota"
          }
       },
       {
@@ -2254,7 +2254,7 @@ const statehex = {
             "label":"Mont.",
             "bees":41.1,
             "postalcode":"MT",
-            "fullname":"Montana"
+            "name":"Montana"
          }
       },
       {
@@ -2301,7 +2301,7 @@ const statehex = {
             "label":"N.D.",
             "bees":40.4,
             "postalcode":"ND",
-            "fullname":"North Dakota"
+            "name":"North Dakota"
          }
       },
       {
@@ -2348,7 +2348,7 @@ const statehex = {
             "label":"A.K.",
             "bees":null,
             "postalcode":"AK",
-            "fullname":"Alaska"
+            "name":"Alaska"
          }
       },
       {
@@ -2395,7 +2395,7 @@ const statehex = {
             "label":"Conn.",
             "bees":57.5,
             "postalcode":"CT",
-            "fullname":"Connecticut"
+            "name":"Connecticut"
          }
       }
    ]

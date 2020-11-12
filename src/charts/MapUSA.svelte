@@ -95,7 +95,7 @@
           .attr("d", path)
           .attr("stroke", "#fff")
 			 .attr("stroke-width", width/1200)
-			 .on("mouseover mousemove", function(d) {
+			 .on("mouseover mousemove", function(event, d) {
 				 let result = data.filter(obj => {
 					 return obj.state === d.properties.name
 				 })[0]

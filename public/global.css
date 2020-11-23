@@ -1,10 +1,12 @@
 .article-content, #interactive{
 	max-width: 800px;
+	height: 400px;
 	margin: 0 auto;
 }
 
 #interactive > svg, #interactive > #svgContainer, .tick text {
 	max-width: 1000px;
+	height: 500px;
 	margin: 0 auto;
 	font-family: "akkurat", -apple-system, sans-serif;
 }

@@ -37,7 +37,6 @@
 	onMount(generateBarChart);
 
 	function generateBarChart() {
-		console.log(data)
 
 		var svg = d3.select(el)
 			.append("svg")

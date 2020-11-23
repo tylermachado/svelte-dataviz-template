@@ -9,6 +9,7 @@
 	import GraphicTitle from './components/GraphicTitle.svelte'
 	import GraphicFooter from './components/GraphicFooter.svelte'
 	import * as dataset from '../public/datasets/turnout.json'
+	import * as applemaps from '../public/datasets/applemaps.json'
 
 	export let width = Math.min(
 		document.getElementById('interactive').getBoundingClientRect().width,
@@ -58,14 +59,13 @@
 />
 
 <MultilineChart
-	data = {dataset.default}
+	data = {applemaps.default}
 	width = {width}
 	height = {500}
-	title = {"state"}
-	xVar = {"state"}
-	lineA = {"vep16"}
-	lineB = {"turnout16"}
-	lineC = {"earlyvotes20"}
+	title={"Transit Changes"}
+	xVar={"date"}
+	yGroups={["driving", "transit", "walking"]}
+	yDomain={[0, 200]}
 />
 
 

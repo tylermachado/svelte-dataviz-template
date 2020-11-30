@@ -34,7 +34,7 @@ let d3 = {
 
 let el;
 
-const padding = { top: 5, right: 5, bottom: 40, left: 30 };
+const padding = { top: 50, right: 15, bottom: 40, left: 60 };
 
 export let data = {data};
 export let width = {width};
@@ -60,97 +60,56 @@ $: colors = d3.scaleLinear()
 onMount(generateGraphic);
 
 function generateGraphic() {
-	xScale.domain(d3.values(data).map(function(d) { return d.date; }))
-	yScale.domain(d3.keys(data[0]).filter(function(d) {return d !== "date"}))
 
-	console.log(
-		data
-	)
+	xScale.domain(d3.values(data).map(function(d) { return d[xVar]; }))
+	yScale.domain(d3.keys(data[0]).filter(function(d) {return d !== xVar}))
 
 	var svg = d3.select(el)
 		.append("svg")
 		.attr("width", width)
-		.attr("height", height)
+		.attr("height", (xScale.bandwidth() * yScale.domain().length) + padding.top)
 		.append("g")
 		.attr("transform",
 		"translate(" + padding.left + "," + 0 + ")");
 
+		// make columns
 	let dates = svg.selectAll('g')
 		.data(data)
 		.enter()
 		.append('g')
 		.attr("class", "date");
 
-	yScale.domain().forEach(function(mode) {
+		// space for side labels
+	let labels = svg.append('g')
+
+		// for each yGroup, create a square
+	yScale.domain().forEach(function(mode,i) {
 		dates
 			.append('rect')
-			.attr("x", 		function(d) { return xScale(d.date) })
+			.attr("x", 		function(d) { return xScale(d[xVar]) })
 			.attr("width", xScale.bandwidth())
-			.attr("y", 		yScale(mode))
-			.attr("height", yScale.bandwidth())
+			.attr("y", 		(xScale.bandwidth() * i) + padding.top)
+			.attr("height", xScale.bandwidth())
 			.attr("fill", function(d) { return colors(d[mode]) })
+
+		labels
+			.append("text")
+			.attr("x", 		-5)
+			.attr("y", 		(xScale.bandwidth() * (i + 0.75))  + padding.top)
+			.attr("text-anchor", "end")
+			.attr("class", "label")
+			.text(mode)
 	})
 
-	dates.selectAll("rect")
-		.data(yScale.domain())
-		.enter()
-		.append('rect')
-		.attr("x", 		0)
-		.attr("width", xScale.bandwidth())
-		.attr("y", 		function (d,i) { return yScale(d); })
-		.attr("height", yScale.bandwidth())
-		.attr("fill", "red")
-
-
-		 // .selectAll("rect")
-		 // .data(data)
-		 // .enter()
-		 // .data(datum)
-		 // .append("rect")
-		 // .attr("x", function (d) { console.log(d); return xScale(d); })
-		 // .attr("y", function (d) { return yScale(d[xVar]); })
-		 //
-		 // .attr("height", yScale.bandwidth())
-		 // .attr("width", function (d) { return xScale(d[yVar]); });
-
-	// console.log(data)
-
-	// let axisBottomRender = svg.append("g")
-	// 	.attr("transform", "translate(0," + (height-padding.bottom) + ")")
-	// 	.attr("class","horizontalAxis")
-	// 	.call(d3.axisBottom(xScale)
-	// 		.ticks(data.length)
-	// 		.tickSize(0)
-	// 		.tickFormat(d3.timeFormat("%m/%d/%y"))
-	// 	);
-	//
-	// axisBottomRender.selectAll("path")
-	// 	.attr("stroke", "#ccc")
-	// 	.attr("transform", "translate(-0,0) scale(1.05 1)");
-	//
-	// axisBottomRender.selectAll("text")
-	// 	.style("text-anchor", "end")
-	// 	.attr("transform", ("rotate(-45)"))
-	// 	.attr("dx", -2)
-	// 	.attr("dy", 6)
-	//
-	//
-	// let axisVerticalRender = svg.append("g")
-	// 	.call(d3.axisLeft(yScale)
-	// 	.ticks(4)
-	// 	.tickSize(0)
-	// 	.tickFormat(function(d,i){
-	// 		if (yScale.domain()[1] <= 10) {
-	// 			return d + '%'
-	// 		} else {
-	// 			return d
-	// 		}
-	//
-	// 	}));
-	//
-	// axisVerticalRender.selectAll("path")
-	// 	.attr("stroke", "#ccc");
-
+		// labels for each column
+	dates.append("text")
+		.attr("x", 	function(d) { return xScale(d[xVar]) + 11 })
+		.attr("y", 	padding.top + 6)
+		.attr("transform", function(d) {
+			return "rotate(-45 " + xScale(d[xVar]) + " " + padding.top + " )"
+		})
+		.attr("class", "label")
+		.text(function(d) {return d[xVar]})
 
 
 
@@ -164,52 +123,12 @@ function generateGraphic() {
 	display:inline;
 }
 
-
-.chart :global(.legendCells .cell) {
-	font-size:0.65rem;
-	fill: #777;
+.chart :global(text.label) {
 	text-transform:uppercase;
+	font-size:10px
 }
 
-.chart :global(.linetooltip) {
-	display:none;
-	position: absolute;
-	background-color: white;
-	border:2px solid black;
-	border-radius:10px;
-	padding: 10px;
-	width:220px;
-	font-size:1rem;
-}
 
-.chart :global(.linetooltip div) {
-	margin-bottom:0.75rem;
-}
-
-.chart :global(.tipdate) {
-	font-size:1.2rem;
-	font-weight:bold;
-	margin:0 auto 0.5rem;
-}
-
-.chart :global(.horizontalAxis .tick) {
-	 visibility: hidden;
-}
-
-.chart :global(.horizontalAxis .tick:nth-child(2)),
-.chart :global(.horizontalAxis .tick:last-child) {
-	 visibility: visible;
-}
-
-/* @media screen and (max-width:600px) {
-	.chart :global(.horizontalAxis .tick) {
-		 visibility: hidden;
-	}
-
-	.chart :global(.horizontalAxis .tick:nth-last-child(4n+1)) {
-		 visibility: visible;
-	}
-} */
 </style>
 
 

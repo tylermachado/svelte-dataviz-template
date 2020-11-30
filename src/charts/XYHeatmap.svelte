@@ -34,7 +34,7 @@ let d3 = {
 
 let el;
 
-const padding = { top: 50, right: 15, bottom: 40, left: 60 };
+const padding = { top: 35, right: 15, bottom: 40, left: 60 };
 
 export let data = {data};
 export let width = {width};

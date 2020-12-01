@@ -4,26 +4,28 @@ export const vibrant = [
    "#00CFB5",
    "#FFBF3D",
    "#006EB5",
-   "#0e4a0c",
-   "#5e00d1"
+   "#006d2c",
+    "#5e00d1"
 ]
 
 export const pastels = [
+   '#74c28c',
+   '#e8c83c',
+   '#7099ff',
    "#76b7b2",
    "#b07aa1",
-   "#f28e2b",
-   "#79a2d1"
+    "#f28e2b"
 ]
 
 export const political = [
    "#006EB5",
    "#D41B2C",
-   "#888888"
+    "#888888"
 ]
 
 export const negativepositive = [
    "#88c7f0",
-   "#D41B2C"
+    "#D41B2C"
 ]
 
 export const linearpurple = ['#ededed','#57006b']

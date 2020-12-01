@@ -24,7 +24,7 @@ import { onMount } from 'svelte';
         	}
 let el;
 
-const padding = { top: 10, right: 40, bottom: 40, left: 100 };
+const padding = { top: 5, right: 5, bottom: 40, left: 30 };
 
 export let data = {data}
 export let width = {width}
@@ -44,7 +44,6 @@ $: yScale = d3.scaleLinear()
 onMount(generateLineChart);
 
 function generateLineChart(){
-console.log(data);
 
 var svg = d3.select(el)
     .append("svg")
@@ -54,30 +53,37 @@ var svg = d3.select(el)
     .attr("transform",
           "translate(" + padding.left + "," + padding.top + ")");
 
-          svg.append("path")
-                  .datum(data)
-                  .attr("fill", "none")
-          		  .attr("stroke", "#d51e2d")
-                  .attr("stroke-width", 3)
-                  .attr("d", d3.line()
-                    .x(function(d) { return xScale(d[xVar]) })
-                    .y(function(d) { return yScale(d[yVar]) })
-                    )
+ svg.append("g")
+ 	.attr("transform", "translate(0," + (height-padding.bottom) + ")")
+ 	.call(d3.axisBottom(xScale)
+ 	  .tickSizeInner(5)
+ 	  .tickSizeOuter(0)
+ 	  .tickPadding(5)
+   )
+   .call(g => g.select(".domain").remove())
+	.call(g => g.selectAll(".tick text").attr("text-anchor","end").attr("transform","rotate(-40 -8 8)"));
 
-                    svg.append("path")
-        .datum(data)
-        .attr("fill", "none")
-		  .attr("stroke", "#02acac")
-        .attr("stroke-width", 3)
-        .attr("d", d3.line()
-          .x(function(d) { return xScale(d[xVar]) })
-          .y(function(d) { return yScale(d[yVar] + 10)})
-      )
-		 svg.append("g")
-			 .attr("transform", "translate(0," + (height-padding.bottom) + ")")
-			 .call(d3.axisBottom(xScale));
-		 svg.append("g")
-				 .call(d3.axisLeft(yScale));
+ svg.append("g")
+ 	.call(d3.axisLeft(yScale)
+ 	  .ticks(10)
+ 	  .tickSizeInner(-width)
+ 	  .tickSizeOuter(0)
+ 	  .tickPadding(3)
+   )
+   .call(g => g.select(".domain").remove());
+
+svg.append("path")
+   .datum(data)
+   .attr("fill", "none")
+	  .attr("stroke", "#d51e2d")
+   .attr("stroke-width", 3)
+   .attr("d", d3.line()
+     .x(function(d) { return xScale(d[xVar]) })
+     .y(function(d) { return yScale(d[yVar]) })
+     )
+
+
+
 }
 
 
@@ -86,8 +92,9 @@ var svg = d3.select(el)
 .chart :global(){
 	display:inline;
 }
-	.chart :global(path.domain) {
-		stroke: #888;
+
+	.chart :global(g.tick line) {
+		stroke: #ccc;
 	}
 
 </style>

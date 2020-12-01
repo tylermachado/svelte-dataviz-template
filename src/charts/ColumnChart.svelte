@@ -16,7 +16,7 @@
 
 	let el;
 
-	const padding = { top: 10, right: 40, bottom: 40, left: 50 };
+	const padding = { top: 10, right: 0, bottom: 40, left: 50 };
 
 
 		export let data = {data};
@@ -37,7 +37,7 @@
 	onMount(generateBarChart);
 
 	function generateBarChart() {
-
+		// draw chart SVG
 		var svg = d3.select(el)
 			.append("svg")
 			.attr("width", width)
@@ -46,13 +46,26 @@
 			.attr("transform",
 				  "translate(" + padding.left + "," + padding.top + ")");
 
+		// axes
 		svg.append("g")
 		   .attr("transform", "translate(0," + (height-padding.bottom) + ")")
-		   .call(d3.axisBottom(xScale));
+		   .call(d3.axisBottom(xScale)
+				.tickSizeInner(0)
+				.tickSizeOuter(0)
+				.tickPadding(5)
+			)
+			.call(g => g.select(".domain").remove());
 
 		svg.append("g")
-  			.call(d3.axisLeft(yScale));
+  			.call(d3.axisLeft(yScale)
+				.ticks(10)
+				.tickSizeInner(-width)
+				.tickSizeOuter(0)
+				.tickPadding(3)
+			)
+			.call(g => g.select(".domain").remove());
 
+		// add data points
 		svg.append('g')
 	    .selectAll("rect")
 	    .data(data)
@@ -68,6 +81,10 @@
 <style>
 	.chart :global(rect) {
 		fill: #d51e2d;
+	}
+
+	.chart :global(g.tick line) {
+		stroke: #ccc;
 	}
 </style>
 

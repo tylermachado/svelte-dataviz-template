@@ -9,7 +9,7 @@ import { keys, values } from 'd3-collection';
 import { select, selectAll } from 'd3-selection';
 import { timeParse, timeFormat } from 'd3-time-format';
 import { legendColor } from 'd3-svg-legend';
-// import { negativepositive } from '../helpers/colors.js'
+import { divergingbrownteal } from '../helpers/colors.js'
 
 let d3 = {
 	scaleLinear: scaleLinear,
@@ -55,7 +55,7 @@ $: yScale = d3.scaleBand()
 
 $: colors = d3.scaleLinear()
 	.domain([0, 100, 200])
-	.range(['#a6611a','#f5f5f5','#018571'])
+	.range(divergingbrownteal)
 
 onMount(generateGraphic);
 

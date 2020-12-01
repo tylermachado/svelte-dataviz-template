@@ -2,6 +2,7 @@
 
    export let source;
    export let note;
+   export let credit;
 
 </script>
 
@@ -13,12 +14,12 @@
    }
 
    #footer-logo img, #footer-logo svg {
-      max-width:125px;
+      max-width:75px;
    }
 
    @media screen and (min-width: 600px) {
       #graphic-footer {
-         grid-template-columns: 3fr 1fr;
+         grid-template-columns: 4fr 1fr;
       }
 
       #footer-logo img, #footer-logo svg {
@@ -47,6 +48,9 @@
       <span class="graphic-footer-text">SOURCE: {@html source}</span>
       {#if note}
          <span class="graphic-footer-text">NOTE: {note}</span>
+      {/if}
+      {#if credit}
+         <span class="graphic-footer-text">VISUALIZATION: {credit}</span>
       {/if}
    </div>
    <div id="footer-logo">

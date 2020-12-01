@@ -1,5 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
+	import BarChart from './charts/BarChart.svelte'
+	import ColumnChart from './charts/ColumnChart.svelte'
 	import XYHeatmap from './charts/XYHeatmap.svelte'
 	import GraphicTitle from './components/GraphicTitle.svelte'
 	import GraphicFooter from './components/GraphicFooter.svelte'
@@ -25,7 +27,22 @@
 	title={"Data Viz Templates"}
 	subhed={"A look at something etc"}
 />
-
+<BarChart
+	data = {dataset.default.filter(d => (["Massachusetts","Vermont","New Hampshire","Maine","Connecticut","Rhode Island"]).indexOf(d.state) > -1)}
+	width = {width}
+	height = {height}
+	title={"Transit Changes"}
+	xVar={"state"}
+	yVar={"earlyvotes20"}
+/>
+<ColumnChart
+	data = {dataset.default.filter(d => (["Massachusetts","Vermont","New Hampshire","Maine","Connecticut","Rhode Island"]).indexOf(d.state) > -1)}
+	width = {width}
+	height = {height}
+	title={"Transit Changes"}
+	xVar={"state"}
+	yVar={"earlyvotes20"}
+/>
 <XYHeatmap
 	data = {applemaps.default}
 	width = {width}
@@ -35,8 +52,8 @@
 	yGroups={["driving", "transit", "walking"]}
 	yDomain={[0, 200]}
 />
-
-
 <GraphicFooter
 	source={'<a href="https://electproject.github.io/Early-Vote-2020G/index.html">United States Elections Project</a>'}
+	note={'Accessed Nov 2020'}
+	credit={'King Husky/Northeastern University'}
 />

@@ -1,0 +1,33 @@
+export const vibrant = [
+   "#d51e2d",
+   "#6f2b6e",
+   "#00CFB5",
+   "#FFBF3D",
+   "#006EB5",
+   "#0e4a0c",
+   "#5e00d1"
+]
+
+export const pastels = [
+   "#76b7b2",
+   "#b07aa1",
+   "#f28e2b",
+   "#79a2d1"
+]
+
+export const political = [
+   "#006EB5",
+   "#D41B2C",
+   "#888888"
+]
+
+export const negativepositive = [
+   "#88c7f0",
+   "#D41B2C"
+]
+
+export const linearpurple = ['#ededed','#57006b']
+
+export const linearteal = ['#ededed','#168A8C']
+
+export const divergingbrownteal = ['#a6611a','#f5f5f5','#168A8C']

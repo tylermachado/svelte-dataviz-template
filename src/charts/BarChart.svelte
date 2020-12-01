@@ -16,7 +16,7 @@
 
 	let el;
 
-	const padding = { top: 10, right: 40, bottom: 40, left: 100 };
+	const padding = { top: 0, right: 40, bottom: 40, left: 100 };
 
 
 		export let data = {data};
@@ -31,7 +31,7 @@
 
 	$: yScale = d3.scaleBand()
 		.domain(data.map(function(o) { return o[xVar]; }))
-		.rangeRound([height - padding.bottom, padding.top])
+		.rangeRound([padding.top, height - padding.bottom])
 		.padding(0.2);
 
 
@@ -39,8 +39,6 @@
 	onMount(generateBarChart);
 
 	function generateBarChart() {
-		console.log(data)
-
 		var svg = d3.select(el)
 			.append("svg")
 			.attr("width", width)
@@ -48,6 +46,24 @@
 			.append("g")
 			.attr("transform",
 				  "translate(" + padding.left + "," + padding.top + ")");
+
+			svg.append("g")
+			.attr("transform", "translate(0," + (height-padding.bottom) + ")")
+		   .call(d3.axisBottom(xScale)
+				.ticks(Math.round(width/100))
+				.tickSizeInner(-width)
+				.tickSizeOuter(0)
+				.tickPadding(3)
+			)
+			.call(g => g.select(".domain").remove());
+
+	  		svg.append("g")
+	  			   .call(d3.axisLeft(yScale)
+						.tickSizeInner(0)
+						.tickSizeOuter(0)
+						.tickPadding(5)
+					)
+					.call(g => g.select(".domain").remove());
 
 		svg.append('g')
 	    .selectAll("rect")
@@ -59,18 +75,17 @@
 		 .attr("height", yScale.bandwidth())
 		 .attr("width", function (d) { return xScale(d[yVar]); });
 
-		 svg.append("g")
-			 .attr("transform", "translate(0," + (height-padding.bottom) + ")")
-			 .call(d3.axisBottom(xScale));
 
-		 svg.append("g")
-				 .call(d3.axisLeft(yScale));
 	}
 </script>
 
 <style>
 	.chart :global(rect) {
 		fill: #d51e2d;
+	}
+
+	.chart :global(g.tick line) {
+		stroke: #ccc;
 	}
 </style>
 

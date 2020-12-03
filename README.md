@@ -46,4 +46,15 @@ You can run the newly built app with `npm run start`. This uses [sirv](https://g
 
 4. In WordPress, copy the CSS and JavaScript files present in that `index.html` file to the "External Resources" section of the WordPress editor. Whatever `<div>`s you're targeting with your app, make sure those are also present in the WordPress editor, too.
 
+## "Helpers" folder
+
+- colors.js: several arrays of hex codes that can be used as color scales.
+
+- join.js: a function that can be imported to join two different dataset files together, as long as the items have a key value in common.
+
+- USAGeoAlbers.js: a GeoJSON file for a USA state map
+
+- USStateHexbin.js: a GeoJSON file to make a hexagon cartogram map of US States
+
+- USStates.js: a list of US states and their common two-letter abbreviations.
 

@@ -36,5 +36,14 @@ npm run build
 
 You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
 
+## Deploying to our site
+
+1. Run the `build` command as seen above.
+
+2. Upload the contents of the /public/ folder to Cyberduck.
+
+3. Open the `index.html` file of that folder in a text editor.
+
+4. In WordPress, copy the CSS and JavaScript files present in that `index.html` file to the "External Resources" section of the WordPress editor. Whatever `<div>`s you're targeting with your app, make sure those are also present in the WordPress editor, too.
 
 

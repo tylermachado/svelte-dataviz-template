@@ -34,6 +34,10 @@
       margin-bottom:0.25rem;
    }
 
+   :global(#footer-meta a) {
+      color: #666;
+   }
+
    #footer-meta .nav__logo-mod .logo__news {
       fill: #000;
    }
@@ -47,13 +51,10 @@
    <div id="footer-meta">
       <span class="graphic-footer-text">SOURCE: {@html source}</span>
       {#if note}
-         <span class="graphic-footer-text">NOTE: {note}</span>
+         <span class="graphic-footer-text">NOTE: {@html note}</span>
       {/if}
       {#if credit}
-         <span class="graphic-footer-text">VISUALIZATION: {credit}</span>
+         <span class="graphic-footer-text">VISUALIZATION: {@html credit}</span>
       {/if}
-   </div>
-   <div id="footer-logo">
-      <img src="./sitelogo.svg" alt="News@Northeastern" />
    </div>
 </div>

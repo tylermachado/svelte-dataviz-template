@@ -6,10 +6,14 @@
 </script>
 
 <style>
-   h2 {
+   span.graphictitle {
+      font-family:'akkurat','Helvetica','Arial',sans-serif;
+      font-size:1.75rem;
+      font-weight:900;
       margin-bottom:2rem;
+      display:block;
    }
 </style>
 
-<h2 class="graphictitle">{title}</h2>
+<span class="graphictitle">{title}</span>
 <!-- <span class="graphicsubhed">{subhed}</span> -->

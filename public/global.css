@@ -1,167 +1,22 @@
-.article-content, #interactive{
-	max-width: 800px;
-	height: 400px;
-	margin: 0 auto;
-}
-
-#interactive > svg, #interactive > #svgContainer, .tick text {
-	max-width: 1000px;
-	height: 500px;
-	margin: 0 auto;
-	font-family: "akkurat", -apple-system, sans-serif;
-}
-
 #interactive {
+	max-width: 1000px;
+	margin: 1.5rem auto;
 	color: #333;
 	font-family: "akkurat", -apple-system, sans-serif;
 }
 
-
-
-#interactive label {
-	display: block;
-}
-
-#interactive input {
-	font-family: inherit;
-	font-size: inherit;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
-}
-
-#interactive .sourceline {
-	font-size: 14px;
-	color: #999;
-	margin: 1rem 0;
-}
-
-#interactive .sourceline a {
-	color: #999;
-}
-
-
-/* button {
+.tick text {
 	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
+	font-family: "akkurat", -apple-system, sans-serif;
 }
 
-button:disabled {
-	color: #999;
+body.dev-index {
+	margin:0;
+	padding:0;
 }
 
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
-button:focus {
-	border-color: #666;
-} */
-
-#interactive table {
-	border: 0px
-}
-
-@media only screen and (min-width: 601px) {
-
-	#interactive td.infocell {
-	    width: 13%;
-	}
-
-	#interactive td.infocell:nth-child(1){
-	    width: 30%;
-	}
-
-	#interactive td.infocell:nth-child(4),
-	#interactive td.infocell:nth-child(5) {
-	    width: 22%;
-	}
-
-	#interactive th {
-		vertical-align: bottom;
-		border-bottom:2px solid #222;
-	}
-} /* large-screen table */
-
-@media only screen and (max-width: 600px) {
-	#interactive table, thead, tbody, th, td, tr {
-		display: block;
-	}
-	#interactive thead tr {
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	#interactive tr {
-		border: 1px  solid #ccc;
-		margin-bottom:1.5rem;
-	}
-	#interactive td {
-		border: none;
-		border-bottom: 1px solid #eee;
-		position: relative;
-		font-size:1.25rem;
-		line-height:2.25rem;
-		padding-top:12px;
-		padding-left:5px;
-	}
-	#interactive td:before {
-		position: absolute;
-		top: -5px;
-		/* left: 6px; */
-		width: 100%;
-		font-size:0.75rem;
-		text-transform:uppercase;
-	}
-	#interactive td:nth-of-type(1):before { content: "City"; }
-	#interactive td:nth-of-type(2):before { content: "Population"; }
-	#interactive td:nth-of-type(3):before { content: "Population Density"; }
-	#interactive td:nth-of-type(4):before { content: "Acres of Parkland Per 1000 Residents";}
-	#interactive td:nth-of-type(5):before { content: "Percent of Residents within Half-Mile of Park";}
-
-	#interactive .infocell {
-		font-size:1.2rem;
-		font-weight: 700;
-		color: darkgreen;
-	}
-
-	#interactive .infocell:before {
-		font-size:0.75rem;
-		text-transform:uppercase;
-		font-weight:normal;
-		color: black;
-	}
-} /* end mobile table */
-
-#interactive text.circlelegendTitle {
-	font-size:0.81rem;
-	margin-bottom:10px;
-}
-
-#interactive .legendContainer {
-	border: 1px solid #bbb;
-	border-radius: 3px;
-	padding:10px 10px 5px 10px;
-	margin:0 auto 0.5rem;
-}
-
-circle.circleswatch {
-	opacity: 0.8;
-	stroke: #000000;
-}
-
-.interactivefilter {
-	padding:10px;
-	background-color: #eee;
-}
-
-.interactivefilter span {
-	font-size:0.8rem;
-}
-
-.interactivefilter input {
-	width: 100%;
+body.dev-index footer {
+	display: block;
+	background-color: black;
+	height:400px;
 }

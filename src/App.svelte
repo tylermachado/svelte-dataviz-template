@@ -1,8 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import BarChart from './charts/BarChart.svelte'
-	import LineChart from './charts/LineChart.svelte'
-	import XYHeatmap from './charts/XYHeatmap.svelte'
+	import DotPlot from './charts/DotPlot.svelte'
 	import GraphicTitle from './components/GraphicTitle.svelte'
 	import GraphicFooter from './components/GraphicFooter.svelte'
 	import * as colors from './helpers/colors.js'
@@ -30,23 +28,12 @@
 	title={"Data Viz Templates"}
 	subhed={"A look at something etc"}
 />
-<!-- <XYHeatmap
-	data = {applemaps.default}
+<DotPlot
+	data = {dataset.default}
 	width = {width}
-	height = {500}
-	title={"Transit Changes"}
-	xVar={"date"}
-	yGroups={["driving", "transit", "walking"]}
-	yDomain={[0, 200]}
-	colorscheme={colors.political}
-/> -->
-<LineChart
-	data = {applemaps.default}
-	width = {width}
-	height = {width * .67}
-	xVar={"date"}
-	yGroups={["driving", "transit"]}
-	yDomain={[0, 200]}
+	height = {2800}
+	groupings={["turnout16", "earlyvotes20"]}
+	category={"state"}
 />
 <GraphicFooter
 	source={'<a href="https://electproject.github.io/Early-Vote-2020G/index.html">United States Elections Project</a>'}

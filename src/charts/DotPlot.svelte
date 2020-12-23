@@ -1,225 +1,111 @@
 <script>
 	import { onMount } from 'svelte';
-	import { scaleLinear } from 'd3-scale'
+	import { scaleLinear, scaleOrdinal } from 'd3-scale'
 	import { csv } from 'd3-fetch'
 	import { select } from 'd3-selection'
-   import HoverCard from "../components/HoverCard.svelte"
+	import { transition } from 'd3-transition'
+	import { legendColor } from 'd3-svg-legend';
+	import { political } from "../helpers/colors.js"
 
 	const d3 = {
 		scaleLinear: scaleLinear,
+		scaleOrdinal: scaleOrdinal,
 		csv: csv,
-		select: select
+		select: select,
+		legendColor: legendColor
 	}
 
-	export let active = {}
+	let el;
 
-   export let width = 200;
-	let radius = 6;
-	let data = [];
+	export let data = {data}
+	export let width = {width}
+	export let height = 500
+	export let groupings = {groupings}
+	export let category;
 
-	onMount(loadData);
+	let radius = 12;
 
-	function loadData() {
-	  	// d3.csv("../datasets/complaints.csv").then(function(dataset){
-		d3.csv("//news.northeastern.edu/interactive/2020/07/fireworks/datasets/complaints.csv").then(function(dataset){
-			data = dataset;
-		})
+	onMount(generatePlot);
+
+	function generatePlot() {
+		const legend = d3.legendColor()
+			.scale(colors)
+			.orient("horizontal")
+			.shape("circle")
+			.shapeRadius(radius * 0.67)
+			.shapePadding(100)
+			.labelWrap(130)
+
+		const legendContainer = d3.select(el).append("svg")
+			.attr("width", (3*100) + (3 * (radius)))
+			.attr("class","legendContainer")
+			.attr("height", 60)
+			.append("g")
+			.attr("transform", "translate(50," + (radius * 0.67) + ")")
+			.call(legend)
 	}
 
-	function hover(d,event) {
-		const pyro = document.getElementById("pyro");
-		console.log(pyro.style.display)
-		pyro.style.display === "block"
 
-	}
 
 	$: xScale = d3.scaleLinear()
-		.domain([0, 8000])
+		.domain([0, 3000000])
 		.range([radius, width - radius]);
 
 	$: yScale = d3.scaleLinear()
-		.domain([0, (data.length - 1)])
-		.range([50, 1200 - (radius*2)]);
+		.domain([0, (data.length)])
+		.range([35, height]);
+
+	$: colors = d3.scaleOrdinal()
+		.domain(groupings)
+		.range(political);
 
 	let marginLimiter = d3.scaleLinear()
 	      .domain([0,width])
 	      .range([0, width-100])
 
-	function startfireworks(pass, event) {
-	    var d = document.getElementById('pyro');
-	    d.style.display = "block";
-	d.style.position = "fixed";
-	d.style.top = (event.clientY + 9) + 'px';
-	d.style.left = (event.clientX + 9) + 'px';
-	}
-
-	function stopfireworks() {
-	    d.style.display = "none";
-	}
-
-	function handleMouseover(pass, event, year, city) {
-		active.year = year;
-		active.city = city;
-		active.complaints = pass;
-
-      d3.select('#hover-card')
-         .style('display',    'block')
-         .style('position',   'fixed')
-         .style('top',        (event.clientY - 120) + "px")
-         .style('left',       marginLimiter(event.clientX) + "px")
-   }
-
-   function handleMouseout(d, event) {
-      d3.select('#hover-card')
-      .style('display',    'none')
-   }
 
 </script>
 
 <style>
-	text {
-		font-size:0.9rem;
+	:global(.legend text.label) {
+		font-size:12px;
+		text-transform:uppercase;
+		fill: #666;
 	}
 
-	text a {
-	 fill: #999999;
-	 font-size:0.65rem;
+	:global(.legend) {
+		text-align:center;
+		margin:0 auto;
 	}
-
-	text tspan.pctred {
-		fill: #d51e2d;
-		font-weight:900;
-	}
-
-	text tspan {
-		margin-right:3rem;
-	}
-
-	#pyro {
-    display:none;
-	 z-index:0
-  }
-
-.pyro > .before, .pyro > .after {
-
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  box-shadow: -120px -218.66667px blue, 248px -16.66667px #00ff84, 190px 16.33333px #002bff, -113px -308.66667px #ff009d, -109px -287.66667px #ffb300, -50px -313.66667px #ff006e, 226px -31.66667px #ff4000, 180px -351.66667px #ff00d0, -12px -338.66667px #00f6ff, 220px -388.66667px #99ff00, -69px -27.66667px #ff0400, -111px -339.66667px #6200ff, 155px -237.66667px #00ddff, -152px -380.66667px #00ffd0, -50px -37.66667px #00ffdd, -95px -175.66667px #a6ff00;
-  -moz-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
-  -webkit-animation: 1s bang ease-out  backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
-  -o-animation: 1s bang ease-out  backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
-  -ms-animation: 1s bang ease-out  backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
-  animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards; }
-
-.pyro > .after {
-  -moz-animation-delay: 1.25s, 1.25s, 1.25s;
-  -webkit-animation-delay: 1.25s, 1.25s, 1.25s;
-  -o-animation-delay: 1.25s, 1.25s, 1.25s;
-  -ms-animation-delay: 1.25s, 1.25s, 1.25s;
-  animation-delay: 1.25s, 1.25s, 1.25s;
-  -moz-animation-duration: 1.25s, 1.25s, 6.25s;
-  -webkit-animation-duration: 1.25s, 1.25s, 6.25s;
-  -o-animation-duration: 1.25s, 1.25s, 6.25s;
-  -ms-animation-duration: 1.25s, 1.25s, 6.25s;
-  animation-duration: 1.25s, 1.25s, 6.25s; }
-
-@-webkit-keyframes bang {
-  from {
-    box-shadow: 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod; } }
-@-moz-keyframes bang {
-  from {
-    box-shadow: 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod; } }
-@-o-keyframes bang {
-  from {
-    box-shadow: 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod; } }
-@-ms-keyframes bang {
-  from {
-    box-shadow: 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod; } }
-@keyframes bang {
-  from {
-    box-shadow: 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod, 0 0 goldenrod; } }
-@-webkit-keyframes gravity {
-  to {
-    transform: translateY(200px);
-    -moz-transform: translateY(200px);
-    -webkit-transform: translateY(200px);
-    -o-transform: translateY(200px);
-    -ms-transform: translateY(200px);
-    opacity: 0; } }
-@-moz-keyframes gravity {
-  to {
-    transform: translateY(200px);
-    -moz-transform: translateY(200px);
-    -webkit-transform: translateY(200px);
-    -o-transform: translateY(200px);
-    -ms-transform: translateY(200px);
-    opacity: 0; } }
-@-o-keyframes gravity {
-  to {
-    transform: translateY(200px);
-    -moz-transform: translateY(200px);
-    -webkit-transform: translateY(200px);
-    -o-transform: translateY(200px);
-    -ms-transform: translateY(200px);
-    opacity: 0; } }
-@-ms-keyframes gravity {
-  to {
-    transform: translateY(200px);
-    -moz-transform: translateY(200px);
-    -webkit-transform: translateY(200px);
-    -o-transform: translateY(200px);
-    -ms-transform: translateY(200px);
-    opacity: 0; } }
-@keyframes gravity {
-  to {
-    transform: translateY(200px);
-    -moz-transform: translateY(200px);
-    -webkit-transform: translateY(200px);
-    -o-transform: translateY(200px);
-    -ms-transform: translateY(200px);
-    opacity: 0; } }
-
-
 </style>
 
-<div class="pyro" id="pyro">
-    <div class="before"></div>
-    <div class="after"></div>
-</div>
-
-
-<HoverCard
-	year={active.year}
-	city={active.city}
-	complaints={active.complaints}
-/>
-<svg width={width} height="1200">
+<div bind:this={el} class="legend"></div>
+<svg width={width} height={height}>
 	{#if data.length > 0}
 	{#each data as d, i}
 		<g>
-			<text y={yScale(i) - 15}>
-			<tspan>{d.city}</tspan>
-			<tspan class="pctred" dx="10" font-size={fontScale(parseFloat(d.increase)) + "rem"}>&#9650; {d.increase}</tspan>
-  			<tspan  dx="10"><a href="{d.source}">(source)</a></tspan>
+			<text y={yScale(i) - 20} class="dotplot-header">
+			<tspan>{d[category]}</tspan>
   			</text>
 			<g>
 				<line
-					x1={xScale(d.complaints19)}
-					x2={xScale(d.complaints20)}
+					x1={xScale(xScale.domain()[0])}
+					x2={xScale(xScale.domain()[1])}
 					y1={yScale(i)}
 					y2={yScale(i)}
-					stroke="#999999"
+					stroke="#dedede"
 					stroke-width="2"
 				/>
-				<circle cx={xScale(d.complaints19)} cy={yScale(i)} r={radius} fill="#006EB5"
-			   on:mousemove={handleMouseover(d.complaints19, event, 2019, d.city)}
-			   on:mouseout={handleMouseout(d, event)}
-			   />
-				<circle cx={xScale(d.complaints20)} cy={yScale(i)} r={radius} fill="#d51e2d"
-			   on:mousemove={handleMouseover(d.complaints20, event, 2020, d.city)}
-			   on:mouseout={handleMouseout(d, event)}
+				{#each groupings as group}
+					{#if d[group]}
+						<circle cx={xScale(d[group])} cy={yScale(i)} r={radius} fill={colors(group)}
+					   />
+						<text x={xScale(d[group])} y={yScale(i) + (radius*0.33)} fill="white" text-anchor="middle">
+							<tspan font-size="11px">{d[group]}</tspan>
+							<tspan font-size="7px" dx="-3">%</tspan>
+						</text>
+					{/if}
+				{/each}
 			   />
 			</g>
 		</g>

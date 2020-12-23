@@ -1,11 +1,15 @@
-#interactive {
+.svelte-chart  {
 	max-width: 1000px;
 	margin: 1.5rem auto;
 	color: #333;
 	font-family: "akkurat", -apple-system, sans-serif;
 }
 
-.tick text {
+.svelte-chart .article-body *+* {
+    margin-top: unset;
+}
+
+.svelte-chart .tick text {
 	color: #333;
 	font-family: "akkurat", -apple-system, sans-serif;
 }

@@ -42,7 +42,7 @@ export let height = {height};
 export let xVar = {xVar};
 export let yGroups = {yGroups};
 export let yDomain = {yDomain};
-// export let colorscheme = {colorscheme};
+export let colorscheme = divergingbrownteal;
 
 let lines = yGroups;
 const parseTime = d3.timeParse("%m/%d/%y");
@@ -55,7 +55,7 @@ $: yScale = d3.scaleBand()
 
 $: colors = d3.scaleLinear()
 	.domain([0, 100, 200])
-	.range(divergingbrownteal)
+	.range(colorscheme)
 
 onMount(generateGraphic);
 

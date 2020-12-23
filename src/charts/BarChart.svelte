@@ -21,6 +21,7 @@
 	const padding = { top: 10, right: 50, bottom: 40, left: 100 };
 
 
+
 	export let data = {data};
 	export let width = {width};
 	export let height = {height};
@@ -29,6 +30,12 @@
 	export let yDomain = ([0, 100])
 	export let colorscheme = vibrant;
 	export let orientation = "vertical";
+
+	if (Array.isArray(yVar)) {
+		yVar = yVar
+	} else {
+		yVar = [yVar]
+	}
 
 	$: xScale = d3.scaleBand()
 		.domain(data.map(function(o) { return o[xVar]; }))
@@ -46,10 +53,6 @@
 	onMount(generateBarChart);
 
 	function generateBarChart() {
-
-			console.log(
-				data
-			)
 		if (orientation !== "vertical") {
 			xScale.rangeRound([padding.top, height - padding.bottom])
 			yScale.range([0, width - padding.left - padding.right])
@@ -153,7 +156,7 @@
 						 return colorScale(yVar[v]);
 					 });
 			}
-		} // if-else
+		} // if-else on vertical/horizontal
 
 	} // generateBarChart
 </script>

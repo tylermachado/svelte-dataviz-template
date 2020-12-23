@@ -7,6 +7,7 @@
 	import { select, selectAll } from 'd3-selection';
 	import { format } from 'd3-format'
 	import { transition } from 'd3-transition'
+	import { pastels } from '../helpers/colors.js'
    import usaalbers from "../helpers/USAGeoAlbers.js";
 	import statehex from "../helpers/USStateHexbin.js";
 
@@ -29,13 +30,19 @@
 
 	export let data = {data};
 	export let width = {width};
-	export let maptype = {maptype};
-	export let height = width * 0.67;
+	export let maptype = "geo";
+	export let height = width * 0.5;
+	export let colorscheme = pastels;
+	export let variable = {variable}
 
 	let el;
 
 	let geojson;
 	let projection;
+
+	console.log(
+		data.map(d => d[variable])
+	)
 
 
 	if (maptype === "hex") {
@@ -55,10 +62,9 @@
 		.domain([250, 1000])
 		.range([7, 12])
 
-	let colorScale = d3.scaleLinear()
-		.domain([0, 1.25])
-		.range(['#ededed','#57006b'])
-		// .range(['#006d2c','#2ca25f','#66c2a4','#b2e2e2','#edf8fb']);
+	let colorScale = d3.scaleOrdinal()
+		.domain(data.map(d => d[variable]))
+		.range(colorscheme)
 
 
 	const padding = { top: 10, right: 40, bottom: 40, left: 50 };
@@ -87,7 +93,7 @@
 					 return obj.state === d.properties.name
 				 })[0]
 				 if (result) {
-					return colorScale(result.earlyvotes20 / result.turnout16)
+					return colorScale(result[variable])
 				 } else {
 				 	return "gray"
 				 }
@@ -101,7 +107,7 @@
 				 })[0]
 				 if (result) {
 					 d3.select(".tooltip .line1").text(d.properties.name)
-					 d3.select(".tooltip .line2").text("Early voting in 2020 was " + (result.earlyvotes20 / result.turnout16).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:1}) + " of total 2016 turnout.")
+					 d3.select(".tooltip .line2").text(variable + ": " + result[variable])
 
 					 d3.select(".tooltip")
 					 	.style("visibility", "unset")

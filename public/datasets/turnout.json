@@ -1,308 +1,308 @@
 [
   {
-    "state": "Alabama",
-    "earlyvotes20": 300402,
-    "turnout16": 2123372,
-    "vep16": 3609447
+    "State": "Alabama",
+    "2020 Early Votes": 300402,
+    "2016 Total Votes": 2123372,
+    "2016 VEP": 3609447
   },
   {
-    "state": "Alaska",
-    "earlyvotes20": 152585,
-    "turnout16": 318608,
-    "vep16": 522679
+    "State": "Alaska",
+    "2020 Early Votes": 152585,
+    "2016 Total Votes": 318608,
+    "2016 VEP": 522679
   },
   {
-    "state": "Arizona",
-    "earlyvotes20": 2471577,
-    "turnout16": 2604657,
-    "vep16": 4740310
+    "State": "Arizona",
+    "2020 Early Votes": 2471577,
+    "2016 Total Votes": 2604657,
+    "2016 VEP": 4740310
   },
   {
-    "state": "Arkansas",
-    "earlyvotes20": 912688,
-    "turnout16": 1130635,
-    "vep16": 2140097
+    "State": "Arkansas",
+    "2020 Early Votes": 912688,
+    "2016 Total Votes": 1130635,
+    "2016 VEP": 2140097
   },
   {
-    "state": "California",
-    "earlyvotes20": 12090534,
-    "turnout16": 14181595,
-    "vep16": 25104844
+    "State": "California",
+    "2020 Early Votes": 12090534,
+    "2016 Total Votes": 14181595,
+    "2016 VEP": 25104844
   },
   {
-    "state": "Colorado",
-    "earlyvotes20": 2887605,
-    "turnout16": 2780247,
-    "vep16": 3974405
+    "State": "Colorado",
+    "2020 Early Votes": 2887605,
+    "2016 Total Votes": 2780247,
+    "2016 VEP": 3974405
   },
   {
-    "state": "Connecticut",
-    "earlyvotes20": 636000,
-    "turnout16": 1644920,
-    "vep16": 2582761
+    "State": "Connecticut",
+    "2020 Early Votes": 636000,
+    "2016 Total Votes": 1644920,
+    "2016 VEP": 2582761
   },
   {
-    "state": "Delaware",
-    "earlyvotes20": 148424,
-    "turnout16": 443814,
-    "vep16": 691720
+    "State": "Delaware",
+    "2020 Early Votes": 148424,
+    "2016 Total Votes": 443814,
+    "2016 VEP": 691720
   },
   {
-    "state": "District of Columbia",
-    "earlyvotes20": 260071,
-    "turnout16": 311268,
-    "vep16": 515248
+    "State": "District of Columbia",
+    "2020 Early Votes": 260071,
+    "2016 Total Votes": 311268,
+    "2016 VEP": 515248
   },
   {
-    "state": "Florida",
-    "earlyvotes20": 8974896,
-    "turnout16": 9420039,
-    "vep16": 14601066
+    "State": "Florida",
+    "2020 Early Votes": 8974896,
+    "2016 Total Votes": 9420039,
+    "2016 VEP": 14601066
   },
   {
-    "state": "Georgia",
-    "earlyvotes20": 4013155,
-    "turnout16": 4114732,
-    "vep16": 6959963
+    "State": "Georgia",
+    "2020 Early Votes": 4013155,
+    "2016 Total Votes": 4114732,
+    "2016 VEP": 6959963
   },
   {
-    "state": "Hawaii",
-    "earlyvotes20": 484000,
-    "turnout16": 428937,
-    "vep16": 1012860
+    "State": "Hawaii",
+    "2020 Early Votes": 484000,
+    "2016 Total Votes": 428937,
+    "2016 VEP": 1012860
   },
   {
-    "state": "Idaho",
-    "earlyvotes20": 402310,
-    "turnout16": 690255,
-    "vep16": 1166706
+    "State": "Idaho",
+    "2020 Early Votes": 402310,
+    "2016 Total Votes": 690255,
+    "2016 VEP": 1166706
   },
   {
-    "state": "Illinois",
-    "earlyvotes20": 3591646,
-    "turnout16": 5589631,
-    "vep16": 8985443
+    "State": "Illinois",
+    "2020 Early Votes": 3591646,
+    "2016 Total Votes": 5589631,
+    "2016 VEP": 8985443
   },
   {
-    "state": "Indiana",
-    "earlyvotes20": 1834992,
-    "turnout16": 2734958,
-    "vep16": 4849937
+    "State": "Indiana",
+    "2020 Early Votes": 1834992,
+    "2016 Total Votes": 2734958,
+    "2016 VEP": 4849937
   },
   {
-    "state": "Iowa",
-    "earlyvotes20": 996981,
-    "turnout16": 1566031,
-    "vep16": 2288536
+    "State": "Iowa",
+    "2020 Early Votes": 996981,
+    "2016 Total Votes": 1566031,
+    "2016 VEP": 2288536
   },
   {
-    "state": "Kansas",
-    "earlyvotes20": 770324,
-    "turnout16": 1184402,
-    "vep16": 2054025
+    "State": "Kansas",
+    "2020 Early Votes": 770324,
+    "2016 Total Votes": 1184402,
+    "2016 VEP": 2054025
   },
   {
-    "state": "Kentucky",
-    "earlyvotes20": 1508000,
-    "turnout16": 1924149,
-    "vep16": 3282420
+    "State": "Kentucky",
+    "2020 Early Votes": 1508000,
+    "2016 Total Votes": 1924149,
+    "2016 VEP": 3282420
   },
   {
-    "state": "Louisiana",
-    "earlyvotes20": 977408,
-    "turnout16": 2029032,
-    "vep16": 3384435
+    "State": "Louisiana",
+    "2020 Early Votes": 977408,
+    "2016 Total Votes": 2029032,
+    "2016 VEP": 3384435
   },
   {
-    "state": "Maine",
-    "earlyvotes20": 499939,
-    "turnout16": 747927,
-    "vep16": 1058372
+    "State": "Maine",
+    "2020 Early Votes": 499939,
+    "2016 Total Votes": 747927,
+    "2016 VEP": 1058372
   },
   {
-    "state": "Maryland",
-    "earlyvotes20": 2178906,
-    "turnout16": 2781446,
-    "vep16": 4189616
+    "State": "Maryland",
+    "2020 Early Votes": 2178906,
+    "2016 Total Votes": 2781446,
+    "2016 VEP": 4189616
   },
   {
-    "state": "Massachusetts",
-    "earlyvotes20": 2352945,
-    "turnout16": 3325046,
-    "vep16": 4948028
+    "State": "Massachusetts",
+    "2020 Early Votes": 2352945,
+    "2016 Total Votes": 3325046,
+    "2016 VEP": 4948028
   },
   {
-    "state": "Michigan",
-    "earlyvotes20": 2841696,
-    "turnout16": 4799284,
-    "vep16": 7420628
+    "State": "Michigan",
+    "2020 Early Votes": 2841696,
+    "2016 Total Votes": 4799284,
+    "2016 VEP": 7420628
   },
   {
-    "state": "Minnesota",
-    "earlyvotes20": 1716575,
-    "turnout16": 2944813,
-    "vep16": 3973204
+    "State": "Minnesota",
+    "2020 Early Votes": 1716575,
+    "2016 Total Votes": 2944813,
+    "2016 VEP": 3973204
   },
   {
-    "state": "Mississippi",
-    "earlyvotes20": 231031,
-    "turnout16": 1209357,
-    "vep16": 2191241
+    "State": "Mississippi",
+    "2020 Early Votes": 231031,
+    "2016 Total Votes": 1209357,
+    "2016 VEP": 2191241
   },
   {
-    "state": "Missouri",
-    "earlyvotes20": 827978,
-    "turnout16": 2808605,
-    "vep16": 4517925
+    "State": "Missouri",
+    "2020 Early Votes": 827978,
+    "2016 Total Votes": 2808605,
+    "2016 VEP": 4517925
   },
   {
-    "state": "Montana",
-    "earlyvotes20": 529168,
-    "turnout16": 497147,
-    "vep16": 804250
+    "State": "Montana",
+    "2020 Early Votes": 529168,
+    "2016 Total Votes": 497147,
+    "2016 VEP": 804250
   },
   {
-    "state": "Nebraska",
-    "earlyvotes20": 482919,
-    "turnout16": 844227,
-    "vep16": 1343821
+    "State": "Nebraska",
+    "2020 Early Votes": 482919,
+    "2016 Total Votes": 844227,
+    "2016 VEP": 1343821
   },
   {
-    "state": "Nevada",
-    "earlyvotes20": 1122970,
-    "turnout16": 1125385,
-    "vep16": 1961587
+    "State": "Nevada",
+    "2020 Early Votes": 1122970,
+    "2016 Total Votes": 1125385,
+    "2016 VEP": 1961587
   },
   {
-    "state": "New Hampshire",
-    "earlyvotes20": 181577,
-    "turnout16": 744296,
-    "vep16": 1042795
+    "State": "New Hampshire",
+    "2020 Early Votes": 181577,
+    "2016 Total Votes": 744296,
+    "2016 VEP": 1042795
   },
   {
-    "state": "New Jersey",
-    "earlyvotes20": 3658460,
-    "turnout16": 3874046,
-    "vep16": 6013656
+    "State": "New Jersey",
+    "2020 Early Votes": 3658460,
+    "2016 Total Votes": 3874046,
+    "2016 VEP": 6013656
   },
   {
-    "state": "New Mexico",
-    "earlyvotes20": 788175,
-    "turnout16": 798319,
-    "vep16": 1464515
+    "State": "New Mexico",
+    "2020 Early Votes": 788175,
+    "2016 Total Votes": 798319,
+    "2016 VEP": 1464515
   },
   {
-    "state": "New York",
-    "earlyvotes20": 3743745,
-    "turnout16": 7721453,
-    "vep16": 13604645
+    "State": "New York",
+    "2020 Early Votes": 3743745,
+    "2016 Total Votes": 7721453,
+    "2016 VEP": 13604645
   },
   {
-    "state": "North Carolina",
-    "earlyvotes20": 1456014,
-    "turnout16": 4741564,
-    "vep16": 7352501
+    "State": "North Carolina",
+    "2020 Early Votes": 1456014,
+    "2016 Total Votes": 4741564,
+    "2016 VEP": 7352501
   },
   {
-    "state": "North Dakota",
-    "earlyvotes20": 251484,
-    "turnout16": 344360,
-    "vep16": 566783
+    "State": "North Dakota",
+    "2020 Early Votes": 251484,
+    "2016 Total Votes": 344360,
+    "2016 VEP": 566783
   },
   {
-    "state": "Ohio",
-    "earlyvotes20": 3000827,
-    "turnout16": 5496487,
-    "vep16": 8736808
+    "State": "Ohio",
+    "2020 Early Votes": 3000827,
+    "2016 Total Votes": 5496487,
+    "2016 VEP": 8736808
   },
   {
-    "state": "Oklahoma",
-    "earlyvotes20": 444729,
-    "turnout16": 1452992,
-    "vep16": 2778219
+    "State": "Oklahoma",
+    "2020 Early Votes": 444729,
+    "2016 Total Votes": 1452992,
+    "2016 VEP": 2778219
   },
   {
-    "state": "Oregon",
-    "earlyvotes20": 2155350,
-    "turnout16": 2001336,
-    "vep16": 3024174
+    "State": "Oregon",
+    "2020 Early Votes": 2155350,
+    "2016 Total Votes": 2001336,
+    "2016 VEP": 3024174
   },
   {
-    "state": "Pennsylvania",
-    "earlyvotes20": 2506557,
-    "turnout16": 6165478,
-    "vep16": 9691160
+    "State": "Pennsylvania",
+    "2020 Early Votes": 2506557,
+    "2016 Total Votes": 6165478,
+    "2016 VEP": 9691160
   },
   {
-    "state": "Rhode Island",
-    "earlyvotes20": 305724,
-    "turnout16": 464144,
-    "vep16": 786012
+    "State": "Rhode Island",
+    "2020 Early Votes": 305724,
+    "2016 Total Votes": 464144,
+    "2016 VEP": 786012
   },
   {
-    "state": "South Carolina",
-    "earlyvotes20": 1309598,
-    "turnout16": 2103027,
-    "vep16": 3709283
+    "State": "South Carolina",
+    "2020 Early Votes": 1309598,
+    "2016 Total Votes": 2103027,
+    "2016 VEP": 3709283
   },
   {
-    "state": "South Dakota",
-    "earlyvotes20": 202464,
-    "turnout16": 370093,
-    "vep16": 631173
+    "State": "South Dakota",
+    "2020 Early Votes": 202464,
+    "2016 Total Votes": 370093,
+    "2016 VEP": 631173
   },
   {
-    "state": "Tennessee",
-    "earlyvotes20": 2280747,
-    "turnout16": 2508027,
-    "vep16": 4909426
+    "State": "Tennessee",
+    "2020 Early Votes": 2280747,
+    "2016 Total Votes": 2508027,
+    "2016 VEP": 4909426
   },
   {
-    "state": "Texas",
-    "earlyvotes20": 9719101,
-    "turnout16": 8969226,
-    "vep16": 17448910
+    "State": "Texas",
+    "2020 Early Votes": 9719101,
+    "2016 Total Votes": 8969226,
+    "2016 VEP": 17448910
   },
   {
-    "state": "Utah",
-    "earlyvotes20": 1124206,
-    "turnout16": 1131430,
-    "vep16": 1991885
+    "State": "Utah",
+    "2020 Early Votes": 1124206,
+    "2016 Total Votes": 1131430,
+    "2016 VEP": 1991885
   },
   {
-    "state": "Virginia",
-    "earlyvotes20": 2736282,
-    "turnout16": 3984631,
-    "vep16": 6027152
+    "State": "Virginia",
+    "2020 Early Votes": 2736282,
+    "2016 Total Votes": 3984631,
+    "2016 VEP": 6027152
   },
   {
-    "state": "Vermont",
-    "earlyvotes20": 255141,
-    "turnout16": 315067,
-    "vep16": 494871
+    "State": "Vermont",
+    "2020 Early Votes": 255141,
+    "2016 Total Votes": 315067,
+    "2016 VEP": 494871
   },
   {
-    "state": "Washington",
-    "earlyvotes20": 3545289,
-    "turnout16": 3317019,
-    "vep16": 5123020
+    "State": "Washington",
+    "2020 Early Votes": 3545289,
+    "2016 Total Votes": 3317019,
+    "2016 VEP": 5123020
   },
   {
-    "state": "Wisconsin",
-    "earlyvotes20": 1924838,
-    "turnout16": 2976150,
-    "vep16": 4285071
+    "State": "Wisconsin",
+    "2020 Early Votes": 1924838,
+    "2016 Total Votes": 2976150,
+    "2016 VEP": 4285071
   },
   {
-    "state": "West Virginia",
-    "earlyvotes20": 136038,
-    "turnout16": 714423,
-    "vep16": 1423031
+    "State": "West Virginia",
+    "2020 Early Votes": 136038,
+    "2016 Total Votes": 714423,
+    "2016 VEP": 1423031
   },
   {
-    "state": "Wyoming",
-    "earlyvotes20": 131516,
-    "turnout16": 255849,
-    "vep16": 429682
+    "State": "Wyoming",
+    "2020 Early Votes": 131516,
+    "2016 Total Votes": 255849,
+    "2016 VEP": 429682
   }
 ]

@@ -10,7 +10,6 @@
       font-family:'akkurat','Helvetica','Arial',sans-serif;
       font-size:1.75rem;
       font-weight:900;
-      margin-bottom:2rem;
       display:block;
    }
 </style>

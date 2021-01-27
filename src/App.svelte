@@ -39,7 +39,10 @@
 	xVar={"State"}
 	yVar={["2020 Early Votes", "2016 Total Votes"]}
 	yDomain={[0, 3500000]}
+	orientation={"horizontal"}
 />
+
+
 <hr />
 
 
@@ -53,6 +56,8 @@
 	groupings={["2020 Early Votes", "2016 Total Votes"]}
 	category={"State"}
 />
+
+
 <hr />
 
 
@@ -67,8 +72,9 @@
 	yGroups={["driving", "transit", "walking"]}
 	yDomain={[0, 200]}
 />
-<hr />
 
+
+<hr />
 
 
 <GraphicTitle

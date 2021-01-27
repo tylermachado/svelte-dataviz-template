@@ -3,14 +3,12 @@ t.svelte-chart-container  {
 	margin: 1.5rem auto 0;
 	color: #333;
 	font-family: "akkurat", -apple-system, sans-serif;
+	position:relative;
 }
 
-.svelte-chart-container > * {
+.svelte-chart-container *+* {
 	margin: 0 auto 1rem;
-}
-
-.svelte-chart-container .article-body *+* {
-    margin-top: unset;
+	position:relative;
 }
 
 .svelte-chart-container .tick text {

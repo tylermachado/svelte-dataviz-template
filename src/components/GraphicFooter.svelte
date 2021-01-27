@@ -30,7 +30,9 @@
    #footer-meta span {
       display:block;
       color: #666;
+      font-family: "akkurat",sans-serif;
       font-size:0.75rem;
+      line-height:0.75rem;
       margin-bottom:0.25rem;
    }
 

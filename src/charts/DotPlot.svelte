@@ -67,6 +67,15 @@
 </script>
 
 <style>
+	.legend, svg {
+		font-family:"akkurat", sans-serif;
+
+	}
+
+	text.dot-label {
+		font-size:9px;
+	}
+
 	:global(.legend text.label) {
 		font-size:12px;
 		text-transform:uppercase;
@@ -76,6 +85,11 @@
 	:global(.legend) {
 		text-align:center;
 		margin:0 auto;
+	}
+
+	:global(.legendContainer) {
+		border:1px solid #ccc;
+		border-radius: 3px;
 	}
 </style>
 
@@ -100,9 +114,8 @@
 					{#if d[group]}
 						<circle cx={xScale(d[group])} cy={yScale(i)} r={radius} fill={colors(group)}
 					   />
-						<text x={xScale(d[group])} y={yScale(i) + (radius*0.33)} fill="white" text-anchor="middle">
+						<text x={xScale(d[group])} y={yScale(i) + (radius*0.33)} fill="white" text-anchor="middle" class="dot-label">
 							<tspan font-size="11px">{d[group]}</tspan>
-							<tspan font-size="7px" dx="-3">%</tspan>
 						</text>
 					{/if}
 				{/each}

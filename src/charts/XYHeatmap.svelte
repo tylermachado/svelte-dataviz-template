@@ -121,6 +121,7 @@ function generateGraphic() {
 <style>
 .chart :global(){
 	display:inline;
+	font-family: "akkurat", sans-serif
 }
 
 .chart :global(text.label) {

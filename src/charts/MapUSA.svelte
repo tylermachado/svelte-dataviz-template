@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { extent } from 'd3-array';
 	import { scaleLinear, scaleLog, scaleOrdinal } from 'd3-scale';
 	import { axisLeft, axisRight, axisTop, axisBottom } from 'd3-axis';
 	import { geoAlbersUsa, geoMercator, geoPath } from 'd3-geo';
@@ -12,6 +13,7 @@
 	import statehex from "../helpers/USStateHexbin.js";
 
 	let d3 = {
+		extent: extent,
 		scaleLinear: scaleLinear,
 		scaleOrdinal: scaleOrdinal,
 		scaleLog: scaleLog,
@@ -76,6 +78,8 @@
 
 	function generateMap() {
 
+		colorScale.domain(d3.extent(Object.values(data.map(d => parseFloat(d[variable])))))
+
 		let svg = d3.select(el).append("svg");
 
 		svg
@@ -106,17 +110,19 @@
 					 return obj.state === d.properties.name
 				 })[0]
 				 if (result) {
-					 d3.select(".tooltip .line1").text(d.properties.name)
-					 d3.select(".tooltip .line2").text(variable + ": " + result[variable])
+					 let centroid = path.centroid(d);
+					 tooltip.select(".line1").text(d.properties.name)
+					 tooltip.select(".line2").text(variable + ": " + parseFloat(result[variable]) + "%")
 
-					 d3.select(".tooltip")
+					 tooltip
 					 	.style("visibility", "unset")
-						.style("left", (event.pageX-100) + "px")
-						.style("top", (event.pageY-80) + "px")
+						.style("left", (centroid[0]-100) + "px")
+						.style("top", (centroid[1]-100) + "px")
+
 
 				 }
 			 }).on("mouseleave", function(d) {
-				 d3.select(".tooltip")
+				 tooltip
 					.style("visibility", "hidden")
 			 })
 
@@ -157,10 +163,14 @@
 
 		const legend = d3.legendColor()
 			.scale(colorScale)
-			.cells([0,0.25,0.5,0.75,1])
-			.labelFormat(d3.format(".0%"))
+			// .labels(function(d,i){
+			// 	for (let j=0; j<d.generatedLabels.length; j++) {
+			// 		d.generatedLabels[j] = (parseFloat(d.generatedLabels[j]) + "%")
+			// 	}
+			// 	return d.generatedLabels[d.i]
+			// })
 			.orient("horizontal")
-			.shapeWidth((width-25)/5)
+			.shapeWidth((width-25)/colorScale.domain().length)
 			.shapePadding(0)
 			.labelWrap(130)
 
@@ -172,24 +182,6 @@
 			.attr("transform", "translate(0,0)")
 			.call(legend)
 
-		// if (width > 400) {
-		// 	legend
-		//
-		//
-		// 	legendContainer
-		//
-		// } else {
-		// 	legend
-		// 		.orient("vertical")
-		// 		// .shapePadding((width-75)/5)
-		// 		// .labelWrap(130)
-		//
-		// 	legendContainer
-		// 		.attr("height", 90)
-		// 		.append("g")
-		// 		.attr("transform", "translate(" + ((width-100)/2) + ",0)")
-		// 		.call(legend)
-		// }
 
 
 
@@ -200,6 +192,9 @@
 </script>
 
 <style>
+	:global(.legendContainer) {
+		font-family:"akkurat", sans-serif
+	}
 	:global(div.tooltip) {
 		background-color:rgba(0,0,0,0.7);
 		display:inline-block;
@@ -217,11 +212,14 @@
 		display:block;
 		font-weight:bold;
 		font-size:1.1rem;
+		margin:0;
 	}
 
 	:global(div.tooltip .line2) {
 		display:block;
 		font-size:0.9rem;
+		line-height: 1.1;
+		margin:0;
 	}
 
 	.chart :global(circle)  {

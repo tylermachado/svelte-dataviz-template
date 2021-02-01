@@ -5,6 +5,7 @@
 	import LineChart from './charts/LineChart.svelte'
 	import MapUSA from './charts/MapUSA.svelte'
 	import Scatter from './charts/Scatter.svelte'
+	import WaffleChart from './charts/WaffleChart.svelte'
 	import XYHeatmap from './charts/XYHeatmap.svelte'
 	import GraphicTitle from './components/GraphicTitle.svelte'
 	import GraphicFooter from './components/GraphicFooter.svelte'
@@ -101,6 +102,8 @@
 	xVar={"2020 Early Votes"}
 	yVar={"2016 Total Votes"}
 />
+
+
 <hr />
 
 
@@ -116,6 +119,8 @@
 	yGroups={["driving", "transit", "walking"]}
 	yDomain={[0, 200]}
 />
+
+
 <hr />
 
 

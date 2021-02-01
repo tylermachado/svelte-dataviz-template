@@ -54,10 +54,21 @@
 
 		svg.append("g")
 		   .attr("transform", "translate(0," + (height-padding.bottom) + ")")
-		   .call(d3.axisBottom(xScale));
+		   .call(d3.axisBottom(xScale)
+				.ticks(10)
+				.tickSizeInner(-width)
+				.tickSizeOuter(0)
+				.tickPadding(3)
+			);
 
 		svg.append("g")
-  			.call(d3.axisLeft(yScale));
+			.call(d3.axisLeft(yScale)
+				.ticks(10)
+				.tickSizeInner(-width)
+				.tickSizeOuter(0)
+				.tickPadding(3)
+			)
+			.call(g => g.select(".domain").remove());
 
 		svg.append('g')
 	    .selectAll("dot")
@@ -74,6 +85,11 @@
 	.chart :global(circle)  {
 		fill: #d51e2d;
 	}
+
+
+		.chart :global(g.tick line) {
+			stroke: #ccc;
+		}
 </style>
 
 <div bind:this={el} class="chart"></div>

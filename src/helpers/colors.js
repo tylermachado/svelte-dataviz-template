@@ -1,3 +1,16 @@
+export const dark = [
+   "#d51e2d",
+   "#669b90",
+   "#3330b7",
+   "#6f0662",
+   "#3aa609",
+   "#af5fe4",
+   "#2c3771",
+   "#809b31",
+   "#02424a"
+]
+
+
 export const vibrant = [
    "#d51e2d",
    "#6f2b6e",

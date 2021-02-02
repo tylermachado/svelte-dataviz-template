@@ -3,6 +3,7 @@
 	import BarChart from './charts/BarChart.svelte'
 	import DotPlot from './charts/DotPlot.svelte'
 	import LineChart from './charts/LineChart.svelte'
+	import LollipopChart from './charts/LollipopChart.svelte'
 	import MapUSA from './charts/MapUSA.svelte'
 	import Scatter from './charts/Scatter.svelte'
 	import WaffleChart from './charts/WaffleChart.svelte'
@@ -72,6 +73,23 @@
 	xVar={"date"}
 	yGroups={["driving", "transit", "walking"]}
 	yDomain={[0, 200]}
+/>
+
+
+<hr />
+
+
+
+<GraphicTitle
+	title={"2020 vs. 2016 Votes"}
+/>
+<LollipopChart
+	data={turnout.default.filter(d => (["Massachusetts", "Rhode Island", "Connecticut", "New Hampshire", "Maine", "Vermont"].indexOf(d["State"]) > -1))}
+	width={width}
+	height={height}
+	xVar={"State"}
+	yVar={"2020 Early Votes"}
+	yDomain={[0, 3500000]}
 />
 
 

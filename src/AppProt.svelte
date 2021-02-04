@@ -92,5 +92,6 @@
 		/>
 {/if}
 <GraphicFooter
-	source={"The COVID-19 Consortium for Understanding the Public's Policy Preferences Across States. covidstates.org."}
+	source={"<a href='//covidstates.org'>The COVID-19 Consortium for Understanding the Public's Policy Preferences Across States</a>."}
+	credit={"Tyler Machado/Northeastern University"}
 />

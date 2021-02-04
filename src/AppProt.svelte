@@ -5,7 +5,7 @@
 	import GraphicFooter from './components/GraphicFooter.svelte'
 
 	import * as colors from './helpers/colors.js'
-	import * as gunpurchase from '../public/datasets/gunpurchase.json'
+	import * as protests from '../public/datasets/protests.json'
 
 		let dataset;
 		let schemes = [colors.divergingbrownteal, colors.political, colors.dark]
@@ -19,7 +19,7 @@
 		}
 
 		onMount(function() {
-			dataset = gunpurchase.default
+			dataset = protests.default
 		})
 
 		afterUpdate(function() {
@@ -68,33 +68,28 @@
 	</style>
 
 <GraphicTitle
-	title={"How likely were different demographic groups to buy guns in 2020?"}
+	title={"Gun purchases in 2020 among protest and rally attendees"}
 />
 {#if dataset && dataset.length > 0}
-	{#each ["prior gun ownership", "political party", "age group"] as item, i}
 		<!-- <h4>{item}</h4> -->
 		<BarChart
 			width={
 				(width > 750) ?
-				(50 + (dataset.filter(d => {return d["group"] === item}).length * (width/12))) :
+				600 :
 				width
 			}
 			height={
 				(width > 750) ?
-				220 :
-				(25 + (dataset.filter(d => {return d["group"] === item}).length * (220/3)))
+				250 :
+				400
 			}
-			data={dataset.filter(d => {
-				return d["group"] === item
-			})}
-			grouping={item}
-			xVar={"subgroup"}
+			data={dataset}
+			xVar={"protest"}
 			yVar={"yes"}
 			yDomain={[0,0.25]}
-			colorscheme={schemes[i]}
+			colorscheme={colors.dark}
 			orientation={getorientation(width)}
 		/>
-	{/each}
 {/if}
 <GraphicFooter
 	source={"The COVID-19 Consortium for Understanding the Public's Policy Preferences Across States. covidstates.org."}

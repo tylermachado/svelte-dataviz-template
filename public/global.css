@@ -1,9 +1,13 @@
-t.svelte-chart-container  {
+.svelte-chart-container  {
 	max-width: 1000px;
 	margin: 1.5rem auto 0;
 	color: #333;
 	font-family: "akkurat", -apple-system, sans-serif;
 	position:relative;
+}
+
+#protests.svelte-chart-container {
+	max-width:600px;
 }
 
 .svelte-chart-container *+* {

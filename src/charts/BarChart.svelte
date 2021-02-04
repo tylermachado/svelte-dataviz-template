@@ -2,8 +2,10 @@
 	import { onMount } from 'svelte';
 	import { scaleLinear, scaleBand, scaleOrdinal } from 'd3-scale';
 	import { axisLeft, axisRight, axisTop, axisBottom } from 'd3-axis';
+	import { format } from 'd3-format';
 	import { select } from 'd3-selection';
 	import { vibrant } from '../helpers/colors.js'
+	import { wrapLabel } from '../helpers/wrapLabel.js'
 
 	let d3 = {
 		scaleLinear: scaleLinear,
@@ -13,12 +15,13 @@
 		axisLeft: axisLeft,
 		axisRight: axisRight,
 		axisBottom: axisBottom,
-		axisTop: axisTop
+		axisTop: axisTop,
+		format: format
 	}
 
 	let el;
 
-	const padding = { top: 10, right: 50, bottom: 40, left: 100 };
+	const padding = { top: 10, right: 0, bottom: 50, left: 50 };
 
 
 
@@ -47,13 +50,19 @@
 		.range([height - padding.bottom, padding.top]);
 
 	$: colorScale = d3.scaleOrdinal()
-		.domain(yVar)
+		.domain(data.map(function(o) { return o[xVar]; }))
 		.range(colorscheme);
 
 	onMount(generateBarChart);
 
 	function generateBarChart() {
 		if (orientation !== "vertical") {
+			padding.top = 0;
+			padding.left = 75;
+			padding.right = 15;
+			if (xVar === "protest") {
+				padding.left = 180
+			}
 			xScale.rangeRound([padding.top, height - padding.bottom])
 			yScale.range([0, width - padding.left - padding.right])
 		}
@@ -69,7 +78,7 @@
 
 		if (orientation !== "vertical") {
 			// axes
-			svg.append("g")
+			let axisLeft = svg.append("g")
 			   .call(d3.axisLeft(xScale)
 					.tickSizeInner(0)
 					.tickSizeOuter(0)
@@ -77,15 +86,19 @@
 				)
 				.call(g => g.select(".domain").remove());
 
-			svg.append("g")
+			axisLeft.selectAll(".tick text")
+				.call(wrapLabel, padding.left);
+
+			let axisBottom = svg.append("g")
 				.attr("transform", "translate(0," + (height-padding.bottom) + ")")
 	  			.call(d3.axisBottom(yScale)
-					.ticks(10)
+					.ticks(5)
 					.tickSizeInner(-width)
 					.tickSizeOuter(0)
 					.tickPadding(3)
+					.tickFormat(d3.format('.0%'))
 				)
-				.call(g => g.select(".domain").remove());
+				.call(g => g.select(".domain").remove())
 
 			// add data points
 			let length = yVar.length
@@ -108,13 +121,13 @@
 						 return yScale(d[yVar[v]]);
 					 })
 					 .attr("fill", function(d){
-						 return colorScale(yVar[v]);
+						 return colorScale(d[xVar]);
 					 });
 			}
 
 		} else {
 			// axes
-			svg.append("g")
+			let axisBottom = svg.append("g")
 			   .attr("transform", "translate(0," + (height-padding.bottom) + ")")
 			   .call(d3.axisBottom(xScale)
 					.tickSizeInner(0)
@@ -123,12 +136,18 @@
 				)
 				.call(g => g.select(".domain").remove());
 
+
+
+			axisBottom.selectAll(".tick text")
+				.call(wrapLabel, width/xScale.domain().length - 30)
+
 			svg.append("g")
 	  			.call(d3.axisLeft(yScale)
-					.ticks(10)
+					.ticks(5)
 					.tickSizeInner(-width)
 					.tickSizeOuter(0)
 					.tickPadding(3)
+					.tickFormat(d3.format('.0%'))
 				)
 				.call(g => g.select(".domain").remove());
 
@@ -153,7 +172,7 @@
 						 return height - padding.bottom - yScale(d[yVar[v]]);
 					 })
 					 .attr("fill", function(d){
-						 return colorScale(yVar[v]);
+						 return colorScale(d[xVar]);
 					 });
 			}
 		} // if-else on vertical/horizontal

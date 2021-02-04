@@ -20,14 +20,10 @@
 		1000
 	);
 
-	// export let height = Math.min(
-	// 	document.getElementById('interactive').getBoundingClientRect().height,
-	// 	1000
-	// );
 	export let height = 350;
 
-	function getorientation(x) {
-		if (x > 700) {
+	function getorientation(w) {
+		if (w > 750) {
 			return "vertical"
 		} else {
 			return "horizontal"

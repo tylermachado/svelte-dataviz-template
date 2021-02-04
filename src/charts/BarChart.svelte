@@ -96,6 +96,7 @@
 					.tickSizeInner(-width)
 					.tickSizeOuter(0)
 					.tickPadding(3)
+
 				)
 				.call(g => g.select(".domain").remove())
 
@@ -146,6 +147,7 @@
 					.tickSizeInner(-width)
 					.tickSizeOuter(0)
 					.tickPadding(3)
+
 				)
 				.call(g => g.select(".domain").remove());
 

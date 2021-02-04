@@ -1,4 +1,5 @@
 export const dark = [
+   "#d51e2d",
    "#669b90",
    "#3330b7",
    "#6f0662",
@@ -30,10 +31,9 @@ export const pastels = [
 ]
 
 export const political = [
-
+   "#006EB5",
    "#D41B2C",
-    "#888888",
-    "#006EB5",
+    "#888888"
 ]
 
 export const negativepositive = [
@@ -45,4 +45,4 @@ export const linearpurple = ['#ededed','#57006b']
 
 export const linearteal = ['#ededed','#168A8C']
 
-export const divergingbrownteal = ['#a6611a','#168A8C']
+export const divergingbrownteal = ['#a6611a','#f5f5f5','#168A8C']

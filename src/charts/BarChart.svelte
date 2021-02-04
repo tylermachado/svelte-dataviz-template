@@ -96,7 +96,6 @@
 					.tickSizeInner(-width)
 					.tickSizeOuter(0)
 					.tickPadding(3)
-					.tickFormat(d3.format('.0%'))
 				)
 				.call(g => g.select(".domain").remove())
 
@@ -147,7 +146,6 @@
 					.tickSizeInner(-width)
 					.tickSizeOuter(0)
 					.tickPadding(3)
-					.tickFormat(d3.format('.0%'))
 				)
 				.call(g => g.select(".domain").remove());
 

@@ -1,102 +1,157 @@
 <script>
-	import { onMount, afterUpdate } from 'svelte';
+	import { onMount } from 'svelte';
 	import BarChart from './charts/BarChart.svelte'
+	import DotPlot from './charts/DotPlot.svelte'
+	import LineChart from './charts/LineChart.svelte'
+	import LollipopChart from './charts/LollipopChart.svelte'
+	import MapUSA from './charts/MapUSA.svelte'
+	import Scatter from './charts/Scatter.svelte'
+	import WaffleChart from './charts/WaffleChart.svelte'
+	import XYHeatmap from './charts/XYHeatmap.svelte'
 	import GraphicTitle from './components/GraphicTitle.svelte'
 	import GraphicFooter from './components/GraphicFooter.svelte'
-
 	import * as colors from './helpers/colors.js'
-	import * as gunpurchase from '../public/datasets/gunpurchase.json'
+	import * as turnout from '../public/datasets/turnout.json'
+	import * as applemaps from '../public/datasets/applemaps.json'
+	import * as cannabislaws from '../public/datasets/cannabislaws.json'
 
-		let dataset;
-		let schemes = [colors.divergingbrownteal, colors.political, colors.dark]
+	export let width = Math.min(
+		document.getElementById('interactive').getBoundingClientRect().width,
+		1000
+	);
 
-		function getorientation(x) {
-			if (x > 600) {
-				return "vertical"
-			} else {
-				return "horizontal"
-			}
+	// export let height = Math.min(
+	// 	document.getElementById('interactive').getBoundingClientRect().height,
+	// 	1000
+	// );
+	export let height = 350;
+
+	function getorientation(x) {
+		if (x > 700) {
+			return "vertical"
+		} else {
+			return "horizontal"
 		}
+	}
+</script>
 
-		onMount(function() {
-			dataset = gunpurchase.default
-		})
+<style>
 
-		afterUpdate(function() {
-		})
-
-		let width = Math.min(
-			document.getElementById('demographics').getBoundingClientRect().width,
-			1000
-		);
-
-		function chartwidth(x) {
-			if (window.innerWidth >= 700) {
-				return (width / x)
-			} else {
-				return width
-			}
-		}
-
-
-	</script>
-
-	<style>
-		:global(div.chart) {
-			display:inline;
-		}
-
-		:global(form) {
-			display:inline;
-
-		}
-
-		:global(form select) {
-			font-size:1.25rem;
-			font-family: "Akkurat", sans-serif;
-			padding:0.5rem 0.2rem;
-		}
-
-		:global(#demographics-filter) {
-			display:block;
-			width: 100%;
-			text-align:center;
-			margin:0 0 2rem;
-			font-size:1.1rem;
-		}
-
-	</style>
+</style>
 
 <GraphicTitle
-	title={"How likely were different demographic groups to buy guns in 2020?"}
+	title={"2020 vs. 2016 Votes"}
 />
-{#if dataset && dataset.length > 0}
-	{#each ["prior gun ownership", "political party", "age group"] as item, i}
-		<!-- <h4>{item}</h4> -->
-		<BarChart
-			width={
-				(width > 750) ?
-				(50 + (dataset.filter(d => {return d["group"] === item}).length * (width/12))) :
-				width
-			}
-			height={
-				(width > 750) ?
-				220 :
-				(25 + (dataset.filter(d => {return d["group"] === item}).length * (220/3)))
-			}
-			data={dataset.filter(d => {
-				return d["group"] === item
-			})}
-			grouping={item}
-			xVar={"subgroup"}
-			yVar={"yes"}
-			yDomain={[0,0.25]}
-			colorscheme={schemes[i]}
-			orientation={getorientation(width)}
-		/>
-	{/each}
-{/if}
+<BarChart
+	data={turnout.default.filter(d => (["Massachusetts", "Rhode Island", "Connecticut", "New Hampshire", "Maine", "Vermont"].indexOf(d["State"]) > -1))}
+	width={width}
+	height={height}
+	xVar={"State"}
+	yVar={["2020 Early Votes", "2016 Total Votes"]}
+	yDomain={[0, 3500000]}
+	orientation={getorientation(width)}
+/>
+
+
+<hr />
+
+
+<GraphicTitle
+	title={"2020 vs. 2016 Votes"}
+/>
+<DotPlot
+	data={turnout.default.filter(d => (["Massachusetts", "Rhode Island", "Connecticut", "New Hampshire", "Maine", "Vermont"].indexOf(d["State"]) > -1))}
+	width = {width}
+	height = {height}
+	groupings={["2020 Early Votes", "2016 Total Votes"]}
+	category={"State"}
+/>
+
+
+<hr />
+
+
+<GraphicTitle
+	title={"Transportation mode usage changes in March 2020"}
+/>
+<LineChart
+	data={applemaps.default}
+	width = {width}
+	height = {height}
+	xVar={"date"}
+	yGroups={["driving", "transit", "walking"]}
+	yDomain={[0, 200]}
+/>
+
+
+<hr />
+
+
+
+<GraphicTitle
+	title={"2020 vs. 2016 Votes"}
+/>
+<LollipopChart
+	data={turnout.default.filter(d => (["Massachusetts", "Rhode Island", "Connecticut", "New Hampshire", "Maine", "Vermont"].indexOf(d["State"]) > -1))}
+	width={width}
+	height={height}
+	xVar={"State"}
+	yVar={"2020 Early Votes"}
+	yDomain={[0, 3500000]}
+/>
+
+
+<hr />
+
+
+<GraphicTitle
+	title={"Cannabis laws by state"}
+/>
+<MapUSA
+	data={cannabislaws.default}
+	width = {width}
+	height = {height * 2}
+	variable={"combined"}
+	maptype={"geo"}
+/>
+<hr />
+
+
+
+<GraphicTitle
+	title={"Transportation mode usage changes in March 2020"}
+/>
+<Scatter
+	data={turnout.default}
+	width = {width/2}
+	height = {width/2}
+	xVar={"2020 Early Votes"}
+	yVar={"2016 Total Votes"}
+/>
+
+
+<hr />
+
+
+
+<GraphicTitle
+	title={"2020 Vs. 2016 Votes"}
+/>
+<XYHeatmap
+	data={applemaps.default}
+	width = {width}
+	height = {height}
+	xVar={"date"}
+	yGroups={["driving", "transit", "walking"]}
+	yDomain={[0, 200]}
+/>
+
+
+<hr />
+
+
 <GraphicFooter
-	source={"<a href='//covidstates.org'>The COVID-19 Consortium for Understanding the Public's Policy Preferences Across States</a>."}
-	credit={"Tyler Machado/Northeastern University"}
+	source={'<a href="https://electproject.github.io/Early-Vote-2020G/index.html">United States Elections Project</a>'}
+	note={'Accessed Nov 2020'}
+	credit={'Developer Credit/Northeastern University'}
 />

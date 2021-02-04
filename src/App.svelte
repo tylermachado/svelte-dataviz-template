@@ -20,11 +20,15 @@
 		1000
 	);
 
-	// export let height = Math.min(
-	// 	document.getElementById('interactive').getBoundingClientRect().height,
-	// 	1000
-	// );
 	export let height = 350;
+
+	function getorientation(w) {
+		if (w > 750) {
+			return "vertical"
+		} else {
+			return "horizontal"
+		}
+	}
 </script>
 
 <style>
@@ -41,7 +45,7 @@
 	xVar={"State"}
 	yVar={["2020 Early Votes", "2016 Total Votes"]}
 	yDomain={[0, 3500000]}
-	orientation={"horizontal"}
+	orientation={getorientation(width)}
 />
 
 

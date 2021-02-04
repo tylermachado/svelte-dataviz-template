@@ -25,6 +25,14 @@
 	// 	1000
 	// );
 	export let height = 350;
+
+	function getorientation(x) {
+		if (x > 700) {
+			return "vertical"
+		} else {
+			return "horizontal"
+		}
+	}
 </script>
 
 <style>
@@ -41,7 +49,7 @@
 	xVar={"State"}
 	yVar={["2020 Early Votes", "2016 Total Votes"]}
 	yDomain={[0, 3500000]}
-	orientation={"horizontal"}
+	orientation={getorientation(width)}
 />
 
 

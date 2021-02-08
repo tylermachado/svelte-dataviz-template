@@ -121,7 +121,12 @@
 						 return yScale(d[yVar[v]]);
 					 })
 					 .attr("fill", function(d){
-						 return colorScale(d[xVar]);
+						 if (yVar.length > 1) {
+							 return colorScale(yVar[v]);
+						 } else {
+							 return colorScale(d[xVar]);
+						 }
+
 					 });
 			}
 
@@ -172,7 +177,11 @@
 						 return height - padding.bottom - yScale(d[yVar[v]]);
 					 })
 					 .attr("fill", function(d){
-						 return colorScale(d[xVar]);
+						 if (yVar.length > 1) {
+							 return colorScale(yVar[v]);
+						 } else {
+							 return colorScale(d[xVar]);
+						 }
 					 });
 			}
 		} // if-else on vertical/horizontal

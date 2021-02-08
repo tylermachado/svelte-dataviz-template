@@ -20,10 +20,9 @@
 	export let data = {data}
 	export let width = {width}
 	export let height = 500
-	export let groupings = {groupings}
+	export let datapoints = {datapoints}
 	export let category;
-
-	let radius = 12;
+	export let radius = 12;
 
 	onMount(generatePlot);
 
@@ -56,7 +55,7 @@
 		.range([35, height]);
 
 	$: colors = d3.scaleOrdinal()
-		.domain(groupings)
+		.domain(datapoints)
 		.range(political);
 
 	let marginLimiter = d3.scaleLinear()
@@ -110,7 +109,7 @@
 					stroke="#dedede"
 					stroke-width="2"
 				/>
-				{#each groupings as group}
+				{#each datapoints as group}
 					{#if d[group]}
 						<circle cx={xScale(d[group])} cy={yScale(i)} r={radius} fill={colors(group)}
 					   />

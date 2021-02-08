@@ -37,13 +37,14 @@
 
 <GraphicTitle
 	title={"2020 vs. 2016 Votes"}
+	subhed={"As reported by X"}
 />
 <BarChart
 	data={turnout.default.filter(d => (["Massachusetts", "Rhode Island", "Connecticut", "New Hampshire", "Maine", "Vermont"].indexOf(d["State"]) > -1))}
 	width={width}
 	height={height}
 	xVar={"State"}
-	yVar={["2020 Early Votes", "2016 Total Votes"]}
+	yVar={["2020 Early Votes"]}
 	yDomain={[0, 3500000]}
 	orientation={getorientation(width)}
 />
@@ -59,7 +60,7 @@
 	data={turnout.default.filter(d => (["Massachusetts", "Rhode Island", "Connecticut", "New Hampshire", "Maine", "Vermont"].indexOf(d["State"]) > -1))}
 	width = {width}
 	height = {height}
-	groupings={["2020 Early Votes", "2016 Total Votes"]}
+	datapoints={["2020 Early Votes", "2016 Total Votes"]}
 	category={"State"}
 />
 

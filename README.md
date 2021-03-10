@@ -137,3 +137,5 @@ This generates a chloropleth style map of the US, using D3. The GeoJSON files it
 - USStateHexbin.js: a GeoJSON file to make a hexagon cartogram map of US States
 
 - USStates.js: a list of US states and their common two-letter abbreviations.
+
+- wrapLabel.js: a function to wrap long axis labels in D3 charts to multiple lines, similar to (this pattern)[https://bl.ocks.org/mbostock/7555321].

@@ -27,9 +27,10 @@
 
 
 
-	export let data = {data};
+	export let data = [];
 	export let width = {width};
 	export let groups = {groups};
+	export let columns = {columns};
 	export let colorscheme = vibrant;
 	export let orientation = "vertical";
 
@@ -41,36 +42,19 @@
 		thresholds.push(total)
 	}
 
-	export let columns = Math.max(45, 18 * Math.ceil(width/400));
+
 	export let squaresize = Math.floor(width / columns) - 1;
 	$: rows = Math.ceil(total/columns)
 	$: height = rows * (squaresize+1)
 
 
-
-
-
-
-	// $: xScale = d3.scaleBand()
-	// 	.domain(data.map(function(o) { return o[xVar]; }))
-	// 	.rangeRound([0, width - padding.left - padding.right])
-	// 	.padding(0.2);
-	//
-	// $: yScale = d3.scaleLinear()
-	// 	.domain(yDomain)
-	// 	.range([height - padding.bottom, padding.top]);
-
 	$: xScale = d3.scaleLinear()
 		.domain([0, total])
 		.range([0, columns * squaresize]);
 
-	$: colorScaleLabels = d3.scaleOrdinal()
-		.domain(groups)
-		.range(colorscheme);
-
 	$: colorScale = d3.scaleQuantile()
 		.domain(thresholds)
-		.range(colorscheme);
+		.range(colorscheme.splice(0, thresholds.length-1));
 
 	onMount(generateWaffleChart);
 
@@ -95,25 +79,25 @@
 				.attr("fill", 	 colorScale(i))
 		}
 
-		if (width >= 750) {
-			let glabels = svg.append("g")
-				.selectAll("text")
-				.data(groups)
-				.enter()
-				.append("text")
-				.text(function(d,i){
-					return d + ": " + data[d]
-				})
-				.attr("x", function(d,i){
-					let number = [0, ((thresholds[1] + thresholds[2]) / 2), thresholds[3]]
-					return xScale(number[i])
-				})
-				.attr("y", 12)
-				.attr("fill", "black")
-				.attr("text-anchor", function(d,i) {
-					return ["start", "middle", "end"][i]
-				})
-		}
+		// if (width >= 750) {
+		// 	let glabels = svg.append("g")
+		// 		.selectAll("text")
+		// 		.data(groups)
+		// 		.enter()
+		// 		.append("text")
+		// 		.text(function(d,i){
+		// 			return d + ": " + data[d]
+		// 		})
+		// 		.attr("x", function(d,i){
+		// 			let number = [0, ((thresholds[1] + thresholds[2]) / 2), thresholds[3]]
+		// 			return xScale(number[i])
+		// 		})
+		// 		.attr("y", 12)
+		// 		.attr("fill", "black")
+		// 		.attr("text-anchor", function(d,i) {
+		// 			return ["start", "middle", "end"][i]
+		// 		})
+		// }
 
 
 
@@ -189,5 +173,4 @@
 	}
 </style>
 
-<h3>In {total.toLocaleString('en-US')} cases where both contacts were {data["status"]}...</h3>
 <div bind:this={el} class="chart"></div>

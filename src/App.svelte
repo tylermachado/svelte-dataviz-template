@@ -14,11 +14,14 @@
 	import * as turnout from '../public/datasets/turnout.json'
 	import * as applemaps from '../public/datasets/applemaps.json'
 	import * as cannabislaws from '../public/datasets/cannabislaws.json'
+	import * as waffledata from '../public/datasets/waffledata.json'
 
 	export let width = Math.min(
 		document.getElementById('interactive').getBoundingClientRect().width,
 		1000
 	);
+
+	console.log(waffledata.default[0])
 
 	export let height = 350;
 
@@ -34,7 +37,7 @@
 <style>
 
 </style>
-
+<!--
 <GraphicTitle
 	title={"2020 vs. 2016 Votes"}
 	subhed={"As reported by X"}
@@ -124,6 +127,17 @@
 	height = {width/2}
 	xVar={"2020 Early Votes"}
 	yVar={"2016 Total Votes"}
+/> -->
+
+
+<GraphicTitle
+	title={"Waffle"}
+/>
+<WaffleChart
+	data={waffledata.default[0]}
+	width = {width}
+	columns={40}
+	groups = {["red","blue","green"]}
 />
 
 

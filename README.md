@@ -1,10 +1,21 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
-
----
-
-# svelte app
+# svelte app - Northeastern dataviz
 
 This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+
+## Projects
+
+Here are some of what we've made with this code:
+- [Bill Coen's career as Northeastern men's basketball coach](https://news.northeastern.edu/2021/03/17/bill-coens-long-journey-to-the-top-of-northeastern-basketball/) (waffle chart)
+- [Even among healthcare workers, inequities exist in COVID-19 vaccine rollout, new study finds](https://news.northeastern.edu/2021/02/23/even-among-healthcare-workers-inequities-exist-in-covid-19-vaccine-rollout-new-study-finds/) (bar charts)
+- [Trump rallies and social justice protests may have driven a big year for gun sales, study says](https://news.northeastern.edu/2021/01/28/trump-rallies-and-social-justice-protests-may-have-driven-a-big-year-for-gun-sales-study-says/) (bar charts)
+- [The recovery of the US economy after the COVID-19 pandemic hinges on federal support](https://news.northeastern.edu/2020/12/18/the-recovery-of-the-us-economy-after-the-covid-19-pandemic-hinges-on-federal-support/) (line chart, bar charts, dropdown filter)
+- [Many Republicans don’t believe the election results, a new survey says](https://news.northeastern.edu/2020/12/11/who-won-the-2020-presidential-election-joe-biden-or-donald-trump-depends-whom-you-ask/) (lollipops, US state chloropleth)
+- [Wearing masks is on the rise across the US but social distancing measures aren’t](https://news.northeastern.edu/2020/12/01/wearing-masks-is-on-the-rise-across-the-us-but-social-distancing-measures-arent/) (line chart, US state chloropleth, small multiples)
+- [Here’s how voters rank COVID-19 and other issues facing the US ahead of Election Day](https://news.northeastern.edu/2020/11/02/heres-how-voters-rank-covid-19-and-other-issues-facing-the-us-ahead-of-election-day/#interactive) (US state chloropleth, bar chart, dropdown filter)
+- [Fewer people are using public transportation in the US. Here’s why that’s trouble in the long run.](https://news.northeastern.edu/2020/08/13/fewer-people-are-using-public-transportation-in-the-us-heres-why-thats-trouble-in-the-long-run/) (line charts, small multiples)
+- [There’s been a 23,000 percent jump in fireworks complaints in some parts of the US this summer. You read that right.](https://news.northeastern.edu/2020/07/01/theres-been-a-23000-percent-jump-in-fireworks-complaints-in-some-parts-of-the-us-this-summer-you-read-that-right/) (lollipops, whimsy)
+- [Apple Maps data shows how COVID-19 brought the world to a standstill](https://news.northeastern.edu/2020/04/29/apple-maps-data-shows-how-covid-19-brought-the-world-to-a-standstill/) (line chart, various filter options)
+- [Can gun violence be traced back to socioeconomic root causes?](https://news.northeastern.edu/2020/01/06/can-gun-violence-be-traced-back-to-socioeconomic-root-causes/) (US county chloropleth)
 
 ## Get started
 
